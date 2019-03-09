@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE3588223344BA00F4EC8C /* AppDelegate.swift */; };
+		A9BE358B223344BA00F4EC8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE358A223344BA00F4EC8C /* ViewController.swift */; };
+		A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358C223344BA00F4EC8C /* Main.storyboard */; };
+		A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358F223344BD00F4EC8C /* Assets.xcassets */; };
+		A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */; };
+		A9BE359E223344BD00F4EC8C /* Roma_ChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE359D223344BD00F4EC8C /* Roma_ChatTests.swift */; };
+		A9BE35A9223344BD00F4EC8C /* Roma_ChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE35A8223344BD00F4EC8C /* Roma_ChatUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9BE359A223344BD00F4EC8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BE357D223344BA00F4EC8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BE3584223344BA00F4EC8C;
+			remoteInfo = "Roma Chat";
+		};
+		A9BE35A5223344BD00F4EC8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BE357D223344BA00F4EC8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BE3584223344BA00F4EC8C;
+			remoteInfo = "Roma Chat";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9BE3585223344BA00F4EC8C /* Roma Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roma Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BE3588223344BA00F4EC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A9BE358A223344BA00F4EC8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9BE358D223344BA00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9BE358F223344BD00F4EC8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9BE3592223344BD00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A9BE3594223344BD00F4EC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BE3599223344BD00F4EC8C /* Roma ChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Roma ChatTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BE359D223344BD00F4EC8C /* Roma_ChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roma_ChatTests.swift; sourceTree = "<group>"; };
+		A9BE359F223344BD00F4EC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BE35A4223344BD00F4EC8C /* Roma ChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Roma ChatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BE35A8223344BD00F4EC8C /* Roma_ChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roma_ChatUITests.swift; sourceTree = "<group>"; };
+		A9BE35AA223344BD00F4EC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9BE3582223344BA00F4EC8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE3596223344BD00F4EC8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE35A1223344BD00F4EC8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9BE357C223344BA00F4EC8C = {
+			isa = PBXGroup;
+			children = (
+				A9BE3587223344BA00F4EC8C /* Roma Chat */,
+				A9BE359C223344BD00F4EC8C /* Roma ChatTests */,
+				A9BE35A7223344BD00F4EC8C /* Roma ChatUITests */,
+				A9BE3586223344BA00F4EC8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9BE3586223344BA00F4EC8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9BE3585223344BA00F4EC8C /* Roma Chat.app */,
+				A9BE3599223344BD00F4EC8C /* Roma ChatTests.xctest */,
+				A9BE35A4223344BD00F4EC8C /* Roma ChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9BE3587223344BA00F4EC8C /* Roma Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A9BE3588223344BA00F4EC8C /* AppDelegate.swift */,
+				A9BE358A223344BA00F4EC8C /* ViewController.swift */,
+				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
+				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
+				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
+				A9BE3594223344BD00F4EC8C /* Info.plist */,
+			);
+			path = "Roma Chat";
+			sourceTree = "<group>";
+		};
+		A9BE359C223344BD00F4EC8C /* Roma ChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				A9BE359D223344BD00F4EC8C /* Roma_ChatTests.swift */,
+				A9BE359F223344BD00F4EC8C /* Info.plist */,
+			);
+			path = "Roma ChatTests";
+			sourceTree = "<group>";
+		};
+		A9BE35A7223344BD00F4EC8C /* Roma ChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9BE35A8223344BD00F4EC8C /* Roma_ChatUITests.swift */,
+				A9BE35AA223344BD00F4EC8C /* Info.plist */,
+			);
+			path = "Roma ChatUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9BE3584223344BA00F4EC8C /* Roma Chat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BE35AD223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma Chat" */;
+			buildPhases = (
+				A9BE3581223344BA00F4EC8C /* Sources */,
+				A9BE3582223344BA00F4EC8C /* Frameworks */,
+				A9BE3583223344BA00F4EC8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Roma Chat";
+			productName = "Roma Chat";
+			productReference = A9BE3585223344BA00F4EC8C /* Roma Chat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9BE3598223344BD00F4EC8C /* Roma ChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BE35B0223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatTests" */;
+			buildPhases = (
+				A9BE3595223344BD00F4EC8C /* Sources */,
+				A9BE3596223344BD00F4EC8C /* Frameworks */,
+				A9BE3597223344BD00F4EC8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BE359B223344BD00F4EC8C /* PBXTargetDependency */,
+			);
+			name = "Roma ChatTests";
+			productName = "Roma ChatTests";
+			productReference = A9BE3599223344BD00F4EC8C /* Roma ChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9BE35A3223344BD00F4EC8C /* Roma ChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BE35B3223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatUITests" */;
+			buildPhases = (
+				A9BE35A0223344BD00F4EC8C /* Sources */,
+				A9BE35A1223344BD00F4EC8C /* Frameworks */,
+				A9BE35A2223344BD00F4EC8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BE35A6223344BD00F4EC8C /* PBXTargetDependency */,
+			);
+			name = "Roma ChatUITests";
+			productName = "Roma ChatUITests";
+			productReference = A9BE35A4223344BD00F4EC8C /* Roma ChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9BE357D223344BA00F4EC8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Barrett Breshears";
+				TargetAttributes = {
+					A9BE3584223344BA00F4EC8C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A9BE3598223344BD00F4EC8C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A9BE3584223344BA00F4EC8C;
+					};
+					A9BE35A3223344BD00F4EC8C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A9BE3584223344BA00F4EC8C;
+					};
+				};
+			};
+			buildConfigurationList = A9BE3580223344BA00F4EC8C /* Build configuration list for PBXProject "Roma Chat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9BE357C223344BA00F4EC8C;
+			productRefGroup = A9BE3586223344BA00F4EC8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9BE3584223344BA00F4EC8C /* Roma Chat */,
+				A9BE3598223344BD00F4EC8C /* Roma ChatTests */,
+				A9BE35A3223344BD00F4EC8C /* Roma ChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9BE3583223344BA00F4EC8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */,
+				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
+				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE3597223344BD00F4EC8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE35A2223344BD00F4EC8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9BE3581223344BA00F4EC8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BE358B223344BA00F4EC8C /* ViewController.swift in Sources */,
+				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE3595223344BD00F4EC8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BE359E223344BD00F4EC8C /* Roma_ChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE35A0223344BD00F4EC8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BE35A9223344BD00F4EC8C /* Roma_ChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BE359B223344BD00F4EC8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BE3584223344BA00F4EC8C /* Roma Chat */;
+			targetProxy = A9BE359A223344BD00F4EC8C /* PBXContainerItemProxy */;
+		};
+		A9BE35A6223344BD00F4EC8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BE3584223344BA00F4EC8C /* Roma Chat */;
+			targetProxy = A9BE35A5223344BD00F4EC8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A9BE358C223344BA00F4EC8C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BE358D223344BA00F4EC8C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BE3592223344BD00F4EC8C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9BE35AB223344BD00F4EC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9BE35AC223344BD00F4EC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9BE35AE223344BD00F4EC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma Chat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9BE35AF223344BD00F4EC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma Chat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A9BE35B1223344BD00F4EC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma ChatTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roma Chat.app/Roma Chat";
+			};
+			name = Debug;
+		};
+		A9BE35B2223344BD00F4EC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma ChatTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roma Chat.app/Roma Chat";
+			};
+			name = Release;
+		};
+		A9BE35B4223344BD00F4EC8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma ChatUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Roma Chat";
+			};
+			name = Debug;
+		};
+		A9BE35B5223344BD00F4EC8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5877VK992M;
+				INFOPLIST_FILE = "Roma ChatUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Roma Chat";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9BE3580223344BA00F4EC8C /* Build configuration list for PBXProject "Roma Chat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BE35AB223344BD00F4EC8C /* Debug */,
+				A9BE35AC223344BD00F4EC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BE35AD223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma Chat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BE35AE223344BD00F4EC8C /* Debug */,
+				A9BE35AF223344BD00F4EC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BE35B0223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BE35B1223344BD00F4EC8C /* Debug */,
+				A9BE35B2223344BD00F4EC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BE35B3223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BE35B4223344BD00F4EC8C /* Debug */,
+				A9BE35B5223344BD00F4EC8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9BE357D223344BA00F4EC8C /* Project object */;
+}
