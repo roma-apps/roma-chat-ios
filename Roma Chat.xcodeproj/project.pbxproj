@@ -10,13 +10,13 @@
 		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
 		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
 		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
+		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4833223735EA00B931F9 /* ConversationListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4832223735EA00B931F9 /* ConversationListView.xib */; };
 		949E48352237363900B931F9 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E48342237363900B931F9 /* ConversationListView.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
 		949E48392237370F00B931F9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E48382237370F00B931F9 /* CameraView.swift */; };
 		A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE3588223344BA00F4EC8C /* AppDelegate.swift */; };
-		A9BE358B223344BA00F4EC8C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE358A223344BA00F4EC8C /* LandingViewController.swift */; };
 		A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358C223344BA00F4EC8C /* Main.storyboard */; };
 		A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358F223344BD00F4EC8C /* Assets.xcassets */; };
 		A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */; };
@@ -46,6 +46,7 @@
 		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8AF6B53B6F3394C764B35C4D /* Pods-Roma Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma Chat.debug.xcconfig"; path = "Target Support Files/Pods-Roma Chat/Pods-Roma Chat.debug.xcconfig"; sourceTree = "<group>"; };
+		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4832223735EA00B931F9 /* ConversationListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationListView.xib; sourceTree = "<group>"; };
 		949E48342237363900B931F9 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		949E48382237370F00B931F9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A9BE3585223344BA00F4EC8C /* Roma Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roma Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BE3588223344BA00F4EC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9BE358A223344BA00F4EC8C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		A9BE358D223344BA00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9BE358F223344BD00F4EC8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9BE3592223344BD00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		A9BE3587223344BA00F4EC8C /* Roma Chat */ = {
 			isa = PBXGroup;
 			children = (
+				947543C0223758F900289005 /* LandingViewController.swift */,
 				A9BE3588223344BA00F4EC8C /* AppDelegate.swift */,
-				A9BE358A223344BA00F4EC8C /* LandingViewController.swift */,
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
 				949E48342237363900B931F9 /* ConversationListView.swift */,
@@ -412,8 +412,8 @@
 			files = (
 				949E48352237363900B931F9 /* ConversationListView.swift in Sources */,
 				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,
-				A9BE358B223344BA00F4EC8C /* LandingViewController.swift in Sources */,
 				949E48392237370F00B931F9 /* CameraView.swift in Sources */,
+				947543C1223758F900289005 /* LandingViewController.swift in Sources */,
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
