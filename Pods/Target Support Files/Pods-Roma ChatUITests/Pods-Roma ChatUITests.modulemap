@@ -1,0 +1,6 @@
+framework module Pods_Roma_ChatUITests {
+  umbrella header "Pods-Roma ChatUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

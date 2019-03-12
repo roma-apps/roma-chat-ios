@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
+		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
+		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
+		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
+		949E4833223735EA00B931F9 /* ConversationListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4832223735EA00B931F9 /* ConversationListView.xib */; };
+		949E48352237363900B931F9 /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E48342237363900B931F9 /* ConversationListView.swift */; };
+		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
+		949E48392237370F00B931F9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E48382237370F00B931F9 /* CameraView.swift */; };
 		A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE3588223344BA00F4EC8C /* AppDelegate.swift */; };
-		A9BE358B223344BA00F4EC8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE358A223344BA00F4EC8C /* ViewController.swift */; };
+		A9BE358B223344BA00F4EC8C /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE358A223344BA00F4EC8C /* LandingViewController.swift */; };
 		A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358C223344BA00F4EC8C /* Main.storyboard */; };
 		A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358F223344BD00F4EC8C /* Assets.xcassets */; };
 		A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */; };
@@ -34,9 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8AF6B53B6F3394C764B35C4D /* Pods-Roma Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma Chat.debug.xcconfig"; path = "Target Support Files/Pods-Roma Chat/Pods-Roma Chat.debug.xcconfig"; sourceTree = "<group>"; };
+		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		949E4832223735EA00B931F9 /* ConversationListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationListView.xib; sourceTree = "<group>"; };
+		949E48342237363900B931F9 /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
+		949E48382237370F00B931F9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		A9BE3585223344BA00F4EC8C /* Roma Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roma Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BE3588223344BA00F4EC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9BE358A223344BA00F4EC8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9BE358A223344BA00F4EC8C /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		A9BE358D223344BA00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9BE358F223344BD00F4EC8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9BE3592223344BD00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,11 @@
 		A9BE35A4223344BD00F4EC8C /* Roma ChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Roma ChatUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BE35A8223344BD00F4EC8C /* Roma_ChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roma_ChatUITests.swift; sourceTree = "<group>"; };
 		A9BE35AA223344BD00F4EC8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DACC687EB73CAFCB85EDC780 /* Pods-Roma ChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatTests.release.xcconfig"; path = "Target Support Files/Pods-Roma ChatTests/Pods-Roma ChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		E84BE0CE95D0020CAEBAE54C /* Pods-Roma ChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatTests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatTests/Pods-Roma ChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E9978259EE46C385A6EC9EFD /* Pods-Roma Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma Chat.release.xcconfig"; path = "Target Support Files/Pods-Roma Chat/Pods-Roma Chat.release.xcconfig"; sourceTree = "<group>"; };
+		ED414D1FB025858556A983C6 /* Pods-Roma ChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.release.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +92,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		747C394F9D54C851AEC79513 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */,
+				FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */,
+				634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A9BE357C223344BA00F4EC8C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +116,8 @@
 				A9BE359C223344BD00F4EC8C /* Roma ChatTests */,
 				A9BE35A7223344BD00F4EC8C /* Roma ChatUITests */,
 				A9BE3586223344BA00F4EC8C /* Products */,
+				F304C1BEA9EA88ADB24F0F5D /* Pods */,
+				747C394F9D54C851AEC79513 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +135,13 @@
 			isa = PBXGroup;
 			children = (
 				A9BE3588223344BA00F4EC8C /* AppDelegate.swift */,
-				A9BE358A223344BA00F4EC8C /* ViewController.swift */,
+				A9BE358A223344BA00F4EC8C /* LandingViewController.swift */,
+				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
+				949E48342237363900B931F9 /* ConversationListView.swift */,
+				949E4832223735EA00B931F9 /* ConversationListView.xib */,
+				949E48382237370F00B931F9 /* CameraView.swift */,
+				949E4836223736FD00B931F9 /* CameraView.xib */,
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
 				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
@@ -125,6 +167,19 @@
 			path = "Roma ChatUITests";
 			sourceTree = "<group>";
 		};
+		F304C1BEA9EA88ADB24F0F5D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AF6B53B6F3394C764B35C4D /* Pods-Roma Chat.debug.xcconfig */,
+				E9978259EE46C385A6EC9EFD /* Pods-Roma Chat.release.xcconfig */,
+				E84BE0CE95D0020CAEBAE54C /* Pods-Roma ChatTests.debug.xcconfig */,
+				DACC687EB73CAFCB85EDC780 /* Pods-Roma ChatTests.release.xcconfig */,
+				89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */,
+				ED414D1FB025858556A983C6 /* Pods-Roma ChatUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9BE35AD223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma Chat" */;
 			buildPhases = (
+				31AC306BEC9DF0935D00BEA8 /* [CP] Check Pods Manifest.lock */,
 				A9BE3581223344BA00F4EC8C /* Sources */,
 				A9BE3582223344BA00F4EC8C /* Frameworks */,
 				A9BE3583223344BA00F4EC8C /* Resources */,
+				F26F14B8318F6E787172009F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9BE35B0223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatTests" */;
 			buildPhases = (
+				27AE0E6839E2FE61622ACBE7 /* [CP] Check Pods Manifest.lock */,
 				A9BE3595223344BD00F4EC8C /* Sources */,
 				A9BE3596223344BD00F4EC8C /* Frameworks */,
 				A9BE3597223344BD00F4EC8C /* Resources */,
@@ -167,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9BE35B3223344BD00F4EC8C /* Build configuration list for PBXNativeTarget "Roma ChatUITests" */;
 			buildPhases = (
+				E9EFC737568245179B574A2A /* [CP] Check Pods Manifest.lock */,
 				A9BE35A0223344BD00F4EC8C /* Sources */,
 				A9BE35A1223344BD00F4EC8C /* Frameworks */,
 				A9BE35A2223344BD00F4EC8C /* Resources */,
@@ -231,7 +290,9 @@
 			files = (
 				A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */,
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
+				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
+				949E4833223735EA00B931F9 /* ConversationListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,12 +312,108 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27AE0E6839E2FE61622ACBE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roma ChatTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31AC306BEC9DF0935D00BEA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roma Chat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9EFC737568245179B574A2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Roma ChatUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F26F14B8318F6E787172009F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Roma Chat/Pods-Roma Chat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Roma Chat/Pods-Roma Chat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9BE3581223344BA00F4EC8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9BE358B223344BA00F4EC8C /* ViewController.swift in Sources */,
+				949E48352237363900B931F9 /* ConversationListView.swift in Sources */,
+				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,
+				A9BE358B223344BA00F4EC8C /* LandingViewController.swift in Sources */,
+				949E48392237370F00B931F9 /* CameraView.swift in Sources */,
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +587,7 @@
 		};
 		A9BE35AE223344BD00F4EC8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AF6B53B6F3394C764B35C4D /* Pods-Roma Chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +606,7 @@
 		};
 		A9BE35AF223344BD00F4EC8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9978259EE46C385A6EC9EFD /* Pods-Roma Chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +625,7 @@
 		};
 		A9BE35B1223344BD00F4EC8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E84BE0CE95D0020CAEBAE54C /* Pods-Roma ChatTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +647,7 @@
 		};
 		A9BE35B2223344BD00F4EC8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACC687EB73CAFCB85EDC780 /* Pods-Roma ChatTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +669,7 @@
 		};
 		A9BE35B4223344BD00F4EC8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +690,7 @@
 		};
 		A9BE35B5223344BD00F4EC8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED414D1FB025858556A983C6 /* Pods-Roma ChatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
