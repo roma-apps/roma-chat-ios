@@ -55,6 +55,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func btnConversationClicked(_ sender: UIButton) {
         let currentPage = page(scrollView: screenContainerScrollView)
         if currentPage == .Conversation { return }
+        
+        //If on Feed screen, Collapse Transparent view first
+        if currentPage == .Feed { modifyTransparentViewWidth(action: .Collapse, andUpdate: true) }
+        
         moveToScreen(screen: .Conversation, animated: true)
     }
     
@@ -69,6 +73,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         let currentPage = page(scrollView: screenContainerScrollView)
         if currentPage == .Feed { return }
         
+        //If on Conversation screen, Collapse Transparent view first
+        if currentPage == .Conversation { modifyTransparentViewWidth(action: .Collapse, andUpdate: true) }
+
         moveToScreen(screen: .Feed, animated: true)
     }
     
@@ -94,37 +101,16 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func pageAssuming2Pages (scrollView: UIScrollView) -> ScreenType {
-        let width = scrollView.frame.width
-        let pageNumber = scrollView.contentOffset.x / width
-        if pageNumber == 0 { return .Conversation }
-        else if pageNumber == 1 { return .Feed }
-        else {
-            return .Conversation
-        }
-
-    }
-    
     func moveToScreen (screen: ScreenType, animated: Bool) {
         let pageWidth : CGFloat = conversationContainerView.frame.width
-
         var targetPage :CGFloat = 0.0
 
         if !isTransparentViewExpanded() {
-            
             switch screen {
             case .Conversation:
                 targetPage = 0
             case .Transparent:
-                modifyTransparentViewWidth(action: .Expand) //This will change the total number of pages to 3
-                
-                // Special case: if transitioning from Feed to Transparent view, content offset must be adjust for newly expanded scrollview
-                if pageAssuming2Pages(scrollView: screenContainerScrollView) == .Feed {
-                    let setToX = pageWidth * 2.0
-                    self.screenContainerScrollView.setContentOffset(CGPoint(x: setToX, y:0), animated: false)
-                }
-
-                targetPage = 1.0
+                return  //this should never happen
             case .Feed:
                 // The total number of pages is 2 in this case
                 targetPage = 1.0
@@ -134,7 +120,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
             case .Conversation:
                 targetPage = 0
             case .Transparent:
-                modifyTransparentViewWidth(action: .Expand) //This case should never happen
                 targetPage = 1.0
             case .Feed:
                 targetPage = 2.0
@@ -147,20 +132,20 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         self.screenContainerScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: true)
     }
     
-    func modifyTransparentViewWidth(action: SizeModification) {
+    func modifyTransparentViewWidth(action: SizeModification, andUpdate: Bool) {
         self.view.layoutIfNeeded() //Finish animations before action
         switch action {
         case .Collapse:
             if isTransparentViewExpanded() {
                 cnstExpandTransparentView.priority = UILayoutPriority(rawValue: priorityDisabled)
                 cnstCollapseTransparentView.priority = UILayoutPriority(rawValue: priorityEnabled)
-                self.view.layoutIfNeeded()
+                if andUpdate { self.view.layoutIfNeeded() }
             }
         case .Expand:
             if !isTransparentViewExpanded() {
                 cnstExpandTransparentView.priority = UILayoutPriority(rawValue: priorityEnabled)
                 cnstCollapseTransparentView.priority = UILayoutPriority(rawValue: priorityDisabled)
-                self.view.layoutIfNeeded()
+                if andUpdate { self.view.layoutIfNeeded() }
             }
         }
     }
@@ -176,15 +161,14 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         /// Shrink the width of the transparent view after the scrollview has animated so if the user toggles between Conversation List and Feed the trasnsparent view does not appear
         
-        /// Just reached target page
-        
-        switch page(scrollView: scrollView) {
-        case .Conversation:
-            modifyTransparentViewWidth(action: .Collapse)
-        case .Transparent:
-            return
-        case .Feed:
-            modifyTransparentViewWidth(action: .Collapse)
+        /// Just reached target page, expand transparent view and readjust content offset
+        if page(scrollView: screenContainerScrollView) == .Feed {
+            if !isTransparentViewExpanded() { modifyTransparentViewWidth(action: .Expand, andUpdate: false) }
+
+            let setToX = conversationContainerView.frame.width * 2.0
+            self.screenContainerScrollView.setContentOffset(CGPoint(x: setToX, y:0), animated: false)
+        } else {
+            if !isTransparentViewExpanded() { modifyTransparentViewWidth(action: .Expand, andUpdate: true) }
         }
     }
     
