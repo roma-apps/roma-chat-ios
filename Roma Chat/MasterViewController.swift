@@ -22,6 +22,9 @@ enum SizeModification {
 class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
+    
+    @IBOutlet weak var conversationListTableView: UITableView!
+    
     @IBOutlet weak var transparentView: UIView!
     @IBOutlet weak var feedContainerView: UIView!
     
@@ -37,6 +40,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
     
+    let conversationListViewController = ConversationListViewController()
+    
+    //MARK: - App Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,13 +51,20 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         screenContainerScrollView.delegate = self
         screenContainerScrollView.contentInsetAdjustmentBehavior = .never
         
-        //TODO: Add and init the Conversation UIView and populate with real data
+        // Init Conversation List
+        conversationListTableView.contentInset = UIEdgeInsets(top: 60.0, left: 0, bottom: 0, right: 0)
+        conversationListTableView.delegate = conversationListViewController
+        conversationListTableView.dataSource = conversationListViewController
+        conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         moveToScreen(screen: .Transparent, animated: false)
     }
+    
+    //MARK: - Main Screen Actions
     
     @IBAction func btnConversationClicked(_ sender: UIButton) {
         let currentPage = page(scrollView: screenContainerScrollView)

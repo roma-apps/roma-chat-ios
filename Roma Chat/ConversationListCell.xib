@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationListCell" id="PxG-rP-Bda" customClass="ConversationListCell" customModule="Roma_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PxG-rP-Bda" id="A5X-wV-PSy">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nti-Ut-XXX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-J8-zam">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-CO-jSv" userLabel="TitleContainerView">
+                                        <rect key="frame" x="20" y="0.0" width="295" height="43.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1y-ZC-36u">
+                                                <rect key="frame" x="10" y="11.5" width="90.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97254901959999995" green="0.92185945660000002" blue="0.41040834139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="t1y-ZC-36u" firstAttribute="centerY" secondItem="2fD-CO-jSv" secondAttribute="centerY" id="Mw9-bU-6hv"/>
+                                            <constraint firstItem="t1y-ZC-36u" firstAttribute="leading" secondItem="2fD-CO-jSv" secondAttribute="leading" constant="10" id="cid-1M-plc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="2fD-CO-jSv" firstAttribute="leading" secondItem="ykf-J8-zam" secondAttribute="leading" constant="20" id="3oe-ug-Co2"/>
+                                    <constraint firstAttribute="trailing" secondItem="2fD-CO-jSv" secondAttribute="trailing" constant="60" id="bcB-f3-h5h"/>
+                                    <constraint firstAttribute="bottom" secondItem="2fD-CO-jSv" secondAttribute="bottom" id="oCp-21-XQa"/>
+                                    <constraint firstItem="2fD-CO-jSv" firstAttribute="top" secondItem="ykf-J8-zam" secondAttribute="top" id="ybl-yv-swB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ykf-J8-zam" firstAttribute="leading" secondItem="OyV-aP-FjJ" secondAttribute="leading" id="27e-NS-JhF"/>
+                            <constraint firstItem="OyV-aP-FjJ" firstAttribute="trailing" secondItem="ykf-J8-zam" secondAttribute="trailing" id="9TL-1o-KNk"/>
+                            <constraint firstAttribute="bottom" secondItem="ykf-J8-zam" secondAttribute="bottom" id="NjO-R7-VaJ"/>
+                            <constraint firstItem="ykf-J8-zam" firstAttribute="top" secondItem="nti-Ut-XXX" secondAttribute="top" id="c57-bm-GFP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OyV-aP-FjJ"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="nti-Ut-XXX" secondAttribute="bottom" id="NDN-8u-b0o"/>
+                    <constraint firstItem="nti-Ut-XXX" firstAttribute="leading" secondItem="A5X-wV-PSy" secondAttribute="leading" id="UkC-j7-RLV"/>
+                    <constraint firstItem="nti-Ut-XXX" firstAttribute="top" secondItem="A5X-wV-PSy" secondAttribute="top" id="dQx-kN-0bK"/>
+                    <constraint firstAttribute="trailing" secondItem="nti-Ut-XXX" secondAttribute="trailing" id="hBl-gd-m6Z"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

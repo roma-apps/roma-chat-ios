@@ -106,7 +106,7 @@
         <!--Master View Controller-->
         <scene sceneID="rb7-m8-ozY">
             <objects>
-                <viewController storyboardIdentifier="MasterViewController" id="Pt6-Ro-ns1" customClass="MasterViewController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MasterViewController" automaticallyAdjustsScrollViewInsets="NO" id="Pt6-Ro-ns1" customClass="MasterViewController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Pw-3m-m0X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -395,6 +395,7 @@
                         <outlet property="cnstCollapseTransparentView" destination="KvR-C6-1kc" id="DLA-0X-Mro"/>
                         <outlet property="cnstExpandTransparentView" destination="v8M-Hm-0At" id="qxM-F0-MRh"/>
                         <outlet property="conversationContainerView" destination="C5v-WF-jkt" id="bB6-Ff-sRg"/>
+                        <outlet property="conversationListTableView" destination="e2e-2A-bgh" id="4ta-tL-nvj"/>
                         <outlet property="feedContainerView" destination="4gv-iB-XMm" id="dBB-pB-3Di"/>
                         <outlet property="masterContainerView" destination="96a-Wu-sJs" id="Ry7-Vi-foK"/>
                         <outlet property="screenContainerScrollView" destination="fje-n9-70L" id="mv3-GE-ZGs"/>
