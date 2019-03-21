@@ -6,4 +6,9 @@
 //  Copyright © 2019 Barrett Breshears. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ConversationViewController: UIViewController {
+
+
+}
