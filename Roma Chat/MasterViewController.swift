@@ -42,8 +42,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     let conversationListViewController = ConversationListViewController()
     
-    var networkManager: NetworkManager = NetworkManager()
-
     //MARK: - App Lifecycle
     
     override func viewDidLoad() {
@@ -58,17 +56,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         conversationListTableView.delegate = conversationListViewController
         conversationListTableView.dataSource = conversationListViewController
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
-        
-        
-        //Testing new Networking structure
-        networkManager.getNewMovies(page: 1) { movies, error in
-            if let error = error {
-                print(error)
-            }
-            if let movies = movies {
-                print(movies)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

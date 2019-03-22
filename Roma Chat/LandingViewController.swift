@@ -47,8 +47,13 @@ class LandingViewController: UIViewController {
     }
     
     @IBAction func btnGoPressed(_ sender: UIButton) {
-        guard let masterViewController = storyboard?.instantiateViewController(withIdentifier: "MasterViewController") else { return }
-        navigationController?.pushViewController(masterViewController, animated: true)
+        guard let url = txtServerUrl.text else { return }
+        AuthenticationManager.shared.authenticate(url) { safariVC in
+            self.navigationController?.present(safariVC, animated: true, completion: nil)
+            
+//            guard let masterViewController = self.storyboard?.instantiateViewController(withIdentifier: "MasterViewController") else { return }
+//            self.navigationController?.pushViewController(masterViewController, animated: true)
+        }
     }
     
 
