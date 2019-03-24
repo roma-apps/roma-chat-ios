@@ -19,10 +19,10 @@ struct AuthenticationManager {
     func authenticate(_ text: String, proceed: @escaping (SFSafariViewController) -> ()) {
             Storage.shared.authenticationClient = Client(baseURL: "https://\(text)")
             let request = Clients.register(
-                clientName: "Mast",
-                redirectURI: "com.shi.mastodon://success",
+                clientName: "Romachat",
+                redirectURI: "com.romachat://success",
                 scopes: [.read, .write, .follow, .push],
-                website: "https://twitter.com/jpeguin"
+                website: "https://github.com/wonderlabs"
             )
             Storage.shared.authenticationClient?.run(request) { (application) in
                 
