@@ -35,7 +35,7 @@ struct AuthenticationManager {
                     Storage.shared.returnedText = text
                     
                     DispatchQueue.main.async {
-                        let redirect = "com.shi.mastodon://success".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+                        let redirect = "com.romachat://success".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
                         let queryURL = URL(string: "https://\(text)/oauth/authorize?response_type=code&redirect_uri=\(redirect)&scope=read%20write%20follow%20push&client_id=\(application.clientID)")!
                         UIApplication.shared.open(queryURL, options: [.universalLinksOnly: true]) { (success) in
                             if !success {

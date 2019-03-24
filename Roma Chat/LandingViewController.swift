@@ -8,11 +8,15 @@
 
 import UIKit
 
-class LandingViewController: UIViewController {
+class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtServerUrl: UITextField!
     @IBOutlet weak var btnGo: UIButton!
+    
+    @IBOutlet weak var urlPickerView: UIPickerView!
+    
+    let urls: [String] = ["mastodon.social", "social.im", "myfreecams.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,11 @@ class LandingViewController: UIViewController {
         
         let scrollViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         scrollView.addGestureRecognizer(scrollViewTapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtServerUrl.text = urls[0]
     }
 
     //TODO: Fix up scrolling only when overlapping views
@@ -56,6 +65,24 @@ class LandingViewController: UIViewController {
         }
     }
     
+    
+    //MARK: - Picker View
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return urls.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return urls[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txtServerUrl.text = urls[row]
+    }
 
 }
 
