@@ -7,15 +7,39 @@
 //
 
 import UIKit
+import SafariServices
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDelegate {
 
     var window: UIWindow?
 
+    var storyboard = UIStoryboard()
+    var landingNavigationController = LandingNavigationController()
+    var masterNavigationController = MasterNavigationController()
+    
+    lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        return spinner
+    }()
+    
+    lazy var spinnerView: UIView = {
+        let spinnerView = UIView(frame: UIScreen.main.bounds)
+        spinnerView.backgroundColor = StoreStruct.colorSpinnerBackground
+        spinnerView.addSubview(spinner)
+        return spinnerView
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        storyboard = UIStoryboard(name: "Main", bundle: nil)
+        landingNavigationController = storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
+        
+        self.window?.rootViewController = landingNavigationController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
@@ -23,9 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if url.host == "success" {
             let x = url.absoluteString
             let y = x.split(separator: "=")
-            Storage.shared.authCode = y[1].description
-            Storage.shared.tappedSignInCheck = true
-            //NotificationCenter.default.post(name: Notification.Name(rawValue: "logged"), object: nil)
+            StoreStruct.shared.currentInstance.authCode = y[1].description
+            
+            if let safariVC = self.window?.rootViewController?.presentedViewController as? SFSafariViewController {
+                safariVC.dismiss(animated: true, completion: {
+                    self.fetchAccessTokenAndProceed()
+                })
+            } else {
+                fetchAccessTokenAndProceed()
+            }
+
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: "logged"), object: nil)
             return true
         }
         return false
@@ -52,7 +84,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    private func fetchAccessTokenAndProceed() {
+        //TODO: Show Spinner
+        showSpinner(show: true)
+        
+        AuthenticationManager.shared.fetchAccessToken { (success) in
+            
+            if success {
+                //stop spinner
+                DispatchQueue.main.async {
+                    self.showSpinner(show: false)
+                    self.masterNavigationController = self.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
+                    self.window?.rootViewController = self.masterNavigationController
+                }
+            } else {
+                //show error
+                
+                print("Error fetching access token.")
+            }
+        }
+    }
+    
+    private func showSpinner(show: Bool) {
+        if show {
+            spinnerView.frame = UIScreen.main.bounds
+            spinner.center = spinnerView.center
+            self.window?.addSubview(spinnerView)
+            spinner.startAnimating()
+        } else {
+            spinnerView.removeFromSuperview()
+        }
+    }
+    
 
 }
 

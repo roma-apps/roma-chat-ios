@@ -9,7 +9,7 @@
 import UIKit
 
 class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtServerUrl: UITextField!
     @IBOutlet weak var btnGo: UIButton!
@@ -58,10 +58,7 @@ class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func btnGoPressed(_ sender: UIButton) {
         guard let url = txtServerUrl.text else { return }
         AuthenticationManager.shared.authenticate(url) { safariVC in
-            self.navigationController?.present(safariVC, animated: true, completion: nil)
-            
-//            guard let masterViewController = self.storyboard?.instantiateViewController(withIdentifier: "MasterViewController") else { return }
-//            self.navigationController?.pushViewController(masterViewController, animated: true)
+            UIApplication.shared.keyWindow?.rootViewController?.present(safariVC, animated: true, completion: nil)
         }
     }
     

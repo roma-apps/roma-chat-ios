@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7dH-AA-HDZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojc-Pd-d98">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0O-LC-QgX">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="607"/>
@@ -94,14 +94,15 @@
                             <constraint firstItem="CYm-lG-JgG" firstAttribute="bottom" secondItem="Ojc-Pd-d98" secondAttribute="bottom" id="54A-Lz-d65"/>
                             <constraint firstItem="CYm-lG-JgG" firstAttribute="leading" secondItem="Ojc-Pd-d98" secondAttribute="leading" id="5Ha-zV-bKd"/>
                             <constraint firstItem="Ojc-Pd-d98" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="9bm-UL-HNe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ojc-Pd-d98" secondAttribute="bottom" id="Gkc-Lf-7C7"/>
-                            <constraint firstItem="Ojc-Pd-d98" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="URm-oA-DJB"/>
+                            <constraint firstAttribute="bottom" secondItem="Ojc-Pd-d98" secondAttribute="bottom" id="Gkc-Lf-7C7"/>
+                            <constraint firstItem="Ojc-Pd-d98" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="URm-oA-DJB"/>
                             <constraint firstItem="Ojc-Pd-d98" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f4H-wO-9nI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ojc-Pd-d98" secondAttribute="trailing" id="q5s-Pm-Ljn"/>
                             <constraint firstItem="Z0O-LC-QgX" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-60" id="rVO-wN-owq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="kUb-Ao-akw"/>
                     <connections>
                         <outlet property="btnGo" destination="WQ8-HK-mCv" id="DFx-7K-oaR"/>
@@ -402,6 +403,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jhb-PB-YLe"/>
                     </view>
+                    <navigationItem key="navigationItem" id="VyQ-Uy-qKX"/>
                     <connections>
                         <outlet property="cnstCollapseTransparentView" destination="KvR-C6-1kc" id="DLA-0X-Mro"/>
                         <outlet property="cnstExpandTransparentView" destination="v8M-Hm-0At" id="qxM-F0-MRh"/>
@@ -415,15 +417,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3X-Rv-ySU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="25.637181409295355"/>
+            <point key="canvasLocation" x="2951.1999999999998" y="25.637181409295355"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Landing Navigation Controller-->
         <scene sceneID="goF-0q-RDG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7dH-AA-HDZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7dH-AA-HDZ" customClass="LandingNavigationController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6dQ-El-RZt">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -434,6 +436,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3a-yO-hfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1166" y="26"/>
+        </scene>
+        <!--Master Navigation Controller-->
+        <scene sceneID="8tT-m4-JVa">
+            <objects>
+                <navigationController storyboardIdentifier="MasterNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="iZc-lS-Xnm" customClass="MasterNavigationController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zwf-ai-e1M">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pt6-Ro-ns1" kind="relationship" relationship="rootViewController" id="caU-G7-9mQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYq-y7-Zc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="25.637181409295355"/>
         </scene>
     </scenes>
 </document>

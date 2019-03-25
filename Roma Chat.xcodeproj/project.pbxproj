@@ -76,6 +76,13 @@
 		9413EA2C2244856000C97862 /* MediaAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E9F02244856000C97862 /* MediaAttachment.swift */; };
 		9413EA322244861D00C97862 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA312244861D00C97862 /* AuthenticationManager.swift */; };
 		9413EA34224486DC00C97862 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA33224486DC00C97862 /* Storage.swift */; };
+		9413EA3822494FC600C97862 /* InstanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA3722494FC600C97862 /* InstanceData.swift */; };
+		9413EA3A2249514B00C97862 /* StoreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA392249514A00C97862 /* StoreStruct.swift */; };
+		9413EA3C224953E600C97862 /* AccountExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA3B224953E600C97862 /* AccountExtension.swift */; };
+		9413EA402249591700C97862 /* HashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA3F2249591700C97862 /* HashType.swift */; };
+		9413EA4222495A7500C97862 /* LandingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4122495A7500C97862 /* LandingNavigationController.swift */; };
+		9413EA4422495AF600C97862 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4322495AF600C97862 /* Storyboard.swift */; };
+		9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4522495BEE00C97862 /* MasterNavigationController.swift */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -176,6 +183,13 @@
 		9413E9F02244856000C97862 /* MediaAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAttachment.swift; sourceTree = "<group>"; };
 		9413EA312244861D00C97862 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9413EA33224486DC00C97862 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		9413EA3722494FC600C97862 /* InstanceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceData.swift; sourceTree = "<group>"; };
+		9413EA392249514A00C97862 /* StoreStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreStruct.swift; sourceTree = "<group>"; };
+		9413EA3B224953E600C97862 /* AccountExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountExtension.swift; sourceTree = "<group>"; };
+		9413EA3F2249591700C97862 /* HashType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashType.swift; sourceTree = "<group>"; };
+		9413EA4122495A7500C97862 /* LandingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingNavigationController.swift; sourceTree = "<group>"; };
+		9413EA4322495AF600C97862 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		9413EA4522495BEE00C97862 /* MasterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -343,6 +357,7 @@
 				9413E9D52244856000C97862 /* Account.swift */,
 				9413E9D62244856000C97862 /* NotificationType.swift */,
 				9413E9D72244856000C97862 /* RequestError.swift */,
+				9413EA3F2249591700C97862 /* HashType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,10 +413,15 @@
 				9413E9B12244856000C97862 /* MastodonKit */,
 				9413E91E22433C3000C97862 /* Data Models */,
 				A9BE3588223344BA00F4EC8C /* AppDelegate.swift */,
+				9413EA4122495A7500C97862 /* LandingNavigationController.swift */,
 				947543C0223758F900289005 /* LandingViewController.swift */,
+				9413EA4522495BEE00C97862 /* MasterNavigationController.swift */,
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				9413EA312244861D00C97862 /* AuthenticationManager.swift */,
 				9413EA33224486DC00C97862 /* Storage.swift */,
+				9413EA3722494FC600C97862 /* InstanceData.swift */,
+				9413EA392249514A00C97862 /* StoreStruct.swift */,
+				9413EA3B224953E600C97862 /* AccountExtension.swift */,
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
@@ -410,6 +430,7 @@
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
 				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
+				9413EA4322495AF600C97862 /* Storyboard.swift */,
 			);
 			path = "Roma Chat";
 			sourceTree = "<group>";
@@ -682,12 +703,14 @@
 				9413EA0E2244856000C97862 /* Application.swift in Sources */,
 				9413EA172244856000C97862 /* Instances.swift in Sources */,
 				9413EA1E2244856000C97862 /* Media.swift in Sources */,
+				9413EA4222495A7500C97862 /* LandingNavigationController.swift in Sources */,
 				9413EA062244856000C97862 /* LoginSettings.swift in Sources */,
 				9413E9FB2244856000C97862 /* String.swift in Sources */,
 				9413E9FD2244856000C97862 /* HTTPURLResponse.swift in Sources */,
 				9413EA182244856000C97862 /* Statuses.swift in Sources */,
 				9413EA142244856000C97862 /* RequestError.swift in Sources */,
 				9413E9FE2244856000C97862 /* Report.swift in Sources */,
+				9413EA3A2249514B00C97862 /* StoreStruct.swift in Sources */,
 				9413EA0D2244856000C97862 /* Notification.swift in Sources */,
 				9413EA052244856000C97862 /* Card.swift in Sources */,
 				9413EA0F2244856000C97862 /* Status.swift in Sources */,
@@ -697,9 +720,12 @@
 				9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */,
 				9413EA232244856000C97862 /* DomainBlocks.swift in Sources */,
 				9413EA282244856000C97862 /* Request.swift in Sources */,
+				9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */,
 				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,
+				9413EA3822494FC600C97862 /* InstanceData.swift in Sources */,
 				9413EA1F2244856000C97862 /* Accounts.swift in Sources */,
 				9413E9FF2244856000C97862 /* Mention.swift in Sources */,
+				9413EA402249591700C97862 /* HashType.swift in Sources */,
 				949E48392237370F00B931F9 /* CameraView.swift in Sources */,
 				9413EA252244856000C97862 /* Timelines.swift in Sources */,
 				9413EA2B2244856000C97862 /* Payload.swift in Sources */,
@@ -718,6 +744,7 @@
 				9413E9F52244856000C97862 /* Result.swift in Sources */,
 				9413EA082244856000C97862 /* Results.swift in Sources */,
 				9413EA042244856000C97862 /* ClientApplication.swift in Sources */,
+				9413EA4422495AF600C97862 /* Storyboard.swift in Sources */,
 				9413EA012244856000C97862 /* Visibility.swift in Sources */,
 				9413E9F62244856000C97862 /* URLComponents.swift in Sources */,
 				9413E9FA2244856000C97862 /* Decodable.swift in Sources */,
@@ -736,6 +763,7 @@
 				9413EA132244856000C97862 /* NotificationType.swift in Sources */,
 				9413EA002244856000C97862 /* AttachmentType.swift in Sources */,
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
+				9413EA3C224953E600C97862 /* AccountExtension.swift in Sources */,
 				9413EA1D2244856000C97862 /* Notifications.swift in Sources */,
 				9413EA322244861D00C97862 /* AuthenticationManager.swift in Sources */,
 				9413EA1B2244856000C97862 /* Favourites.swift in Sources */,
