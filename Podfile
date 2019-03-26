@@ -6,7 +6,7 @@ target 'Roma Chat' do
   use_frameworks!
 
   # Pods for Roma Chat
-pod 'Firebase'
+pod 'Firebase/Core'
 
   target 'Roma ChatTests' do
     inherit! :search_paths

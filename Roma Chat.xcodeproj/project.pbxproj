@@ -83,6 +83,7 @@
 		9413EA4222495A7500C97862 /* LandingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4122495A7500C97862 /* LandingNavigationController.swift */; };
 		9413EA4422495AF600C97862 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4322495AF600C97862 /* Storyboard.swift */; };
 		9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4522495BEE00C97862 /* MasterNavigationController.swift */; };
+		9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9413EA49224A741900C97862 /* GoogleService-Info.plist */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -190,6 +191,7 @@
 		9413EA4122495A7500C97862 /* LandingNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingNavigationController.swift; sourceTree = "<group>"; };
 		9413EA4322495AF600C97862 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		9413EA4522495BEE00C97862 /* MasterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
+		9413EA49224A741900C97862 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
 				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
+				9413EA49224A741900C97862 /* GoogleService-Info.plist */,
 				9413EA4322495AF600C97862 /* Storyboard.swift */,
 			);
 			path = "Roma Chat";
@@ -579,6 +582,7 @@
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
+				9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

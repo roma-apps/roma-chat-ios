@@ -1,6 +1,4 @@
 PODS:
-  - Firebase (5.8.1):
-    - Firebase/Core (= 5.8.1)
   - Firebase/Core (5.8.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.1.4)
@@ -49,7 +47,7 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
-  - Firebase
+  - Firebase/Core
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -70,6 +68,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 448a93d421b24050fd066c5d33fa1f5e2d553ff7
+PODFILE CHECKSUM: c5f420827fe6b1662ecd8d4fbe4539a3be6b1f94
 
 COCOAPODS: 1.6.1
