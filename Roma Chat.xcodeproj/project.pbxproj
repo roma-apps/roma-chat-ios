@@ -84,6 +84,9 @@
 		9413EA4422495AF600C97862 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4322495AF600C97862 /* Storyboard.swift */; };
 		9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA4522495BEE00C97862 /* MasterNavigationController.swift */; };
 		9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9413EA49224A741900C97862 /* GoogleService-Info.plist */; };
+		9413EA92224B1FF200C97862 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA91224B1FF200C97862 /* ApiManager.swift */; };
+		9413EA94224B20AD00C97862 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA93224B20AD00C97862 /* Spinner.swift */; };
+		9413EA9A224B298F00C97862 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA99224B298F00C97862 /* NotificationNames.swift */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -192,6 +195,9 @@
 		9413EA4322495AF600C97862 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		9413EA4522495BEE00C97862 /* MasterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		9413EA49224A741900C97862 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9413EA91224B1FF200C97862 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		9413EA93224B20AD00C97862 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		9413EA99224B298F00C97862 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -290,6 +296,9 @@
 		9413E91E22433C3000C97862 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				9413EA33224486DC00C97862 /* Storage.swift */,
+				9413EA392249514A00C97862 /* StoreStruct.swift */,
+				9413EA3722494FC600C97862 /* InstanceData.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -387,6 +396,42 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		9413EA4E224AF25000C97862 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9413EA91224B1FF200C97862 /* ApiManager.swift */,
+				9413EA3B224953E600C97862 /* AccountExtension.swift */,
+				9413EA4F224AF25000C97862 /* Authentication */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9413EA4F224AF25000C97862 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9413EA312244861D00C97862 /* AuthenticationManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		9413EA97224B276800C97862 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				949E48382237370F00B931F9 /* CameraView.swift */,
+				949E4836223736FD00B931F9 /* CameraView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9413EA98224B278A00C97862 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9413EA4322495AF600C97862 /* Storyboard.swift */,
+				9413EA93224B20AD00C97862 /* Spinner.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A9BE357C223344BA00F4EC8C = {
 			isa = PBXGroup;
 			children = (
@@ -412,28 +457,24 @@
 		A9BE3587223344BA00F4EC8C /* Roma Chat */ = {
 			isa = PBXGroup;
 			children = (
-				9413E9B12244856000C97862 /* MastodonKit */,
-				9413E91E22433C3000C97862 /* Data Models */,
 				A9BE3588223344BA00F4EC8C /* AppDelegate.swift */,
 				9413EA4122495A7500C97862 /* LandingNavigationController.swift */,
 				947543C0223758F900289005 /* LandingViewController.swift */,
 				9413EA4522495BEE00C97862 /* MasterNavigationController.swift */,
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
-				9413EA312244861D00C97862 /* AuthenticationManager.swift */,
-				9413EA33224486DC00C97862 /* Storage.swift */,
-				9413EA3722494FC600C97862 /* InstanceData.swift */,
-				9413EA392249514A00C97862 /* StoreStruct.swift */,
-				9413EA3B224953E600C97862 /* AccountExtension.swift */,
+				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
+				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
+				9413EA99224B298F00C97862 /* NotificationNames.swift */,
+				9413EA4E224AF25000C97862 /* Networking */,
+				9413E9B12244856000C97862 /* MastodonKit */,
+				9413E91E22433C3000C97862 /* Data Models */,
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
-				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
-				949E48382237370F00B931F9 /* CameraView.swift */,
-				949E4836223736FD00B931F9 /* CameraView.xib */,
-				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
+				9413EA97224B276800C97862 /* Views */,
 				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
 				9413EA49224A741900C97862 /* GoogleService-Info.plist */,
-				9413EA4322495AF600C97862 /* Storyboard.swift */,
+				9413EA98224B278A00C97862 /* Helpers */,
 			);
 			path = "Roma Chat";
 			sourceTree = "<group>";
@@ -729,6 +770,7 @@
 				9413EA4222495A7500C97862 /* LandingNavigationController.swift in Sources */,
 				9413EA062244856000C97862 /* LoginSettings.swift in Sources */,
 				9413E9FB2244856000C97862 /* String.swift in Sources */,
+				9413EA9A224B298F00C97862 /* NotificationNames.swift in Sources */,
 				9413E9FD2244856000C97862 /* HTTPURLResponse.swift in Sources */,
 				9413EA182244856000C97862 /* Statuses.swift in Sources */,
 				9413EA142244856000C97862 /* RequestError.swift in Sources */,
@@ -736,6 +778,7 @@
 				9413EA3A2249514B00C97862 /* StoreStruct.swift in Sources */,
 				9413EA0D2244856000C97862 /* Notification.swift in Sources */,
 				9413EA052244856000C97862 /* Card.swift in Sources */,
+				9413EA92224B1FF200C97862 /* ApiManager.swift in Sources */,
 				9413EA0F2244856000C97862 /* Status.swift in Sources */,
 				9413EA272244856000C97862 /* Client.swift in Sources */,
 				9413EA032244856000C97862 /* Empty.swift in Sources */,
@@ -761,6 +804,7 @@
 				9413EA292244856000C97862 /* RequestRange.swift in Sources */,
 				9413EA162244856000C97862 /* Mutes.swift in Sources */,
 				9413E9F32244856000C97862 /* Parameter.swift in Sources */,
+				9413EA94224B20AD00C97862 /* Spinner.swift in Sources */,
 				9413E9F72244856000C97862 /* CharacterSet.swift in Sources */,
 				9413EA34224486DC00C97862 /* Storage.swift in Sources */,
 				9413EA2C2244856000C97862 /* MediaAttachment.swift in Sources */,

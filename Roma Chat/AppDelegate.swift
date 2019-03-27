@@ -18,18 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     var storyboard = UIStoryboard()
     var landingNavigationController = LandingNavigationController()
     var masterNavigationController = MasterNavigationController()
-    
-    lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .whiteLarge)
-        return spinner
-    }()
-    
-    lazy var spinnerView: UIView = {
-        let spinnerView = UIView(frame: UIScreen.main.bounds)
-        spinnerView.backgroundColor = StoreStruct.colorSpinnerBackground
-        spinnerView.addSubview(spinner)
-        return spinnerView
-    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -89,15 +77,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     }
     
     private func fetchAccessTokenAndProceed() {
-        //TODO: Show Spinner
-        showSpinner(show: true)
+        Spinner.shared.showSpinner(show: .show)
         
         AuthenticationManager.shared.fetchAccessToken { (success) in
-            
             if success {
-                //stop spinner
                 DispatchQueue.main.async {
-                    self.showSpinner(show: false)
+                    Spinner.shared.showSpinner(show: .hide)
                     self.masterNavigationController = self.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
                     self.window?.rootViewController = self.masterNavigationController
                 }
@@ -108,18 +93,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
             }
         }
     }
-    
-    private func showSpinner(show: Bool) {
-        if show {
-            spinnerView.frame = UIScreen.main.bounds
-            spinner.center = spinnerView.center
-            self.window?.addSubview(spinnerView)
-            spinner.startAnimating()
-        } else {
-            spinnerView.removeFromSuperview()
-        }
-    }
-    
-
 }
 

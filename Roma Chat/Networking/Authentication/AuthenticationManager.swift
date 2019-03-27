@@ -76,15 +76,6 @@ struct AuthenticationManager {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     print(json)
                     
-                    DispatchQueue.main.async {
-//                        var customStyle = VolumeBarStyle.likeInstagram
-//                        customStyle.trackTintColor = Colours.cellQuote
-//                        customStyle.progressTintColor = Colours.grayDark
-//                        customStyle.backgroundColor = Colours.white
-//                        self.volumeBar.style = customStyle
-                        //self.volumeBar.start()
-                        //self.volumeBar.showInitial()
-                    }
                     StoreStruct.shared.currentInstance.accessToken = (json["access_token"] as! String)
                     StoreStruct.client.accessToken = StoreStruct.shared.currentInstance.accessToken
                     
