@@ -426,6 +426,7 @@
 		9413EA98224B278A00C97862 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9413EA99224B298F00C97862 /* NotificationNames.swift */,
 				9413EA4322495AF600C97862 /* Storyboard.swift */,
 				9413EA93224B20AD00C97862 /* Spinner.swift */,
 			);
@@ -464,13 +465,12 @@
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
-				9413EA99224B298F00C97862 /* NotificationNames.swift */,
-				9413EA4E224AF25000C97862 /* Networking */,
-				9413E9B12244856000C97862 /* MastodonKit */,
-				9413E91E22433C3000C97862 /* Data Models */,
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
 				9413EA97224B276800C97862 /* Views */,
+				9413EA4E224AF25000C97862 /* Networking */,
+				9413E9B12244856000C97862 /* MastodonKit */,
+				9413E91E22433C3000C97862 /* Data Models */,
 				A9BE3591223344BD00F4EC8C /* LaunchScreen.storyboard */,
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
 				9413EA49224A741900C97862 /* GoogleService-Info.plist */,

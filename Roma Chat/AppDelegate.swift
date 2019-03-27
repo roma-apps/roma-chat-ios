@@ -26,9 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         storyboard = UIStoryboard(name: "Main", bundle: nil)
-        landingNavigationController = storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
         
-        self.window?.rootViewController = landingNavigationController
+        if StoreStruct.shared.currentInstance.accessToken.isEmpty {
+            showLandingScreen()
+        } else {
+            showMainScreen()
+        }
+        
         self.window?.makeKeyAndVisible()
         
         return true
@@ -47,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
             } else {
                 fetchAccessTokenAndProceed()
             }
+
 
 //            NotificationCenter.default.post(name: Notification.Name(rawValue: "logged"), object: nil)
             return true
@@ -76,6 +81,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    private func showLandingScreen() { //TODO: perhaps don't init each time?
+        landingNavigationController = storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
+
+        self.window?.rootViewController = landingNavigationController
+    }
+    
+    private func showMainScreen() {
+        self.masterNavigationController = self.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
+        self.window?.rootViewController = self.masterNavigationController
+    }
+    
     private func fetchAccessTokenAndProceed() {
         Spinner.shared.showSpinner(show: .show)
         
@@ -83,8 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
             if success {
                 DispatchQueue.main.async {
                     Spinner.shared.showSpinner(show: .hide)
-                    self.masterNavigationController = self.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
-                    self.window?.rootViewController = self.masterNavigationController
+                    self.showMainScreen()
                 }
             } else {
                 //show error
@@ -93,5 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
             }
         }
     }
+
 }
 
