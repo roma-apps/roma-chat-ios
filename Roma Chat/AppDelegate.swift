@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
         self.window = UIWindow(frame: UIScreen.main.bounds)
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        //TODO: Do a true check if accessToken is still valid or has expired.
         if StoreStruct.shared.currentInstance.accessToken.isEmpty {
             showLandingScreen()
         } else {
