@@ -87,6 +87,8 @@
 		9413EA92224B1FF200C97862 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA91224B1FF200C97862 /* ApiManager.swift */; };
 		9413EA94224B20AD00C97862 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA93224B20AD00C97862 /* Spinner.swift */; };
 		9413EA9A224B298F00C97862 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA99224B298F00C97862 /* NotificationNames.swift */; };
+		9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425690A224D856C001F63CC /* ProfileScreen.xib */; };
+		9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690C224D85CD001F63CC /* ProfileScreen.swift */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -198,6 +200,8 @@
 		9413EA91224B1FF200C97862 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		9413EA93224B20AD00C97862 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		9413EA99224B298F00C97862 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		9425690A224D856C001F63CC /* ProfileScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileScreen.xib; sourceTree = "<group>"; };
+		9425690C224D85CD001F63CC /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -400,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				9413EA91224B1FF200C97862 /* ApiManager.swift */,
-				9413EA3B224953E600C97862 /* AccountExtension.swift */,
 				9413EA4F224AF25000C97862 /* Authentication */,
 			);
 			path = Networking;
@@ -410,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				9413EA312244861D00C97862 /* AuthenticationManager.swift */,
+				9413EA3B224953E600C97862 /* AccountExtension.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -419,6 +423,8 @@
 			children = (
 				949E48382237370F00B931F9 /* CameraView.swift */,
 				949E4836223736FD00B931F9 /* CameraView.xib */,
+				9425690A224D856C001F63CC /* ProfileScreen.xib */,
+				9425690C224D85CD001F63CC /* ProfileScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 			files = (
 				A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */,
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
+				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
@@ -782,6 +789,7 @@
 				9413EA0F2244856000C97862 /* Status.swift in Sources */,
 				9413EA272244856000C97862 /* Client.swift in Sources */,
 				9413EA032244856000C97862 /* Empty.swift in Sources */,
+				9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */,
 				9413EA072244856000C97862 /* AccessScope.swift in Sources */,
 				9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */,
 				9413EA232244856000C97862 /* DomainBlocks.swift in Sources */,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,6 +195,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvw-ff-hRR" userLabel="btnProfile">
                                                         <rect key="frame" x="8" y="15" width="44" height="30"/>
                                                         <state key="normal" title="Profile"/>
+                                                        <connections>
+                                                            <action selector="btnProfileClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="fai-F4-e4H"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,12 +380,20 @@
                                             <constraint firstItem="CBz-X0-8Kd" firstAttribute="top" secondItem="Acp-W9-nQm" secondAttribute="bottom" id="wGl-mf-tYu"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDr-wc-4YE" userLabel="ProfileScreen" customClass="ProfileScreen" customModule="Roma_Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="3EG-Lk-MZd"/>
+                                    <constraint firstItem="XDr-wc-4YE" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="Exa-fl-wYD"/>
                                     <constraint firstItem="srI-es-0EX" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" constant="30" id="NX3-Gq-ktr"/>
+                                    <constraint firstItem="XDr-wc-4YE" firstAttribute="height" secondItem="96a-Wu-sJs" secondAttribute="height" id="QJy-pd-9vt"/>
+                                    <constraint firstItem="XDr-wc-4YE" firstAttribute="centerX" secondItem="96a-Wu-sJs" secondAttribute="centerX" id="SxO-Yh-cRL"/>
                                     <constraint firstItem="srI-es-0EX" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="Tyw-ec-lZO"/>
+                                    <constraint firstItem="XDr-wc-4YE" firstAttribute="width" secondItem="96a-Wu-sJs" secondAttribute="width" id="VTU-Iq-FD5"/>
                                     <constraint firstAttribute="trailing" secondItem="6Qz-pS-SVq" secondAttribute="trailing" id="cKS-Pl-6GQ"/>
                                     <constraint firstAttribute="trailing" secondItem="srI-es-0EX" secondAttribute="trailing" id="d4F-G9-7is"/>
                                     <constraint firstItem="6Qz-pS-SVq" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="ftB-nM-AeE"/>
@@ -411,6 +422,7 @@
                         <outlet property="conversationListTableView" destination="e2e-2A-bgh" id="4ta-tL-nvj"/>
                         <outlet property="feedContainerView" destination="4gv-iB-XMm" id="dBB-pB-3Di"/>
                         <outlet property="masterContainerView" destination="96a-Wu-sJs" id="Ry7-Vi-foK"/>
+                        <outlet property="profileScreen" destination="XDr-wc-4YE" id="YxR-Iv-9YB"/>
                         <outlet property="screenContainerScrollView" destination="fje-n9-70L" id="mv3-GE-ZGs"/>
                         <outlet property="transparentView" destination="UUp-T7-r0w" id="M1B-or-6dc"/>
                     </connections>

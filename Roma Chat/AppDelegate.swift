@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
 
     var window: UIWindow?
 
-    var storyboard = UIStoryboard()
     var landingNavigationController = LandingNavigationController()
     var masterNavigationController = MasterNavigationController()
 
@@ -25,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
         FirebaseApp.configure()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         //TODO: Do a true check if accessToken is still valid or has expired.
         if StoreStruct.shared.currentInstance.accessToken.isEmpty {
@@ -83,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     }
     
     private func showLandingScreen() { //TODO: perhaps don't init each time?
-        landingNavigationController = storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
+        landingNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
 
         self.window?.rootViewController = landingNavigationController
     }
     
     private func showMainScreen() {
-        self.masterNavigationController = self.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
+        self.masterNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
         self.window?.rootViewController = self.masterNavigationController
     }
     

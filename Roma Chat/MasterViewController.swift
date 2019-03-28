@@ -19,7 +19,7 @@ enum SizeModification {
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -33,9 +33,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var screenContainerScrollView: UIScrollView!
     
+    @IBOutlet weak var profileScreen: ProfileScreen!
     
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
+    
     
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -90,6 +92,18 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         if currentPage == .Conversation { modifyTransparentViewWidth(action: .Collapse, andUpdate: true) }
 
         moveToScreen(screen: .Feed, animated: true)
+    }
+    
+    
+    @IBAction func btnProfileClicked(_ sender: UIButton) {
+        //Use a helper to hanlde this & animate
+        
+        profileScreen.isHidden = false
+        profileScreen.delegate = self
+    }
+    
+    func closeProfileScreen() {
+        profileScreen.isHidden = true
     }
     
     

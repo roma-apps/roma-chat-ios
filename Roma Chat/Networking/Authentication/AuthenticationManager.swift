@@ -128,4 +128,13 @@ struct AuthenticationManager {
         task.resume()
     }
     
+    func logout() {
+        var instance = InstanceData.getAllInstances()
+        var account = Account.getAccounts()
+        account.remove(at: 0)
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(account), forKey:"allAccounts")
+        instance.remove(at: 0)
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(instance), forKey:"instances")
+    }
+    
 }

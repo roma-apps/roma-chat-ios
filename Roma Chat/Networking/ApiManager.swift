@@ -36,4 +36,31 @@ struct ApiManager {
         }
     }
     
+    /*
+     /// Swift 5 API Calls and error handling using new Result class
+     
+     func fetchUnreadCount1(from urlString: String, completionHandler: @escaping (Result<Int, Error>) -> Void)  {
+     guard let url = URL(string: urlString) else {
+     completionHandler(.failure(.badURL))
+     return
+     }
+     
+     // complicated networking code here
+     print("Fetching \(url.absoluteString)...")
+     completionHandler(.success(5))
+     }
+     
+     fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
+     switch result {
+     case .success(let count):
+     print("\(count) unread messages.")
+     case .failure(let error):
+     print(error.localizedDescription)
+     }
+     }
+ 
+ 
+ 
+     */
+    
 }
