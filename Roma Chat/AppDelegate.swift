@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
 
     var window: UIWindow?
 
-    var landingNavigationController = LandingNavigationController()
-    var masterNavigationController = MasterNavigationController()
+    var landingNavigationController: LandingNavigationController?
+    var masterNavigationController: MasterNavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -81,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     }
     
     private func showLandingScreen() { //TODO: perhaps don't init each time?
-        landingNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as! LandingNavigationController
+        landingNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.landingNavigationController) as? LandingNavigationController
 
         self.window?.rootViewController = landingNavigationController
     }
     
     private func showMainScreen() {
-        self.masterNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as! MasterNavigationController
+        self.masterNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as? MasterNavigationController
         self.window?.rootViewController = self.masterNavigationController
     }
     
@@ -106,6 +106,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
                 print("Error fetching access token.")
             }
         }
+    }
+    
+    public func logout() {
+        showLandingScreen()
+        self.masterNavigationController = nil
     }
 
 }

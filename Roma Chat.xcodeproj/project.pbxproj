@@ -90,6 +90,8 @@
 		9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425690A224D856C001F63CC /* ProfileScreen.xib */; };
 		9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690C224D85CD001F63CC /* ProfileScreen.swift */; };
 		9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690E224D8ED9001F63CC /* SettingsViewController.swift */; };
+		94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94256911224ECE76001F63CC /* SettingsTableViewCell.swift */; };
+		94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -204,6 +206,8 @@
 		9425690A224D856C001F63CC /* ProfileScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileScreen.xib; sourceTree = "<group>"; };
 		9425690C224D85CD001F63CC /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		9425690E224D8ED9001F63CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		94256911224ECE76001F63CC /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -441,6 +445,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		94256910224ECE63001F63CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				94256911224ECE76001F63CC /* SettingsTableViewCell.swift */,
+				94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		A9BE357C223344BA00F4EC8C = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +490,7 @@
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
 				9413EA97224B276800C97862 /* Views */,
+				94256910224ECE63001F63CC /* Cells */,
 				9413EA4E224AF25000C97862 /* Networking */,
 				9413E9B12244856000C97862 /* MastodonKit */,
 				9413E91E22433C3000C97862 /* Data Models */,
@@ -634,6 +648,7 @@
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
+				94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */,
 				9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,6 +859,7 @@
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
 				9413EA3C224953E600C97862 /* AccountExtension.swift in Sources */,
 				9413EA1D2244856000C97862 /* Notifications.swift in Sources */,
+				94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */,
 				9413EA322244861D00C97862 /* AuthenticationManager.swift in Sources */,
 				9413EA1B2244856000C97862 /* Favourites.swift in Sources */,
 				9413E9F92244856000C97862 /* Data.swift in Sources */,

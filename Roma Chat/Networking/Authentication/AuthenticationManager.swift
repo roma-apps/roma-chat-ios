@@ -128,6 +128,7 @@ struct AuthenticationManager {
         task.resume()
     }
     
+    //TODO: do this smarter, ensure access token and all data is wiped permanently.
     func logout() {
         var instance = InstanceData.getAllInstances()
         var account = Account.getAccounts()
@@ -135,6 +136,9 @@ struct AuthenticationManager {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(account), forKey:"allAccounts")
         instance.remove(at: 0)
         UserDefaults.standard.set(try? PropertyListEncoder().encode(instance), forKey:"instances")
+
+        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.logout()
     }
     
 }

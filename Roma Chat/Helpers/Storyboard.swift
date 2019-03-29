@@ -28,6 +28,9 @@ struct Storyboard {
     //UIViews
     static var profileView = "ProfileView"
 
+    //Cells
+    static var settingsTableViewCell = "SettingsTableViewCell"
+
 
     
     /*
