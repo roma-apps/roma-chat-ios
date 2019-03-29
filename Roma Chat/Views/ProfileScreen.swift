@@ -86,6 +86,7 @@ import UIKit
 
 protocol ProfileScreenDelegate: AnyObject {
     func closeProfileScreen()
+    func openSettingsScreen()
 }
 
 class ProfileScreen: UIView {
@@ -158,7 +159,7 @@ class ProfileScreen: UIView {
     
     
     @IBAction func btnSettingsPressed(_ sender: UIButton) {
-        
+        self.delegate?.openSettingsScreen()
     }
     
 }

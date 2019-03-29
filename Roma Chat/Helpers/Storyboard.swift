@@ -23,7 +23,7 @@ struct Storyboard {
     static var landingViewController = "LandingViewController"
     static var masterNavigationController = "MasterNavigationController"
     static var masterViewController = "MasterViewController"
-    
+    static var settingsViewController = "SettingsViewController"
     
     //UIViews
     static var profileView = "ProfileView"

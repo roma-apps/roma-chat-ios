@@ -89,6 +89,7 @@
 		9413EA9A224B298F00C97862 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA99224B298F00C97862 /* NotificationNames.swift */; };
 		9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9425690A224D856C001F63CC /* ProfileScreen.xib */; };
 		9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690C224D85CD001F63CC /* ProfileScreen.swift */; };
+		9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690E224D8ED9001F63CC /* SettingsViewController.swift */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -202,6 +203,7 @@
 		9413EA99224B298F00C97862 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		9425690A224D856C001F63CC /* ProfileScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileScreen.xib; sourceTree = "<group>"; };
 		9425690C224D85CD001F63CC /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		9425690E224D8ED9001F63CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -421,8 +423,8 @@
 		9413EA97224B276800C97862 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				949E48382237370F00B931F9 /* CameraView.swift */,
 				949E4836223736FD00B931F9 /* CameraView.xib */,
+				949E48382237370F00B931F9 /* CameraView.swift */,
 				9425690A224D856C001F63CC /* ProfileScreen.xib */,
 				9425690C224D85CD001F63CC /* ProfileScreen.swift */,
 			);
@@ -471,6 +473,7 @@
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
+				9425690E224D8ED9001F63CC /* SettingsViewController.swift */,
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
 				9413EA97224B276800C97862 /* Views */,
@@ -793,6 +796,7 @@
 				9413EA072244856000C97862 /* AccessScope.swift in Sources */,
 				9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */,
 				9413EA232244856000C97862 /* DomainBlocks.swift in Sources */,
+				9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */,
 				9413EA282244856000C97862 /* Request.swift in Sources */,
 				9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */,
 				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,

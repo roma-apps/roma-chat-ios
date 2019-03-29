@@ -106,6 +106,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         profileScreen.isHidden = true
     }
     
+    func openSettingsScreen() {
+        let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
+        self.navigationController?.pushViewController(settingsScreen, animated: true)
+    }
+    
     
     //MARK: - Pagination and Scrolling
     
