@@ -44,10 +44,9 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQ8-HK-mCv" userLabel="btnGo">
-                                                <rect key="frame" x="137" y="291" width="100" height="45"/>
+                                                <rect key="frame" x="142" y="291" width="90" height="45"/>
                                                 <color key="backgroundColor" red="0.97254901959999995" green="0.0049663478642172397" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="8Y9-hZ-DZd"/>
                                                     <constraint firstAttribute="height" constant="45" id="wP6-mg-JGv"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
@@ -70,6 +69,7 @@
                                             <constraint firstItem="JaQ-XZ-See" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z0O-LC-QgX" secondAttribute="leading" constant="10" id="dV1-gj-7qN"/>
                                             <constraint firstItem="JaQ-XZ-See" firstAttribute="centerX" secondItem="5Sw-Et-j7o" secondAttribute="centerX" id="sDn-wn-fhn"/>
                                             <constraint firstAttribute="trailing" secondItem="5Sw-Et-j7o" secondAttribute="trailing" constant="87" id="sXT-tX-yzV"/>
+                                            <constraint firstItem="WQ8-HK-mCv" firstAttribute="width" secondItem="5Sw-Et-j7o" secondAttribute="height" multiplier="2:1" id="sqG-r2-tnS"/>
                                         </constraints>
                                     </view>
                                 </subviews>

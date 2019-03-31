@@ -606,13 +606,16 @@
 				TargetAttributes = {
 					A9BE3584223344BA00F4EC8C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					A9BE3598223344BD00F4EC8C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = A9BE3584223344BA00F4EC8C;
 					};
 					A9BE35A3223344BD00F4EC8C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = A9BE3584223344BA00F4EC8C;
 					};
 				};
@@ -955,7 +958,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1051,7 +1054,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1070,7 +1073,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1091,7 +1094,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roma Chat.app/Roma Chat";
 			};
@@ -1113,7 +1116,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roma Chat.app/Roma Chat";
 			};
@@ -1134,7 +1137,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Roma Chat";
 			};
@@ -1155,7 +1158,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-ChatUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Roma Chat";
 			};
