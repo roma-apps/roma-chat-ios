@@ -148,9 +148,7 @@ class ProfileScreen: UIView {
         accounts = Account.getAccounts()
         //TODO: use current instance to determine corresponding account
         let account = accounts[0]
-        
         lblAccountName.text = account.username
-        
     }
     
     @IBAction func btnClosePressed(_ sender: UIButton) {

@@ -58,6 +58,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.delegate = conversationListViewController
         conversationListTableView.dataSource = conversationListViewController
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
+        
+        //Timelines
+        ApiManager.shared.fetchConversations {
+            let convos = StoreStruct.conversations
+            print(convos)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

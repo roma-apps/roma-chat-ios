@@ -10,7 +10,6 @@ import UIKit
 
 class ConversationListViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    
     //MARK: - UITableViewDelegate & UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {

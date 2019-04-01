@@ -15,5 +15,6 @@ struct NotificationName {
     static var shared = NotificationName()
     
     let timelines = NSNotification.Name(rawValue: "timelines_changed")
-    
+    let conversations = NSNotification.Name(rawValue: "conversations_changed")
+
 }

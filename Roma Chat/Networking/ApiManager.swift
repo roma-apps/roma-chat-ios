@@ -24,6 +24,8 @@ struct ApiManager {
     
     static var shared = ApiManager()
     
+    //TODO: Error reporting
+    
     func fetchTimelines(completion: @escaping () -> ()) {
         let request = Timelines.home()
         StoreStruct.client.run(request) { (statuses) in
@@ -31,6 +33,18 @@ struct ApiManager {
                 StoreStruct.statusesHome = stat
                 StoreStruct.statusesHome = NSOrderedSet(array: StoreStruct.statusesHome).array as! [Status]
                 NotificationCenter.default.post(name: NotificationName.shared.timelines, object: nil)
+                completion()
+            }
+        }
+    }
+    
+    func fetchConversations(completion: @escaping () -> ()) {
+        let request = Conversations.conversations()
+        StoreStruct.client.run(request) { (conversations) in
+            if let convos = (conversations.value) {
+                StoreStruct.conversations = convos
+                StoreStruct.conversations = NSOrderedSet(array: StoreStruct.conversations).array as! [Conversation]
+                NotificationCenter.default.post(name: NotificationName.shared.conversations, object: nil)
                 completion()
             }
         }

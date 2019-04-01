@@ -92,6 +92,8 @@
 		9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690E224D8ED9001F63CC /* SettingsViewController.swift */; };
 		94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94256911224ECE76001F63CC /* SettingsTableViewCell.swift */; };
 		94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */; };
+		9425691622519881001F63CC /* Conversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425691522519881001F63CC /* Conversations.swift */; };
+		9425691822519941001F63CC /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425691722519941001F63CC /* Conversation.swift */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -208,6 +210,8 @@
 		9425690E224D8ED9001F63CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		94256911224ECE76001F63CC /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		9425691522519881001F63CC /* Conversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversations.swift; sourceTree = "<group>"; };
+		9425691722519941001F63CC /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				9413E9D62244856000C97862 /* NotificationType.swift */,
 				9413E9D72244856000C97862 /* RequestError.swift */,
 				9413EA3F2249591700C97862 /* HashType.swift */,
+				9425691722519941001F63CC /* Conversation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				9413E9E72244856000C97862 /* DomainBlocks.swift */,
 				9413E9E82244856000C97862 /* Search.swift */,
 				9413E9E92244856000C97862 /* Timelines.swift */,
+				9425691522519881001F63CC /* Conversations.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -801,6 +807,7 @@
 				9413EA9A224B298F00C97862 /* NotificationNames.swift in Sources */,
 				9413E9FD2244856000C97862 /* HTTPURLResponse.swift in Sources */,
 				9413EA182244856000C97862 /* Statuses.swift in Sources */,
+				9425691622519881001F63CC /* Conversations.swift in Sources */,
 				9413EA142244856000C97862 /* RequestError.swift in Sources */,
 				9413E9FE2244856000C97862 /* Report.swift in Sources */,
 				9413EA3A2249514B00C97862 /* StoreStruct.swift in Sources */,
@@ -847,6 +854,7 @@
 				9413E9FA2244856000C97862 /* Decodable.swift in Sources */,
 				947543C1223758F900289005 /* LandingViewController.swift in Sources */,
 				9413E9F42244856000C97862 /* Functions.swift in Sources */,
+				9425691822519941001F63CC /* Conversation.swift in Sources */,
 				9413E9F12244856000C97862 /* PaginationItem.swift in Sources */,
 				9413E9F82244856000C97862 /* URLRequest.swift in Sources */,
 				9413EA022244856000C97862 /* Attachment.swift in Sources */,

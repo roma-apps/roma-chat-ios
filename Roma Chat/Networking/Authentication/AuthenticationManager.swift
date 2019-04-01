@@ -92,7 +92,7 @@ struct AuthenticationManager {
                         if let account = (statuses.value) {
                             
                             UserDefaults.standard.set(try? PropertyListEncoder().encode(instances), forKey:"instances")
-                            InstanceData.setCurrentInstance(instance: currentInstance)
+                            InstanceData.setCurrentInstance(instance: currentInstance) //TODO: Load conversations and feed instead of timelines
                             let request = Timelines.home()
                             StoreStruct.client.run(request) { (statuses) in
                                 if let stat = (statuses.value) {
