@@ -41,4 +41,12 @@ extension Account: Equatable {
         return lhs.username == rhs.username && lhs.id == rhs.id
     }
     
+    static func accountWithID(accountID:String) -> Account? {
+        let accounts = getAccounts()
+        let currentAccount = accounts.filter { $0.id == accountID }
+        if currentAccount.isEmpty { return nil }
+        
+        return currentAccount.first
+    }
+    
 }

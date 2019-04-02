@@ -26,13 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         //TODO: Do a true check if accessToken is still valid or has expired.
-        let instances: [InstanceData]  = InstanceData.getAllInstances()
-        let accounts:  [Account]  = Account.getAccounts()
         
-        if instances.isEmpty || accounts.isEmpty {
-            showLandingScreen()
-        } else {
+        if AuthenticationManager.shared.initCurrentUserAndClientFromDefaults() {
             showMainScreen()
+        } else {
+            showLandingScreen()
         }
         self.window?.makeKeyAndVisible()
         
@@ -46,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
             StoreStruct.shared.currentInstance.authCode = y[1].description
             
             if let safariVC = self.window?.rootViewController?.presentedViewController as? SFSafariViewController {
-                safariVC.dismiss(animated: true, completion: {
-                    self.fetchAccessTokenAndProceed()
+                safariVC.dismiss(animated: true, completion: { [weak self] in
+                    self?.fetchAccessTokenAndProceed()
                 })
             } else {
                 fetchAccessTokenAndProceed()

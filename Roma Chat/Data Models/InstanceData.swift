@@ -84,6 +84,14 @@ class InstanceData:Codable {
     static func clearInstances() {
         UserDefaults.standard.setValue(nil, forKey: "instances")
     }
+    
+    static func instanceWithClientID(clientID:String) -> InstanceData? {
+        let instances = getAllInstances()
+        let currentInstance = instances.filter { $0.clientID == clientID }
+        if currentInstance.isEmpty { return nil }
+        
+        return currentInstance.first
+    }
 }
 
 extension InstanceData: Equatable {

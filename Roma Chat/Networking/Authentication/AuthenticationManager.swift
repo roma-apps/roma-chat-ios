@@ -87,19 +87,19 @@ struct AuthenticationManager {
                     if !instances.contains(currentInstance){
                         instances.append(currentInstance)
                     }
-                    let request2 = Accounts.currentUser()
-                    StoreStruct.client.run(request2) { (statuses) in
-                        if let account = (statuses.value) {
-                            
+                    let accountRequest = Accounts.currentUser()
+                    StoreStruct.client.run(accountRequest) { (accountResponse) in
+                        if let account = (accountResponse.value) {
+                            StoreStruct.currentUser = account
+                            Account.addAccountToList(account: account)
                             UserDefaults.standard.set(try? PropertyListEncoder().encode(instances), forKey:"instances")
-                            InstanceData.setCurrentInstance(instance: currentInstance) //TODO: Load conversations and feed instead of timelines
-                            let request = Timelines.home()
-                            StoreStruct.client.run(request) { (statuses) in
-                                if let stat = (statuses.value) {
+                            InstanceData.setCurrentInstance(instance: currentInstance)
+                            AuthenticationManager.shared.saveCurrentUserInfo()
+                            let request = Conversations.conversations()
+                            StoreStruct.client.run(request) { (conversations) in
+                                if let convos = (conversations.value) {
                                     DispatchQueue.main.async {
-                                        StoreStruct.currentUser = account
-                                        Account.addAccountToList(account: account)
-                                        StoreStruct.statusesHome = NSOrderedSet(array: stat).array as! [Status] //remove duplicates
+                                        StoreStruct.conversations = NSOrderedSet(array: convos).array as! [Conversation] //remove duplicates
                                         proceed(true)
 //                                        NotificationCenter.default.post(name: Notification.Name(rawValue: "refresh"), object: nil)
 //                                        NotificationCenter.default.post(name: Notification.Name(rawValue: "refProf"), object: nil)
@@ -128,7 +128,34 @@ struct AuthenticationManager {
         task.resume()
     }
     
+    /// Saves data needed for API communication. When the app is relaunched, this data is
+    /// fetched from UserDefaults and the Client is created for the new session.
+    func saveCurrentUserInfo() {
+        UserDefaults.standard.set(StoreStruct.currentUser.id, forKey: "currentUser.accountID")
+        UserDefaults.standard.set(StoreStruct.shared.currentInstance.returnedText, forKey: "currentInstance.returnedText")
+        UserDefaults.standard.set(StoreStruct.shared.currentInstance.accessToken, forKey: "currentInstance.accessToken")
+    }
+    
+    /// Fetches the data needed for API communication. A new Client is created for the new session.
+    func initCurrentUserAndClientFromDefaults() -> Bool {
+        guard let accountID = UserDefaults.standard.string(forKey: "currentUser.accountID") else { return false }
+        guard let accessToken = UserDefaults.standard.string(forKey: "currentInstance.accessToken") else { return false }
+        guard let returnedText = UserDefaults.standard.string(forKey: "currentInstance.returnedText") else { return false }
+
+        if accountID.isEmpty || accessToken.isEmpty || returnedText.isEmpty { return false }
+        
+        if let currentAccount = Account.accountWithID(accountID: accountID) {
+            StoreStruct.currentUser = currentAccount
+            StoreStruct.client = Client(baseURL: "https://\(returnedText)")
+            StoreStruct.client.accessToken = accessToken
+            return true
+        } else {
+            return false
+        }
+    }
+    
     //TODO: do this smarter, ensure access token and all data is wiped permanently.
+    /// Erases data from Cache and Defaults relating to the currently signed in user account.
     func logout() {
         var instance = InstanceData.getAllInstances()
         var account = Account.getAccounts()
