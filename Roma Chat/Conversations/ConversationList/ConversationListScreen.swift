@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ConversationListViewController: NSObject, UITableViewDelegate, UITableViewDataSource {
+class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSource {
+    
+    var conversationsData : [Conversation]?
+    
+    func initData(_ conversations: [Conversation]) {
+        self.conversationsData = conversations
+    }
     
     //MARK: - UITableViewDelegate & UITableViewDataSource
     
@@ -17,7 +23,10 @@ class ConversationListViewController: NSObject, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        if let conversations = conversationsData {
+            return conversations.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -27,6 +36,13 @@ class ConversationListViewController: NSObject, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationListCell") as! ConversationListCell
 
+        if let conversations = conversationsData, conversations.count > indexPath.row {
+            let conversation = conversations[indexPath.row]
+            if let lastAccount = conversation.accounts.last {
+                cell.textLabel?.text = lastAccount.username
+            }
+        }
+        
         return cell
     }
     

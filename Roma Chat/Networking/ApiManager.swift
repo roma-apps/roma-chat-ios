@@ -26,6 +26,7 @@ struct ApiManager {
     
     //TODO: Error reporting
     
+    /// Fetches the list of timelines from the Plemora API for the currently signed in user account.
     func fetchTimelines(completion: @escaping () -> ()) {
         let request = Timelines.home()
         StoreStruct.client.run(request) { (statuses) in
@@ -38,6 +39,7 @@ struct ApiManager {
         }
     }
     
+    /// Fetches the list of conversations from the Plemora API for the currently signed in user account.
     func fetchConversations(completion: @escaping () -> ()) {
         let request = Conversations.conversations()
         StoreStruct.client.run(request) { (conversations) in
@@ -49,6 +51,11 @@ struct ApiManager {
             }
         }
     }
+    
+    
+    
+    
+    
     
     /*
      /// Swift 5 API Calls and error handling using new Result class

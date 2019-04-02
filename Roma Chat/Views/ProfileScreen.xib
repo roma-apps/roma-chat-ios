@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gT2-is-KqV" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyo-fd-biz" userLabel="Navigation Bar">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -127,12 +127,12 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="gT2-is-KqV" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Khv-ep-bsY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gT2-is-KqV" secondAttribute="bottom" id="mLP-IA-bQb"/>
+                <constraint firstAttribute="bottom" secondItem="gT2-is-KqV" secondAttribute="bottom" id="mLP-IA-bQb"/>
                 <constraint firstItem="gT2-is-KqV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sr9-02-3X0"/>
-                <constraint firstItem="gT2-is-KqV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yvm-LA-acw"/>
+                <constraint firstItem="gT2-is-KqV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="yvm-LA-acw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

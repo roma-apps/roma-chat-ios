@@ -10,7 +10,7 @@
 		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
 		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
 		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
-		9413E8F72241F7D300C97862 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8F62241F7D300C97862 /* ConversationListViewController.swift */; };
+		9413E8F72241F7D300C97862 /* ConversationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8F62241F7D300C97862 /* ConversationListScreen.swift */; };
 		9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9413E8F82241F8E900C97862 /* ConversationListCell.xib */; };
 		9413E8FB2241F8FF00C97862 /* ConversationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8FA2241F8FF00C97862 /* ConversationListCell.swift */; };
 		9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8FF2241FF8900C97862 /* ConversationViewController.swift */; };
@@ -128,7 +128,7 @@
 		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8AF6B53B6F3394C764B35C4D /* Pods-Roma Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma Chat.debug.xcconfig"; path = "Target Support Files/Pods-Roma Chat/Pods-Roma Chat.debug.xcconfig"; sourceTree = "<group>"; };
-		9413E8F62241F7D300C97862 /* ConversationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
+		9413E8F62241F7D300C97862 /* ConversationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListScreen.swift; sourceTree = "<group>"; };
 		9413E8F82241F8E900C97862 /* ConversationListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationListCell.xib; sourceTree = "<group>"; };
 		9413E8FA2241F8FF00C97862 /* ConversationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListCell.swift; sourceTree = "<group>"; };
 		9413E8FF2241FF8900C97862 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 		9413E9012241FF9700C97862 /* ConversationList */ = {
 			isa = PBXGroup;
 			children = (
-				9413E8F62241F7D300C97862 /* ConversationListViewController.swift */,
+				9413E8F62241F7D300C97862 /* ConversationListScreen.swift */,
 				9413E8F82241F8E900C97862 /* ConversationListCell.xib */,
 				9413E8FA2241F8FF00C97862 /* ConversationListCell.swift */,
 			);
@@ -834,7 +834,7 @@
 				9413EA2B2244856000C97862 /* Payload.swift in Sources */,
 				9413EA242244856000C97862 /* Search.swift in Sources */,
 				9413EA092244856000C97862 /* List.swift in Sources */,
-				9413E8F72241F7D300C97862 /* ConversationListViewController.swift in Sources */,
+				9413E8F72241F7D300C97862 /* ConversationListScreen.swift in Sources */,
 				9413EA2A2244856000C97862 /* ClientError.swift in Sources */,
 				9413E9F22244856000C97862 /* ClientType.swift in Sources */,
 				9413EA192244856000C97862 /* FollowRequests.swift in Sources */,

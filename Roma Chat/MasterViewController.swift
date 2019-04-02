@@ -42,7 +42,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
     
-    let conversationListViewController = ConversationListViewController()
+    let conversationList = ConversationListScreen()
     
     //MARK: - App Lifecycle
     
@@ -55,20 +55,23 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         // Init Conversation List
         conversationListTableView.contentInset = UIEdgeInsets(top: 60.0, left: 0, bottom: 0, right: 0)
-        conversationListTableView.delegate = conversationListViewController
-        conversationListTableView.dataSource = conversationListViewController
+        conversationListTableView.delegate = conversationList
+        conversationListTableView.dataSource = conversationList
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
-        
-        //Timelines
-        ApiManager.shared.fetchConversations {
-            let convos = StoreStruct.conversations
-            print(convos)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         moveToScreen(screen: .Transparent, animated: false)
+    }
+    
+    //MARK: - Data Fetch
+    
+    private func fetchInitialData() {
+        ApiManager.shared.fetchConversations { [weak self] in
+            self?.conversationList.initData(StoreStruct.conversations)
+            self?.conversationListTableView.reloadData()
+        }
     }
     
     //MARK: - Main Screen Actions
