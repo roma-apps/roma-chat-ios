@@ -451,13 +451,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		94256910224ECE63001F63CC /* Cells */ = {
+		942569192254ED91001F63CC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				94256911224ECE76001F63CC /* SettingsTableViewCell.swift */,
 				94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */,
 			);
-			path = Cells;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		A9BE357C223344BA00F4EC8C = {
@@ -495,8 +495,8 @@
 				9425690E224D8ED9001F63CC /* SettingsViewController.swift */,
 				9413E8FD2241FF1B00C97862 /* Conversations */,
 				9413E8FE2241FF2700C97862 /* Feeds */,
+				942569192254ED91001F63CC /* Settings */,
 				9413EA97224B276800C97862 /* Views */,
-				94256910224ECE63001F63CC /* Cells */,
 				9413EA4E224AF25000C97862 /* Networking */,
 				9413E9B12244856000C97862 /* MastodonKit */,
 				9413E91E22433C3000C97862 /* Data Models */,

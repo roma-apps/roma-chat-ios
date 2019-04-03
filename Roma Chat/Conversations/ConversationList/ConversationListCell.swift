@@ -10,6 +10,12 @@ import UIKit
 
 class ConversationListCell: UITableViewCell {
     
+    
+    @IBOutlet weak var imgAvatarView: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblStatus: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

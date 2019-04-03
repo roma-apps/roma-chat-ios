@@ -58,6 +58,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.delegate = conversationList
         conversationListTableView.dataSource = conversationList
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
+        fetchInitialData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,8 +70,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     private func fetchInitialData() {
         ApiManager.shared.fetchConversations { [weak self] in
-            self?.conversationList.initData(StoreStruct.conversations)
-            self?.conversationListTableView.reloadData()
+            DispatchQueue.main.async {
+                self?.conversationList.initData(StoreStruct.conversations)
+                self?.conversationListTableView.reloadData()
+            }
         }
     }
     

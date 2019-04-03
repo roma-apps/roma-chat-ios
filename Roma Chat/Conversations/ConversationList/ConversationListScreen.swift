@@ -39,7 +39,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
         if let conversations = conversationsData, conversations.count > indexPath.row {
             let conversation = conversations[indexPath.row]
             if let lastAccount = conversation.accounts.last {
-                cell.textLabel?.text = lastAccount.username
+                cell.lblTitle?.text = lastAccount.username
             }
         }
         
