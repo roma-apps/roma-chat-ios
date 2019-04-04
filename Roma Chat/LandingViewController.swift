@@ -16,7 +16,7 @@ class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var urlPickerView: UIPickerView!
     
-    let urls: [String] = ["mastodon.social", "social.im", "myfreecams.com"]
+    let urls: [String] = ["mastodon.social", "social.im", "social.myfreecams.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
