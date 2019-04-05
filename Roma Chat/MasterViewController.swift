@@ -34,6 +34,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var screenContainerScrollView: UIScrollView!
     
     @IBOutlet weak var profileScreen: ProfileScreen!
+    @IBOutlet weak var conversationScreen: ConversationScreen!
+    
+    @IBOutlet weak var conversationContainerScrollView: UIScrollView!
     
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
@@ -64,6 +67,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         moveToScreen(screen: .Transparent, animated: false)
+        
     }
     
     //MARK: - Data Fetch
@@ -121,6 +125,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func openSettingsScreen() {
         let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
         self.navigationController?.pushViewController(settingsScreen, animated: true)
+    }
+    
+    //MARK: - View modifications
+    
+    private func resetConversationScreen(animated: Bool) {
+        
     }
     
     
