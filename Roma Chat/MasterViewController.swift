@@ -141,10 +141,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     //MARK: - View modifications
     
-    private func resetConversationScreenLocation(animated: Bool) {
-        conversationContainerScrollView.contentOffset = .zero
-    }
-    
     private func showConversationScreen(_ type: ConversationScreenType, animated: Bool) {
         let pageWidth : CGFloat = conversationContainerView.frame.width
         let targetPage :CGFloat = ( type == .ConversationList) ? 1.0 :  0.0
@@ -241,6 +237,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
 
             let setToX = conversationContainerView.frame.width * 2.0
             self.screenContainerScrollView.setContentOffset(CGPoint(x: setToX, y:0), animated: false)
+            
+            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
+        } else if page(scrollView: screenContainerScrollView) == .Transparent {
+            //No need to check if transparent view is expanded since we just reached transparent view.
+            
+            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
         } else {
             if !isTransparentViewExpanded() { modifyTransparentViewWidth(action: .Expand, andUpdate: true) }
         }
