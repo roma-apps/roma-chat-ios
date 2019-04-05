@@ -103,6 +103,8 @@
 		94FD1D5D2256B03F007464B4 /* MediaAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D1A2256B03F007464B4 /* MediaAttachment.swift */; };
 		94FD1D612256D469007464B4 /* ConversationScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD1D602256D469007464B4 /* ConversationScreen.xib */; };
 		94FD1D632256D545007464B4 /* ConversationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D622256D545007464B4 /* ConversationScreen.swift */; };
+		94FD1D652256E4DC007464B4 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D642256E4DC007464B4 /* ConversationCell.swift */; };
+		94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD1D662256E4E5007464B4 /* ConversationCell.xib */; };
 		A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE3588223344BA00F4EC8C /* AppDelegate.swift */; };
 		A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358C223344BA00F4EC8C /* Main.storyboard */; };
 		A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358F223344BD00F4EC8C /* Assets.xcassets */; };
@@ -226,6 +228,8 @@
 		94FD1D1A2256B03F007464B4 /* MediaAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAttachment.swift; sourceTree = "<group>"; };
 		94FD1D602256D469007464B4 /* ConversationScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationScreen.xib; sourceTree = "<group>"; };
 		94FD1D622256D545007464B4 /* ConversationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationScreen.swift; sourceTree = "<group>"; };
+		94FD1D642256E4DC007464B4 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		94FD1D662256E4E5007464B4 /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
 		A9BE3585223344BA00F4EC8C /* Roma Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roma Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BE3588223344BA00F4EC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BE358D223344BA00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 			children = (
 				94FD1D602256D469007464B4 /* ConversationScreen.xib */,
 				94FD1D622256D545007464B4 /* ConversationScreen.swift */,
+				94FD1D642256E4DC007464B4 /* ConversationCell.swift */,
+				94FD1D662256E4E5007464B4 /* ConversationCell.xib */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
 				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
+				94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
 				94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */,
@@ -844,6 +851,7 @@
 				9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */,
 				94FD1D4C2256B03F007464B4 /* Blocks.swift in Sources */,
 				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,
+				94FD1D652256E4DC007464B4 /* ConversationCell.swift in Sources */,
 				9413EA3822494FC600C97862 /* InstanceData.swift in Sources */,
 				94FD1D412256B03F007464B4 /* Filters.swift in Sources */,
 				94FD1D292256B03F007464B4 /* HTTPURLResponse.swift in Sources */,

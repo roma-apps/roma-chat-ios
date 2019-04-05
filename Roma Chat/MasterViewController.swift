@@ -24,7 +24,7 @@ enum SizeModification {
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -65,6 +65,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.delegate = conversationList
         conversationListTableView.dataSource = conversationList
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
+        conversationList.delegate = self
         fetchInitialData()
     }
     
@@ -137,6 +138,14 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func openSettingsScreen() {
         let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
         self.navigationController?.pushViewController(settingsScreen, animated: true)
+    }
+    
+    //MARK: - Conversation List Screen Delegate
+    
+    func conversationClicked(conversation: Conversation) {
+        conversationScreen.conversation = conversation
+        conversationScreen.refreshData()
+        showConversationScreen(.Conversation, animated: true)
     }
     
     //MARK: - View modifications

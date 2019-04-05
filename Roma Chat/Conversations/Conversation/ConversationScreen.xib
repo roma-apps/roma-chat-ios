@@ -10,7 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConversationScreen" customModule="Roma_Chat" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConversationScreen" customModule="Roma_Chat" customModuleProvider="target">
+            <connections>
+                <outlet property="conversationTableView" destination="hJe-7v-gak" id="POQ-yu-5jJ"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="N7q-fM-MFs" userLabel="Container View">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -21,7 +25,19 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQz-bz-n0Y" userLabel="Conversation Container">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJe-7v-gak" userLabel="ConversationTableView">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                            </subviews>
                             <color key="backgroundColor" red="0.00051487417599999996" green="1" blue="0.70421319910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="hJe-7v-gak" firstAttribute="top" secondItem="tQz-bz-n0Y" secondAttribute="top" id="37E-lj-RJ1"/>
+                                <constraint firstAttribute="trailing" secondItem="hJe-7v-gak" secondAttribute="trailing" id="3XG-tu-ixQ"/>
+                                <constraint firstAttribute="bottom" secondItem="hJe-7v-gak" secondAttribute="bottom" id="stz-v4-qrC"/>
+                                <constraint firstItem="hJe-7v-gak" firstAttribute="leading" secondItem="tQz-bz-n0Y" secondAttribute="leading" id="zJS-WL-ZhR"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ev-W8-c9X" userLabel="Messaging Container">
                             <rect key="frame" x="0.0" y="768" width="414" height="128"/>
