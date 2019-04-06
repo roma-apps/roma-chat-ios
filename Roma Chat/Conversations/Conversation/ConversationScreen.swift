@@ -12,11 +12,12 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var conversationTableView: UITableView!
     
+    var avatar : UIImage?
+    
     // Our custom view from the XIB file
     var view: UIView!
     
-    var conversation: Conversation?
-    var messages: Int?
+    var conversation: RomaConversation?
     
     override init(frame: CGRect) {
         // 1. setup any properties here
@@ -68,14 +69,18 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
         conversationTableView.dataSource = self
         conversationTableView.delegate = self
         conversationTableView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellReuseIdentifier: "ConversationCell")
-        
-        messages = 5
     }
     
     func refreshData() {
         guard let conversation = conversation else { return }
         
-        print("Conversation showing: \(String(describing: conversation.accounts.first?.username))")
+        for message in conversation.messages {
+            if let status = message {
+                print("Meessage: \(String(describing: status.content))")
+            }
+        }
+        
+        conversationTableView.reloadData()
     }
     
     
@@ -86,8 +91,8 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let messages = messages {
-            return messages
+        if let conversation = conversation {
+            return conversation.messages.count
         }
         return 0
     }

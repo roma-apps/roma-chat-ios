@@ -72,8 +72,9 @@ struct StoreStruct {
     static var statusesLocal: [Status] = []
     static var statusesFederated: [Status] = []
     
-    static var conversations: [Conversation] = []
-    
+    static var directMessages: [Conversation] = []
+    static var conversations: [RomaConversation] = []
+
 //    static var notifications: [Notificationt] = []
 //    static var notificationsMentions: [Notificationt] = []
 //    static var notificationsDirect: [Notificationt] = []

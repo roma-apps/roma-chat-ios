@@ -142,9 +142,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     //MARK: - Conversation List Screen Delegate
     
-    func conversationClicked(conversation: Conversation) {
+    func conversationClicked(conversation: RomaConversation, avatar: UIImage?) {
         conversationScreen.conversation = conversation
         conversationScreen.refreshData()
+        conversationScreen.avatar = avatar
         showConversationScreen(.Conversation, animated: true)
     }
     

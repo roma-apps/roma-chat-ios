@@ -72,7 +72,7 @@ class InstanceData:Codable {
         StoreStruct.statusesHome = []
         StoreStruct.statusesLocal = []
         StoreStruct.statusesFederated = []
-        StoreStruct.conversations = []
+        StoreStruct.directMessages = []
 //        StoreStruct.notifications = []
 //        StoreStruct.notificationsMentions = []
         StoreStruct.shared.currentInstance = instance

@@ -18,6 +18,5 @@ class ConversationListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 }
