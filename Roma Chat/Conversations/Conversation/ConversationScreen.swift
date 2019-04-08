@@ -81,6 +81,8 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
         }
         
         conversationTableView.reloadData()
+        let lastMessageIndex = conversation.messages.count - 1
+        conversationTableView.scrollToRow(at: IndexPath(row: lastMessageIndex, section: 0), at: .none, animated: false)
     }
     
     
@@ -98,18 +100,24 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationCell") as! ConversationCell
         
-//        if let conversations = conversationsData, conversations.count > indexPath.row {
-//            let conversation = conversations[indexPath.row]
-//            if let lastAccount = conversation.accounts.last {
-//                cell.lblTitle?.text = lastAccount.username
-//            }
-//        }
+        if let conversation = conversation {
+            if let status = conversation.messages[indexPath.row] {
+                let username = status.account.username
+                let message = status.content.stripHTML()
+                cell.lblUsername?.text = username
+                cell.lblMessage?.text = message
+            }
+        }
         
         return cell
     }
