@@ -135,17 +135,37 @@
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5v-WF-jkt" userLabel="ConversationContainerView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                                         <subviews>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-2A-bgh">
+                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRB-Ta-bF2" userLabel="ConversationContainerScrollView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </tableView>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z24-8k-Ruj" userLabel="ConversationScreen" customClass="ConversationScreen" customModule="Roma_Chat" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                                                        <color key="backgroundColor" red="0.97254901959999995" green="0.92185945660000002" blue="0.41040834139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </view>
+                                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-2A-bgh">
+                                                                        <rect key="frame" x="375" y="0.0" width="375" height="667"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </tableView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="e2e-2A-bgh" firstAttribute="leading" secondItem="z24-8k-Ruj" secondAttribute="trailing" id="GZx-Gg-C2o"/>
+                                                                    <constraint firstItem="e2e-2A-bgh" firstAttribute="top" secondItem="iRB-Ta-bF2" secondAttribute="top" id="MoE-zN-8Dy"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="z24-8k-Ruj" secondAttribute="bottom" id="Yyh-YO-kwr"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="e2e-2A-bgh" secondAttribute="bottom" id="fTs-G8-OmH"/>
+                                                                    <constraint firstItem="z24-8k-Ruj" firstAttribute="leading" secondItem="iRB-Ta-bF2" secondAttribute="leading" id="qFI-UF-H2d"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="e2e-2A-bgh" secondAttribute="trailing" id="r1i-kz-MJX"/>
+                                                                </constraints>
+                                                            </scrollView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.3269264845" green="0.61427868029999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="e2e-2A-bgh" secondAttribute="trailing" id="3jL-ee-A1g"/>
-                                                            <constraint firstAttribute="bottom" secondItem="e2e-2A-bgh" secondAttribute="bottom" id="JIG-9e-k5t"/>
-                                                            <constraint firstItem="e2e-2A-bgh" firstAttribute="top" secondItem="C5v-WF-jkt" secondAttribute="top" id="e1w-I0-l8Z"/>
-                                                            <constraint firstItem="e2e-2A-bgh" firstAttribute="leading" secondItem="C5v-WF-jkt" secondAttribute="leading" id="z3s-oE-fxk"/>
+                                                            <constraint firstAttribute="bottom" secondItem="iRB-Ta-bF2" secondAttribute="bottom" id="DPa-hm-iv7"/>
+                                                            <constraint firstItem="e2e-2A-bgh" firstAttribute="height" secondItem="C5v-WF-jkt" secondAttribute="height" id="FYS-vf-Ami"/>
+                                                            <constraint firstItem="e2e-2A-bgh" firstAttribute="width" secondItem="C5v-WF-jkt" secondAttribute="width" id="cG9-dU-hao"/>
+                                                            <constraint firstItem="iRB-Ta-bF2" firstAttribute="top" secondItem="C5v-WF-jkt" secondAttribute="top" id="k70-eH-Maq"/>
+                                                            <constraint firstAttribute="trailing" secondItem="iRB-Ta-bF2" secondAttribute="trailing" id="p4s-9F-5aF"/>
+                                                            <constraint firstItem="iRB-Ta-bF2" firstAttribute="leading" secondItem="C5v-WF-jkt" secondAttribute="leading" id="ree-YO-NoU"/>
+                                                            <constraint firstItem="z24-8k-Ruj" firstAttribute="width" secondItem="C5v-WF-jkt" secondAttribute="width" id="vvl-5s-28h"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUp-T7-r0w" userLabel="TransparentView">
@@ -398,6 +418,7 @@
                                     <constraint firstAttribute="trailing" secondItem="srI-es-0EX" secondAttribute="trailing" id="d4F-G9-7is"/>
                                     <constraint firstItem="6Qz-pS-SVq" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="ftB-nM-AeE"/>
                                     <constraint firstAttribute="bottom" secondItem="X5F-OM-N6Z" secondAttribute="bottom" id="hsP-By-ZRB"/>
+                                    <constraint firstItem="z24-8k-Ruj" firstAttribute="top" secondItem="srI-es-0EX" secondAttribute="bottom" id="kAj-6e-CGD"/>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="lAg-4b-GY2"/>
                                     <constraint firstAttribute="bottom" secondItem="6Qz-pS-SVq" secondAttribute="bottom" id="vuu-le-1XM"/>
                                     <constraint firstAttribute="trailing" secondItem="X5F-OM-N6Z" secondAttribute="trailing" id="ySn-z1-YUB"/>
@@ -418,8 +439,10 @@
                     <connections>
                         <outlet property="cnstCollapseTransparentView" destination="KvR-C6-1kc" id="DLA-0X-Mro"/>
                         <outlet property="cnstExpandTransparentView" destination="v8M-Hm-0At" id="qxM-F0-MRh"/>
+                        <outlet property="conversationContainerScrollView" destination="iRB-Ta-bF2" id="fxb-Zi-qsV"/>
                         <outlet property="conversationContainerView" destination="C5v-WF-jkt" id="bB6-Ff-sRg"/>
                         <outlet property="conversationListTableView" destination="e2e-2A-bgh" id="4ta-tL-nvj"/>
+                        <outlet property="conversationScreen" destination="z24-8k-Ruj" id="tBr-hj-PZt"/>
                         <outlet property="feedContainerView" destination="4gv-iB-XMm" id="dBB-pB-3Di"/>
                         <outlet property="masterContainerView" destination="96a-Wu-sJs" id="Ry7-Vi-foK"/>
                         <outlet property="profileScreen" destination="XDr-wc-4YE" id="YxR-Iv-9YB"/>

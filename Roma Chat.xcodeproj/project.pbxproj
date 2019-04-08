@@ -13,7 +13,6 @@
 		9413E8F72241F7D300C97862 /* ConversationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8F62241F7D300C97862 /* ConversationListScreen.swift */; };
 		9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9413E8F82241F8E900C97862 /* ConversationListCell.xib */; };
 		9413E8FB2241F8FF00C97862 /* ConversationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8FA2241F8FF00C97862 /* ConversationListCell.swift */; };
-		9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413E8FF2241FF8900C97862 /* ConversationViewController.swift */; };
 		9413EA322244861D00C97862 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA312244861D00C97862 /* AuthenticationManager.swift */; };
 		9413EA34224486DC00C97862 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA33224486DC00C97862 /* Storage.swift */; };
 		9413EA3822494FC600C97862 /* InstanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413EA3722494FC600C97862 /* InstanceData.swift */; };
@@ -102,6 +101,11 @@
 		94FD1D5B2256B03F007464B4 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D182256B03F007464B4 /* ClientError.swift */; };
 		94FD1D5C2256B03F007464B4 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D192256B03F007464B4 /* Payload.swift */; };
 		94FD1D5D2256B03F007464B4 /* MediaAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D1A2256B03F007464B4 /* MediaAttachment.swift */; };
+		94FD1D612256D469007464B4 /* ConversationScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD1D602256D469007464B4 /* ConversationScreen.xib */; };
+		94FD1D632256D545007464B4 /* ConversationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D622256D545007464B4 /* ConversationScreen.swift */; };
+		94FD1D652256E4DC007464B4 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D642256E4DC007464B4 /* ConversationCell.swift */; };
+		94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94FD1D662256E4E5007464B4 /* ConversationCell.xib */; };
+		94FD1D6922581623007464B4 /* RomaConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1D6822581623007464B4 /* RomaConversation.swift */; };
 		A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE3588223344BA00F4EC8C /* AppDelegate.swift */; };
 		A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358C223344BA00F4EC8C /* Main.storyboard */; };
 		A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BE358F223344BD00F4EC8C /* Assets.xcassets */; };
@@ -135,7 +139,6 @@
 		9413E8F62241F7D300C97862 /* ConversationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListScreen.swift; sourceTree = "<group>"; };
 		9413E8F82241F8E900C97862 /* ConversationListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationListCell.xib; sourceTree = "<group>"; };
 		9413E8FA2241F8FF00C97862 /* ConversationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListCell.swift; sourceTree = "<group>"; };
-		9413E8FF2241FF8900C97862 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		9413EA312244861D00C97862 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		9413EA33224486DC00C97862 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9413EA3722494FC600C97862 /* InstanceData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceData.swift; sourceTree = "<group>"; };
@@ -224,6 +227,11 @@
 		94FD1D182256B03F007464B4 /* ClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		94FD1D192256B03F007464B4 /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		94FD1D1A2256B03F007464B4 /* MediaAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaAttachment.swift; sourceTree = "<group>"; };
+		94FD1D602256D469007464B4 /* ConversationScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationScreen.xib; sourceTree = "<group>"; };
+		94FD1D622256D545007464B4 /* ConversationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationScreen.swift; sourceTree = "<group>"; };
+		94FD1D642256E4DC007464B4 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		94FD1D662256E4E5007464B4 /* ConversationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationCell.xib; sourceTree = "<group>"; };
+		94FD1D6822581623007464B4 /* RomaConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomaConversation.swift; sourceTree = "<group>"; };
 		A9BE3585223344BA00F4EC8C /* Roma Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roma Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BE3588223344BA00F4EC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9BE358D223344BA00F4EC8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -310,7 +318,10 @@
 		9413E9022241FFAC00C97862 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
-				9413E8FF2241FF8900C97862 /* ConversationViewController.swift */,
+				94FD1D602256D469007464B4 /* ConversationScreen.xib */,
+				94FD1D622256D545007464B4 /* ConversationScreen.swift */,
+				94FD1D642256E4DC007464B4 /* ConversationCell.swift */,
+				94FD1D662256E4E5007464B4 /* ConversationCell.xib */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 				9413EA33224486DC00C97862 /* Storage.swift */,
 				9413EA392249514A00C97862 /* StoreStruct.swift */,
 				9413EA3722494FC600C97862 /* InstanceData.swift */,
+				94FD1D6822581623007464B4 /* RomaConversation.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -666,9 +678,11 @@
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
 				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
+				94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
 				94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */,
+				94FD1D612256D469007464B4 /* ConversationScreen.xib in Resources */,
 				9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -834,16 +848,17 @@
 				94FD1D232256B03F007464B4 /* CharacterSet.swift in Sources */,
 				94FD1D512256B03F007464B4 /* Lists.swift in Sources */,
 				94FD1D592256B03F007464B4 /* Request.swift in Sources */,
-				9413E9002241FF8900C97862 /* ConversationViewController.swift in Sources */,
 				94FD1D372256B03F007464B4 /* Context.swift in Sources */,
 				9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */,
 				94FD1D302256B03F007464B4 /* Empty.swift in Sources */,
 				9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */,
 				94FD1D4C2256B03F007464B4 /* Blocks.swift in Sources */,
 				949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */,
+				94FD1D652256E4DC007464B4 /* ConversationCell.swift in Sources */,
 				9413EA3822494FC600C97862 /* InstanceData.swift in Sources */,
 				94FD1D412256B03F007464B4 /* Filters.swift in Sources */,
 				94FD1D292256B03F007464B4 /* HTTPURLResponse.swift in Sources */,
+				94FD1D632256D545007464B4 /* ConversationScreen.swift in Sources */,
 				94FD1D272256B03F007464B4 /* String.swift in Sources */,
 				949E48392237370F00B931F9 /* CameraView.swift in Sources */,
 				94FD1D1D2256B03F007464B4 /* ClientType.swift in Sources */,
@@ -885,6 +900,7 @@
 				94FD1D352256B03F007464B4 /* Results.swift in Sources */,
 				94FD1D2D2256B03F007464B4 /* Visibility.swift in Sources */,
 				94FD1D5C2256B03F007464B4 /* Payload.swift in Sources */,
+				94FD1D6922581623007464B4 /* RomaConversation.swift in Sources */,
 				94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */,
 				94FD1D4A2256B03F007464B4 /* Login.swift in Sources */,
 				94FD1D3D2256B03F007464B4 /* Status.swift in Sources */,

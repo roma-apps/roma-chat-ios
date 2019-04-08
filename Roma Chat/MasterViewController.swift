@@ -14,12 +14,17 @@ enum ScreenType {
     case Transparent
 }
 
+enum ConversationScreenType {
+    case ConversationList
+    case Conversation
+}
+
 enum SizeModification {
     case Collapse
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -28,12 +33,14 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var transparentView: UIView!
     @IBOutlet weak var feedContainerView: UIView!
     
-    
     @IBOutlet weak var masterContainerView: UIView!
     
     @IBOutlet weak var screenContainerScrollView: UIScrollView!
     
     @IBOutlet weak var profileScreen: ProfileScreen!
+    @IBOutlet weak var conversationScreen: ConversationScreen!
+    
+    @IBOutlet weak var conversationContainerScrollView: UIScrollView!
     
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
@@ -58,12 +65,22 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.delegate = conversationList
         conversationListTableView.dataSource = conversationList
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
+        conversationList.delegate = self
         fetchInitialData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        initViews()
+    }
+    
+    private func initViews() {
         moveToScreen(screen: .Transparent, animated: false)
+        showConversationScreen(.ConversationList, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     //MARK: - Data Fetch
@@ -123,10 +140,29 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         self.navigationController?.pushViewController(settingsScreen, animated: true)
     }
     
+    //MARK: - Conversation List Screen Delegate
+    
+    func conversationClicked(conversation: RomaConversation, avatar: UIImage?) {
+        conversationScreen.conversation = conversation
+        conversationScreen.refreshData()
+        conversationScreen.avatar = avatar
+        showConversationScreen(.Conversation, animated: true)
+    }
+    
+    //MARK: - View modifications
+    
+    private func showConversationScreen(_ type: ConversationScreenType, animated: Bool) {
+        let pageWidth : CGFloat = conversationContainerView.frame.width
+        let targetPage :CGFloat = ( type == .ConversationList) ? 1.0 :  0.0
+        let slideToX = pageWidth * targetPage
+        
+        self.view.layoutIfNeeded()
+        self.conversationContainerScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: animated)
+    }
     
     //MARK: - Pagination and Scrolling
     
-    func page (scrollView: UIScrollView) -> ScreenType {
+    private func page (scrollView: UIScrollView) -> ScreenType {
         let width = scrollView.frame.width
         let pageNumber = scrollView.contentOffset.x / width
         if !isTransparentViewExpanded() {
@@ -145,7 +181,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         }
     }
     
-    func moveToScreen (screen: ScreenType, animated: Bool) {
+    private func moveToScreen (screen: ScreenType, animated: Bool) {
         let pageWidth : CGFloat = conversationContainerView.frame.width
         var targetPage :CGFloat = 0.0
 
@@ -176,7 +212,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         self.screenContainerScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: true)
     }
     
-    func modifyTransparentViewWidth(action: SizeModification, andUpdate: Bool) {
+    private func modifyTransparentViewWidth(action: SizeModification, andUpdate: Bool) {
         self.view.layoutIfNeeded() //Finish animations before action
         switch action {
         case .Collapse:
@@ -211,6 +247,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
 
             let setToX = conversationContainerView.frame.width * 2.0
             self.screenContainerScrollView.setContentOffset(CGPoint(x: setToX, y:0), animated: false)
+            
+            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
+        } else if page(scrollView: screenContainerScrollView) == .Transparent {
+            //No need to check if transparent view is expanded since we just reached transparent view.
+            
+            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
         } else {
             if !isTransparentViewExpanded() { modifyTransparentViewWidth(action: .Expand, andUpdate: true) }
         }
