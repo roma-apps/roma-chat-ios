@@ -6,10 +6,32 @@
 //  Copyright © 2018 Shihab Mehboob. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 extension Account: Equatable {
+    
+    // fetch cached avatar image
+    
+    func getCachedAvatarImage(completion:@escaping (_ avatarImage:UIImage?) -> Void ) {
+        
+        let imageCache = NSCache<AnyObject, AnyObject>()
+        
+        if let imageFromCache = imageCache.object(forKey: avatar as AnyObject) as? UIImage {
+            completion(imageFromCache)
+            return
+        }
+        
+        ApiManager.shared.fetchAvatarForAccount(account: self) { (image) in
+            DispatchQueue.main.async {
+                imageCache.setObject(image, forKey: self.avatar as AnyObject)
+                completion(image)
+            }
+        }
+        
+    }
+        
+    
     
     static func addAccountToList(account:Account) {
         
