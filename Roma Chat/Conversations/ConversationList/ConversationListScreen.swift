@@ -66,7 +66,6 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let conversation = conversationsData?[indexPath.row] else { return }
         if let conversations = conversationsData, conversations.count > indexPath.row {
             let conversation = conversations[indexPath.row]
             if let lastAccount = conversation.accounts.last {
@@ -77,7 +76,6 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
-        
     }
     
 }
