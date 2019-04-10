@@ -15,12 +15,10 @@ protocol ConversationListScreenDelegate: AnyObject {
 class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     var conversationsData : [RomaConversation]?
-    var avatars: [String: UIImage?]
     
     weak var delegate: ConversationListScreenDelegate?
     
     override init() {
-        avatars = ["": nil]
         conversationsData = nil
         super.init()
     }
@@ -53,19 +51,12 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
             let conversation = conversations[indexPath.row]
             if let lastAccount = conversation.accounts.last {
                 cell.lblTitle?.text = lastAccount.username
-                if let avatarImage = avatars[lastAccount.id] {
+                
+                lastAccount.getCachedAvatarImage { (avatarImage) in
+                    //refresh cell image if cell is visible
                     DispatchQueue.main.async {
                         cell.imgAvatarView.image = avatarImage
-                    }
-                } else {
-                    //fetch image
-                    ApiManager.shared.fetchAvatarForAccount(account: lastAccount) { [weak self] image in
-                        self?.avatars[lastAccount.id] = image
-                        //refresh cell image if cell is visible
-                        DispatchQueue.main.async {
-                            cell.imgAvatarView.image = image
-                            cell.reloadInputViews()
-                        }
+                        cell.reloadInputViews()
                     }
                 }
             }
@@ -76,16 +67,17 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let conversation = conversationsData?[indexPath.row] else { return }
-        var avatar: UIImage? = nil
         if let conversations = conversationsData, conversations.count > indexPath.row {
             let conversation = conversations[indexPath.row]
             if let lastAccount = conversation.accounts.last {
-                if let image = avatars[lastAccount.id] {
-                    avatar = image
+                lastAccount.getCachedAvatarImage { (avatarImage) in
+                    DispatchQueue.main.async {
+                        self.delegate?.conversationClicked(conversation: conversation, avatar: avatarImage)
+                    }
                 }
             }
         }
-        self.delegate?.conversationClicked(conversation: conversation, avatar: avatar)
+        
     }
     
 }
