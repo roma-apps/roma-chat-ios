@@ -24,7 +24,7 @@ enum SizeModification {
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate, CameraViewDelegate, PhotoScreenDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate, CameraViewDelegate, PhotoScreenDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -49,6 +49,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var cameraView: CameraView!
     @IBOutlet weak var photoScreen: PhotoScreen!
     @IBOutlet weak var screenContainerView: UIView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -155,6 +157,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
         self.navigationController?.pushViewController(settingsScreen, animated: true)
     }
+    
+    @IBAction func btnAddFriendClicked(_ sender: Any) {
+        searchBar.resignFirstResponder()
+    }
+    
     
     //MARK: - Camera Actions
     

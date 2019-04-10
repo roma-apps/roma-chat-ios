@@ -279,6 +279,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c82-Gm-EaO" userLabel="btnAddFriend">
                                                         <rect key="frame" x="14" y="19" width="22" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="btnAddFriendClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="tkG-zI-Nrh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -506,6 +509,7 @@
                         <outlet property="profileScreen" destination="XDr-wc-4YE" id="YxR-Iv-9YB"/>
                         <outlet property="screenContainerScrollView" destination="fje-n9-70L" id="mv3-GE-ZGs"/>
                         <outlet property="screenContainerView" destination="X5F-OM-N6Z" id="Mdq-c3-DWP"/>
+                        <outlet property="searchBar" destination="ecB-FG-OyU" id="Dtc-B7-wzD"/>
                         <outlet property="transparentView" destination="UUp-T7-r0w" id="M1B-or-6dc"/>
                     </connections>
                 </viewController>
