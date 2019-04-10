@@ -114,7 +114,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBAction func btnCameraClicked(_ sender: UIButton) {
         let currentPage = page(scrollView: screenContainerScrollView)
         if currentPage == .Transparent {
+            #if targetEnvironment(simulator)
+            // your simulator code
+            #else
             cameraView.takePhoto()
+            #endif
         } else {
             moveToScreen(screen: .Transparent, animated: true)
         }

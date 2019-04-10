@@ -69,7 +69,11 @@ class CameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        prepareCamera()
+        #if targetEnvironment(simulator)
+        // your simulator code
+        #else
+            prepareCamera()
+        #endif
         
     }
     
