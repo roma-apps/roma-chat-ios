@@ -16,15 +16,36 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     
     var conversationsData : [RomaConversation]?
     
+    var backgroundView: UIView?
+    
+    let backgroundBlue = UIColor(red: (51/255.0), green: (174/255.0), blue: (248/255.0), alpha: 1.0)
+
+    
     weak var delegate: ConversationListScreenDelegate?
+    weak var conversationListScreen: UIView?
+    weak var tableView: UITableView?
     
     override init() {
-        conversationsData = nil
         super.init()
+        conversationsData = nil
     }
     
     func initData(_ conversations: [RomaConversation]) {
         self.conversationsData = conversations
+    }
+    
+    func setupViews() {
+        guard let conversationListScreen = conversationListScreen else { return }
+        
+        backgroundView = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 200))
+        guard let backgroundView = backgroundView else { return }
+        
+        backgroundView.contentMode = .scaleAspectFill
+        backgroundView.clipsToBounds = true
+        backgroundView.backgroundColor = backgroundBlue
+        conversationListScreen.addSubview(backgroundView)
+        conversationListScreen.sendSubviewToBack(backgroundView)
+        relayoutBackground()
     }
     
     //MARK: - UITableViewDelegate & UITableViewDataSource
@@ -40,6 +61,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
         return 0
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -51,6 +73,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
             let conversation = conversations[indexPath.row]
             if let lastAccount = conversation.accounts.last {
                 cell.lblTitle?.text = lastAccount.username
+                cell.backgroundColor = backgroundBlue
                 
                 lastAccount.getCachedAvatarImage { (avatarImage) in
                     //refresh cell image if cell is visible
@@ -76,6 +99,18 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        relayoutBackground()
+    }
+    
+    private func relayoutBackground() {
+        guard let tableView = tableView else { return }
+        let tblHeight = tableView.frame.origin.y + tableView.contentSize.height
+        let newHeight = UIScreen.main.bounds.size.height - tblHeight + tableView.contentOffset.y
+        let newY = UIScreen.main.bounds.size.height - newHeight
+        backgroundView?.frame = CGRect(x: 0, y: newY, width: UIScreen.main.bounds.size.width, height: newHeight)
     }
     
 }

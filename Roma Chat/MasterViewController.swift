@@ -36,6 +36,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var masterContainerView: UIView!
     
     @IBOutlet weak var screenContainerScrollView: UIScrollView!
+    @IBOutlet weak var conversationListScreen: UIView!
     
     @IBOutlet weak var profileScreen: ProfileScreen!
     @IBOutlet weak var conversationScreen: ConversationScreen!
@@ -47,6 +48,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     @IBOutlet weak var cameraView: CameraView!
     @IBOutlet weak var photoScreen: PhotoScreen!
+    @IBOutlet weak var screenContainerView: UIView!
     
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -82,6 +84,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     private func initViews() {
         moveToScreen(screen: .Transparent, animated: false)
         showConversationScreen(.ConversationList, animated: false)
+        self.conversationList.conversationListScreen = self.conversationListScreen
+        self.conversationList.tableView = self.conversationListTableView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,6 +99,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
             DispatchQueue.main.async {
                 self?.conversationList.initData(StoreStruct.conversations)
                 self?.conversationListTableView.reloadData()
+                self?.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
             }
         }
     }
