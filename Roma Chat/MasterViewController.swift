@@ -24,7 +24,7 @@ enum SizeModification {
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate, CameraViewDelegate, PhotoScreenDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -45,6 +45,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
     
+    @IBOutlet weak var cameraView: CameraView!
+    @IBOutlet weak var photoScreen: PhotoScreen!
     
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -66,6 +68,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.dataSource = conversationList
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
         conversationList.delegate = self
+        
+        cameraView.delegate = self
+        photoScreen.delegate = self
         fetchInitialData()
     }
     
@@ -108,9 +113,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     @IBAction func btnCameraClicked(_ sender: UIButton) {
         let currentPage = page(scrollView: screenContainerScrollView)
-        if currentPage == .Transparent { return }
-        
-        moveToScreen(screen: .Transparent, animated: true)
+        if currentPage == .Transparent {
+            cameraView.takePhoto()
+        } else {
+            moveToScreen(screen: .Transparent, animated: true)
+        }
     }
     
     @IBAction func btnFeedClicked(_ sender: UIButton) {
@@ -138,6 +145,22 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func openSettingsScreen() {
         let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
         self.navigationController?.pushViewController(settingsScreen, animated: true)
+    }
+    
+    //MARK: - Camera Actions
+    
+    func imageTaken(image: UIImage) {
+        //display on screen
+        DispatchQueue.main.async {
+            self.photoScreen.refreshWithImage(image: image)
+            self.photoScreen.isHidden = false
+        }
+    }
+    
+    func closePhotoScreen() {
+        DispatchQueue.main.async {
+            self.photoScreen.isHidden = true
+        }
     }
     
     //MARK: - Conversation List Screen Delegate
