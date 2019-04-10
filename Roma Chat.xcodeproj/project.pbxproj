@@ -30,6 +30,8 @@
 		9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9425690E224D8ED9001F63CC /* SettingsViewController.swift */; };
 		94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94256911224ECE76001F63CC /* SettingsTableViewCell.swift */; };
 		94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */; };
+		94648C4A225D7723002AE701 /* PhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94648C49225D7723002AE701 /* PhotoScreen.swift */; };
+		94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94648C4B225D7738002AE701 /* PhotoScreen.xib */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -156,6 +158,8 @@
 		9425690E224D8ED9001F63CC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		94256911224ECE76001F63CC /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		94648C49225D7723002AE701 /* PhotoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScreen.swift; sourceTree = "<group>"; };
+		94648C4B225D7738002AE701 /* PhotoScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoScreen.xib; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				949E48382237370F00B931F9 /* CameraView.swift */,
 				9425690A224D856C001F63CC /* ProfileScreen.xib */,
 				9425690C224D85CD001F63CC /* ProfileScreen.swift */,
+				94648C49225D7723002AE701 /* PhotoScreen.swift */,
+				94648C4B225D7738002AE701 /* PhotoScreen.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 			files = (
 				A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */,
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
+				94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */,
 				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
 				94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */,
@@ -866,6 +873,7 @@
 				94FD1D362256B03F007464B4 /* List.swift in Sources */,
 				9413EA94224B20AD00C97862 /* Spinner.swift in Sources */,
 				94FD1D2F2256B03F007464B4 /* Attachment.swift in Sources */,
+				94648C4A225D7723002AE701 /* PhotoScreen.swift in Sources */,
 				94FD1D262256B03F007464B4 /* Decodable.swift in Sources */,
 				9413EA34224486DC00C97862 /* Storage.swift in Sources */,
 				94FD1D2A2256B03F007464B4 /* Report.swift in Sources */,

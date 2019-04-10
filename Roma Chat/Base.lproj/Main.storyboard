@@ -126,6 +126,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96a-Wu-sJs" userLabel="MainContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQM-hQ-H8g" userLabel="CameraViewContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ihc-mi-8Bi" customClass="CameraView" customModule="Roma_Chat" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Ihc-mi-8Bi" secondAttribute="trailing" id="0Ev-9j-rYj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ihc-mi-8Bi" secondAttribute="bottom" id="9Y4-ks-Ghn"/>
+                                            <constraint firstItem="Ihc-mi-8Bi" firstAttribute="top" secondItem="iQM-hQ-H8g" secondAttribute="top" id="YFh-3A-BTh"/>
+                                            <constraint firstItem="Ihc-mi-8Bi" firstAttribute="leading" secondItem="iQM-hQ-H8g" secondAttribute="leading" id="bfP-ic-K63"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-OM-N6Z" userLabel="ScreenContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
@@ -180,6 +196,7 @@
                                                         <color key="backgroundColor" red="0.44456096776070375" green="0.0" blue="0.9172227287798409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="UUp-T7-r0w" firstAttribute="trailing" secondItem="4gv-iB-XMm" secondAttribute="leading" id="0gZ-Eo-uyG"/>
                                                     <constraint firstAttribute="trailing" secondItem="4gv-iB-XMm" secondAttribute="trailing" id="AMX-05-9xz"/>
@@ -195,7 +212,7 @@
                                                 </constraints>
                                             </scrollView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="fje-n9-70L" secondAttribute="bottom" id="SJa-2C-e22"/>
                                             <constraint firstItem="fje-n9-70L" firstAttribute="top" secondItem="X5F-OM-N6Z" secondAttribute="top" id="Tyr-sO-wcX"/>
@@ -321,7 +338,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTm-O4-kNA" userLabel="btnConversation">
                                                                 <rect key="frame" x="41.5" y="18" width="42" height="34"/>
                                                                 <state key="normal" title="Conv">
-                                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="btnConversationClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="Co4-NK-Ct8"/>
@@ -340,7 +357,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-GB-hFm" userLabel="btnGallery">
                                                                 <rect key="frame" x="38.5" y="20" width="48" height="30"/>
                                                                 <state key="normal" title="Gallery">
-                                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                             </button>
                                                         </subviews>
@@ -356,7 +373,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENC-CA-5cQ" userLabel="btnFeed">
                                                                 <rect key="frame" x="45.5" y="20" width="34" height="30"/>
                                                                 <state key="normal" title="Feed">
-                                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="btnFeedClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="ykC-fT-PDk"/>
@@ -404,22 +421,34 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-yY-BYc" userLabel="PhotoScreen" customClass="PhotoScreen" customModule="Roma_Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="rSO-yY-BYc" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="048-JH-kPy"/>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="3EG-Lk-MZd"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSO-yY-BYc" secondAttribute="trailing" id="9Lu-dG-VPu"/>
+                                    <constraint firstAttribute="trailing" secondItem="iQM-hQ-H8g" secondAttribute="trailing" id="BDZ-Gx-fUz"/>
                                     <constraint firstItem="XDr-wc-4YE" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="Exa-fl-wYD"/>
                                     <constraint firstItem="srI-es-0EX" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" constant="30" id="NX3-Gq-ktr"/>
+                                    <constraint firstAttribute="bottom" secondItem="rSO-yY-BYc" secondAttribute="bottom" id="OhS-i4-j0m"/>
                                     <constraint firstItem="XDr-wc-4YE" firstAttribute="height" secondItem="96a-Wu-sJs" secondAttribute="height" id="QJy-pd-9vt"/>
                                     <constraint firstItem="XDr-wc-4YE" firstAttribute="centerX" secondItem="96a-Wu-sJs" secondAttribute="centerX" id="SxO-Yh-cRL"/>
                                     <constraint firstItem="srI-es-0EX" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="Tyw-ec-lZO"/>
+                                    <constraint firstAttribute="bottom" secondItem="iQM-hQ-H8g" secondAttribute="bottom" id="Uk8-FV-fUo"/>
                                     <constraint firstItem="XDr-wc-4YE" firstAttribute="width" secondItem="96a-Wu-sJs" secondAttribute="width" id="VTU-Iq-FD5"/>
                                     <constraint firstAttribute="trailing" secondItem="6Qz-pS-SVq" secondAttribute="trailing" id="cKS-Pl-6GQ"/>
                                     <constraint firstAttribute="trailing" secondItem="srI-es-0EX" secondAttribute="trailing" id="d4F-G9-7is"/>
                                     <constraint firstItem="6Qz-pS-SVq" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="ftB-nM-AeE"/>
                                     <constraint firstAttribute="bottom" secondItem="X5F-OM-N6Z" secondAttribute="bottom" id="hsP-By-ZRB"/>
                                     <constraint firstItem="z24-8k-Ruj" firstAttribute="top" secondItem="srI-es-0EX" secondAttribute="bottom" id="kAj-6e-CGD"/>
+                                    <constraint firstItem="rSO-yY-BYc" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="kVJ-HN-gzk"/>
+                                    <constraint firstItem="iQM-hQ-H8g" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="kYx-on-Mqk"/>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="lAg-4b-GY2"/>
+                                    <constraint firstItem="iQM-hQ-H8g" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="nOV-qs-RlJ"/>
                                     <constraint firstAttribute="bottom" secondItem="6Qz-pS-SVq" secondAttribute="bottom" id="vuu-le-1XM"/>
                                     <constraint firstAttribute="trailing" secondItem="X5F-OM-N6Z" secondAttribute="trailing" id="ySn-z1-YUB"/>
                                 </constraints>
@@ -437,6 +466,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VyQ-Uy-qKX"/>
                     <connections>
+                        <outlet property="cameraView" destination="Ihc-mi-8Bi" id="9mr-38-nO4"/>
                         <outlet property="cnstCollapseTransparentView" destination="KvR-C6-1kc" id="DLA-0X-Mro"/>
                         <outlet property="cnstExpandTransparentView" destination="v8M-Hm-0At" id="qxM-F0-MRh"/>
                         <outlet property="conversationContainerScrollView" destination="iRB-Ta-bF2" id="fxb-Zi-qsV"/>
@@ -445,6 +475,7 @@
                         <outlet property="conversationScreen" destination="z24-8k-Ruj" id="tBr-hj-PZt"/>
                         <outlet property="feedContainerView" destination="4gv-iB-XMm" id="dBB-pB-3Di"/>
                         <outlet property="masterContainerView" destination="96a-Wu-sJs" id="Ry7-Vi-foK"/>
+                        <outlet property="photoScreen" destination="rSO-yY-BYc" id="4Nc-kl-ocp"/>
                         <outlet property="profileScreen" destination="XDr-wc-4YE" id="YxR-Iv-9YB"/>
                         <outlet property="screenContainerScrollView" destination="fje-n9-70L" id="mv3-GE-ZGs"/>
                         <outlet property="transparentView" destination="UUp-T7-r0w" id="M1B-or-6dc"/>
