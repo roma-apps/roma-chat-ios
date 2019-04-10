@@ -8,15 +8,11 @@
 
 import UIKit
 
-class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class LandingViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtServerUrl: UITextField!
     @IBOutlet weak var btnGo: UIButton!
-    
-    @IBOutlet weak var urlPickerView: UIPickerView!
-    
-    let urls: [String] = ["mastodon.social", "social.im", "social.myfreecams.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +28,7 @@ class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        txtServerUrl.text = urls[0]
+        txtServerUrl.text = ""
     }
 
     //TODO: Fix up scrolling only when overlapping views
@@ -56,30 +52,27 @@ class LandingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func btnGoPressed(_ sender: UIButton) {
-        guard let url = txtServerUrl.text else { return }
-        AuthenticationManager.shared.authenticate(url) { safariVC in
-            UIApplication.shared.keyWindow?.rootViewController?.present(safariVC, animated: true, completion: nil)
+        if let url = txtServerUrl.text, !url.isEmpty {
+            AuthenticationManager.shared.authenticate(url) { safariVC, error in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
+                    }
+                    return
+                }
+                guard let safariVC = safariVC else { return }
+                UIApplication.shared.keyWindow?.rootViewController?.present(safariVC, animated: true, completion: nil)
+            }
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Please enter a server url.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+          
         }
-    }
-    
-    
-    //MARK: - Picker View
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return urls.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return urls[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        txtServerUrl.text = urls[row]
-    }
 
+    }
+    
 }
 

@@ -16,7 +16,7 @@ struct AuthenticationManager {
     
     static var shared = AuthenticationManager()
     
-    func authenticate(_ text: String, proceed: @escaping (SFSafariViewController) -> ()) {
+    func authenticate(_ text: String, proceed: @escaping (SFSafariViewController?, String?) -> ()) {
             StoreStruct.client = Client(baseURL: "https://\(text)")
             let request = Clients.register(
                 clientName: "Romachat",
@@ -26,7 +26,13 @@ struct AuthenticationManager {
             )
             StoreStruct.client.run(request) { (application) in
                 
-                if application.value == nil {} else {
+                if application.value == nil {
+                    if let error = application.error {
+                        proceed(nil, error.localizedDescription)
+                    } else {
+                        proceed(nil, "Error occured when trying to connect to the server.")
+                    }
+                } else {
                     
                     let application = application.value!
                     
@@ -39,7 +45,7 @@ struct AuthenticationManager {
                         let queryURL = URL(string: "https://\(text)/oauth/authorize?response_type=code&redirect_uri=\(StoreStruct.shared.currentInstance.redirect)&scope=read%20write%20follow%20push&client_id=\(application.clientID)")!
                         UIApplication.shared.open(queryURL, options: [.universalLinksOnly: true]) { (success) in
                             if !success {
-                                proceed(SFSafariViewController(url: queryURL))
+                                proceed(SFSafariViewController(url: queryURL), nil)
                             }
                         }
                     }

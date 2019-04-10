@@ -80,19 +80,9 @@
                                     <constraint firstAttribute="trailing" secondItem="Z0O-LC-QgX" secondAttribute="trailing" id="a1E-MR-8G9"/>
                                 </constraints>
                             </scrollView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYm-lG-JgG" userLabel="URL Picker">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="7oH-iC-hfs"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pd5-ai-aeh"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CYm-lG-JgG" firstAttribute="trailing" secondItem="Ojc-Pd-d98" secondAttribute="trailing" id="42L-7T-OHb"/>
-                            <constraint firstItem="CYm-lG-JgG" firstAttribute="bottom" secondItem="Ojc-Pd-d98" secondAttribute="bottom" id="54A-Lz-d65"/>
-                            <constraint firstItem="CYm-lG-JgG" firstAttribute="leading" secondItem="Ojc-Pd-d98" secondAttribute="leading" id="5Ha-zV-bKd"/>
                             <constraint firstItem="Ojc-Pd-d98" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="9bm-UL-HNe"/>
                             <constraint firstAttribute="bottom" secondItem="Ojc-Pd-d98" secondAttribute="bottom" id="Gkc-Lf-7C7"/>
                             <constraint firstItem="Ojc-Pd-d98" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="URm-oA-DJB"/>
@@ -108,7 +98,6 @@
                         <outlet property="btnGo" destination="WQ8-HK-mCv" id="DFx-7K-oaR"/>
                         <outlet property="scrollView" destination="Ojc-Pd-d98" id="NHi-T2-U5q"/>
                         <outlet property="txtServerUrl" destination="5Sw-Et-j7o" id="txB-He-C25"/>
-                        <outlet property="urlPickerView" destination="CYm-lG-JgG" id="eqd-WL-9J5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
