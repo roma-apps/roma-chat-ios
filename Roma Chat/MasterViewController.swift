@@ -46,6 +46,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
     
+    @IBOutlet weak var conversationListLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cameraView: CameraView!
     @IBOutlet weak var photoScreen: PhotoScreen!
     @IBOutlet weak var screenContainerView: UIView!
@@ -75,6 +76,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         cameraView.delegate = self
         photoScreen.delegate = self
+        
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = .white
+        
         fetchInitialData()
     }
     
@@ -97,11 +102,16 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     //MARK: - Data Fetch
     
     private func fetchInitialData() {
+        conversationListLoadingIndicator.isHidden = false
+        conversationListLoadingIndicator.startAnimating()
         ApiManager.shared.fetchConversations { [weak self] in
             DispatchQueue.main.async {
                 self?.conversationList.initData(StoreStruct.conversations)
                 self?.conversationListTableView.reloadData()
                 self?.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
+                self?.conversationListLoadingIndicator.stopAnimating()
+                self?.conversationListLoadingIndicator.isHidden = true
+
             }
         }
     }
@@ -186,6 +196,22 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationScreen.refreshData()
         conversationScreen.avatar = avatar
         showConversationScreen(.Conversation, animated: true)
+    }
+    
+    func refreshConversations(completion: @escaping () -> ()) {
+        self.conversationListLoadingIndicator.isHidden = false
+        self.conversationListLoadingIndicator.startAnimating()
+        ApiManager.shared.fetchConversations { [weak self] in
+            DispatchQueue.main.async {
+                self?.conversationList.initData(StoreStruct.conversations)
+                self?.conversationListTableView.reloadData()
+                self?.conversationList.setupViews() //This needs to be done after the data fetch to ensure the table size is taken into account
+                self?.conversationListLoadingIndicator.stopAnimating()
+                self?.conversationListLoadingIndicator.isHidden = true
+
+                completion()
+            }
+        }
     }
     
     //MARK: - View modifications

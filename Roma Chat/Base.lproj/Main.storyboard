@@ -161,6 +161,9 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZX-ai-Vmh" userLabel="ConversationListScreen">
                                                                         <rect key="frame" x="375" y="0.0" width="375" height="667"/>
                                                                         <subviews>
+                                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-tc-gEJ">
+                                                                                <rect key="frame" x="177.5" y="60" width="20" height="20"/>
+                                                                            </activityIndicatorView>
                                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-2A-bgh">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,6 +173,8 @@
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="e2e-2A-bgh" secondAttribute="bottom" id="4du-tl-J7b"/>
+                                                                            <constraint firstItem="ek0-tc-gEJ" firstAttribute="centerX" secondItem="2ZX-ai-Vmh" secondAttribute="centerX" id="E2e-wV-Apu"/>
+                                                                            <constraint firstItem="ek0-tc-gEJ" firstAttribute="top" secondItem="2ZX-ai-Vmh" secondAttribute="top" constant="60" id="Ka4-6K-a4n"/>
                                                                             <constraint firstItem="e2e-2A-bgh" firstAttribute="leading" secondItem="2ZX-ai-Vmh" secondAttribute="leading" id="Kit-dY-MKv"/>
                                                                             <constraint firstItem="e2e-2A-bgh" firstAttribute="top" secondItem="2ZX-ai-Vmh" secondAttribute="top" id="ev4-Di-gHj"/>
                                                                             <constraint firstAttribute="trailing" secondItem="e2e-2A-bgh" secondAttribute="trailing" id="i5o-lU-h45"/>
@@ -269,7 +274,7 @@
                                                     <constraint firstItem="zvw-ff-hRR" firstAttribute="centerY" secondItem="h9U-1e-4wm" secondAttribute="centerY" id="uyW-xo-mGX"/>
                                                 </constraints>
                                             </view>
-                                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-FG-OyU">
+                                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-FG-OyU">
                                                 <rect key="frame" x="60" y="0.0" width="205" height="60"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
@@ -500,6 +505,7 @@
                         <outlet property="cnstExpandTransparentView" destination="v8M-Hm-0At" id="qxM-F0-MRh"/>
                         <outlet property="conversationContainerScrollView" destination="iRB-Ta-bF2" id="fxb-Zi-qsV"/>
                         <outlet property="conversationContainerView" destination="C5v-WF-jkt" id="bB6-Ff-sRg"/>
+                        <outlet property="conversationListLoadingIndicator" destination="ek0-tc-gEJ" id="2wk-da-e8q"/>
                         <outlet property="conversationListScreen" destination="2ZX-ai-Vmh" id="UTG-ws-sT8"/>
                         <outlet property="conversationListTableView" destination="e2e-2A-bgh" id="4ta-tL-nvj"/>
                         <outlet property="conversationScreen" destination="z24-8k-Ruj" id="tBr-hj-PZt"/>

@@ -10,6 +10,7 @@ import UIKit
 
 protocol ConversationListScreenDelegate: AnyObject {
     func conversationClicked(conversation: RomaConversation, avatar: UIImage?)
+    func refreshConversations(completion: @escaping () -> ())
 }
 
 class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSource {
@@ -20,7 +21,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     
     let backgroundBlue = UIColor(red: (51/255.0), green: (174/255.0), blue: (248/255.0), alpha: 1.0)
 
-    
+    var fetchingConversations = true
     weak var delegate: ConversationListScreenDelegate?
     weak var conversationListScreen: UIView?
     weak var tableView: UITableView?
@@ -31,6 +32,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func initData(_ conversations: [RomaConversation]) {
+        fetchingConversations = false
         self.conversationsData = conversations
     }
     
@@ -103,6 +105,17 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         relayoutBackground()
+        
+        if fetchingConversations { return }
+        if -scrollView.contentOffset.y > UIScreen.main.bounds.height/4 {
+            //Refresh list
+            fetchingConversations = true
+            self.delegate?.refreshConversations {
+                print("done fetching")
+                
+            }
+            
+        }
     }
     
     private func relayoutBackground() {
