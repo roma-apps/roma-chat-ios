@@ -78,7 +78,8 @@ class CameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     func prepareCamera() {
-        captureSession.sessionPreset = .photo
+//        captureSession.sessionPreset = .photo
+        captureSession.sessionPreset = .hd1920x1080
         
         let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .front).devices
         captureDevice = availableDevices.first

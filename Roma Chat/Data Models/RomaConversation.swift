@@ -41,6 +41,22 @@ public class RomaConversation {
         }
     }
     
+    init(_ firstStatus: Status, messages: [Status?]) {
+        self.id = firstStatus.account.id
+        self.accounts = [firstStatus.account] //TODO: add all accounts included in statuses
+        self.lastStatus = nil //TODO: fix
+        self.unread = false //TODO: determine this
+        
+        //init local properties
+        self.messages = messages
+        
+        //Lazy fetch the avatar image
+        guard let account = self.accounts.last else { return }
+        ApiManager.shared.fetchAvatarForAccount(account: account) { [weak self] image in
+            self?.avatarThumbnailImage = image
+        }
+    }
+    
 
 }
 

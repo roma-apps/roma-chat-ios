@@ -101,17 +101,21 @@ struct AuthenticationManager {
                             UserDefaults.standard.set(try? PropertyListEncoder().encode(instances), forKey:"instances")
                             InstanceData.setCurrentInstance(instance: currentInstance)
                             AuthenticationManager.shared.saveCurrentUserInfo()
-                            let request = Conversations.conversations()
+                            let request = Timelines.direct()
                             StoreStruct.client.run(request) { (directMessages) in
                                 if let dms = (directMessages.value) {
                                     DispatchQueue.main.async {
-                                        StoreStruct.directMessages = NSOrderedSet(array: dms).array as! [Conversation] //remove duplicates
+                                        StoreStruct.statusesDirect = NSOrderedSet(array: dms).array as! [Status] //remove duplicates
                                         proceed(true)
 //                                        NotificationCenter.default.post(name: Notification.Name(rawValue: "refresh"), object: nil)
 //                                        NotificationCenter.default.post(name: Notification.Name(rawValue: "refProf"), object: nil)
                                     }
+                                } else {
+                                    
                                 }
                             }
+                            
+                        } else {
                             
                         }
                     }

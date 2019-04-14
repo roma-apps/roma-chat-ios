@@ -19,6 +19,17 @@ public struct Timelines {
 
         return Request<[Status]>(path: "/api/v1/timelines/home", method: method)
     }
+    
+    /// Retrieves the direct timeline.
+    ///
+    /// - Parameter range: The bounds used when requesting data from Mastodon.
+    /// - Returns: Request for `[Status]`.
+    public static func direct(range: RequestRange = .default) -> Request<[Status]> {
+        let parameters = range.parameters(limit: between(1, and: 40, default: 20))
+        let method = HTTPMethod.get(.parameters(parameters))
+        
+        return Request<[Status]>(path: "/api/v1/timelines/direct", method: method)
+    }
 
     /// Retrieves the public timeline.
     ///

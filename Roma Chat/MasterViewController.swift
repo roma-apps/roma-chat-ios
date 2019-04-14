@@ -50,6 +50,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var cameraView: CameraView!
     @IBOutlet weak var photoScreen: PhotoScreen!
     @IBOutlet weak var screenContainerView: UIView!
+    @IBOutlet weak var emptyConversationList: UIView!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -104,9 +105,18 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     private func fetchInitialData() {
         conversationListLoadingIndicator.isHidden = false
         conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchConversations { [weak self] in
+        ApiManager.shared.fetchDirectTimelines { [weak self] in
             DispatchQueue.main.async {
-                self?.conversationList.initData(StoreStruct.conversations)
+                let conversations = StoreStruct.conversations
+                if conversations.isEmpty {
+                    //display empty table
+                    self?.emptyConversationList.isHidden = false
+                    self?.conversationListLoadingIndicator.stopAnimating()
+                    self?.conversationListLoadingIndicator.isHidden = true
+                    return
+                }
+                self?.emptyConversationList.isHidden = true
+                self?.conversationList.initData(conversations)
                 self?.conversationListTableView.reloadData()
                 self?.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
                 self?.conversationListLoadingIndicator.stopAnimating()
@@ -201,9 +211,19 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func refreshConversations(completion: @escaping () -> ()) {
         self.conversationListLoadingIndicator.isHidden = false
         self.conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchConversations { [weak self] in
+        ApiManager.shared.fetchDirectTimelines { [weak self] in
             DispatchQueue.main.async {
-                self?.conversationList.initData(StoreStruct.conversations)
+                let conversations = StoreStruct.conversations
+                if conversations.isEmpty {
+                    //display empty table
+                    self?.emptyConversationList.isHidden = false
+                    self?.conversationListLoadingIndicator.stopAnimating()
+                    self?.conversationListLoadingIndicator.isHidden = true
+                    completion()
+                    return
+                }
+                self?.emptyConversationList.isHidden = true
+                self?.conversationList.initData(conversations)
                 self?.conversationListTableView.reloadData()
                 self?.conversationList.setupViews() //This needs to be done after the data fetch to ensure the table size is taken into account
                 self?.conversationListLoadingIndicator.stopAnimating()

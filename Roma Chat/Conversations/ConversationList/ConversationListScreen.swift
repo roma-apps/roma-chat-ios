@@ -22,6 +22,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     let backgroundBlue = UIColor(red: (51/255.0), green: (174/255.0), blue: (248/255.0), alpha: 1.0)
 
     var fetchingConversations = true
+    var refreshTriggered = false
     weak var delegate: ConversationListScreenDelegate?
     weak var conversationListScreen: UIView?
     weak var tableView: UITableView?
@@ -39,14 +40,17 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
     func setupViews() {
         guard let conversationListScreen = conversationListScreen else { return }
         
-        backgroundView = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 200))
-        guard let backgroundView = backgroundView else { return }
-        
-        backgroundView.contentMode = .scaleAspectFill
-        backgroundView.clipsToBounds = true
-        backgroundView.backgroundColor = backgroundBlue
-        conversationListScreen.addSubview(backgroundView)
-        conversationListScreen.sendSubviewToBack(backgroundView)
+        if backgroundView == nil {
+            backgroundView = UIView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.size.width, height: 200))
+            guard let backgroundView = backgroundView else { return }
+            
+            backgroundView.contentMode = .scaleAspectFill
+            backgroundView.clipsToBounds = true
+            backgroundView.backgroundColor = backgroundBlue
+            conversationListScreen.addSubview(backgroundView)
+            conversationListScreen.sendSubviewToBack(backgroundView)
+        }
+
         relayoutBackground()
     }
     
@@ -103,18 +107,24 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        relayoutBackground()
-        
-        if fetchingConversations { return }
-        if -scrollView.contentOffset.y > UIScreen.main.bounds.height/4 {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if refreshTriggered {
+            refreshTriggered = false
+            if fetchingConversations { return }
             //Refresh list
             fetchingConversations = true
             self.delegate?.refreshConversations {
                 print("done fetching")
-                
             }
-            
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        relayoutBackground()
+        if fetchingConversations { return }
+        if -scrollView.contentOffset.y > UIScreen.main.bounds.height/4 {
+            //Refresh list
+            refreshTriggered = true
         }
     }
     

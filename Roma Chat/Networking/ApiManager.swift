@@ -40,6 +40,45 @@ struct ApiManager {
         }
     }
     
+    /// Fetches the list of timelines from the Plemora API for the currently signed in user account.
+    func fetchDirectTimelines(completion: @escaping () -> ()) {
+        let request = Timelines.direct()
+        StoreStruct.client.run(request) { (statuses) in
+            if let stat = (statuses.value) {
+                StoreStruct.statusesDirect = stat
+                StoreStruct.statusesDirect = NSOrderedSet(array: StoreStruct.statusesDirect).array as! [Status]
+                NotificationCenter.default.post(name: NotificationName.shared.timelines, object: nil)
+
+                //Concatenate messages from same user into one RomaConversation
+
+                let groupedDirectMessages = Dictionary(grouping: StoreStruct.statusesDirect, by: { $0.account.id })
+                var filteredConversations = [String: [Status]]()
+                for key in groupedDirectMessages {
+                    var tempConversations = key.value
+
+                    tempConversations.sort {
+                        return $0.createdAt < $1.createdAt
+                    }
+
+                    filteredConversations[key.key] = tempConversations
+                }
+
+                //convert filetered conversations into RomaConversation
+                var romaConversations = [RomaConversation]()
+                for key in filteredConversations {
+                    guard let firstConversation = key.value.first else { continue }
+                    let conversationMessages = key.value.map { $0 }
+                    let romaConversation = RomaConversation(firstConversation, messages: conversationMessages)
+                    romaConversations.append(romaConversation)
+                }
+
+                StoreStruct.conversations = romaConversations
+
+                completion()
+            }
+        }
+    }
+    
     /// Fetches the list of conversations from the Plemora API for the currently signed in user account.
     func fetchConversations(completion: @escaping () -> ()) {
         let request = Conversations.conversations()
