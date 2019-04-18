@@ -105,7 +105,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     private func fetchInitialData() {
         conversationListLoadingIndicator.isHidden = false
         conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchDirectTimelines { [weak self] in
+        ApiManager.shared.fetchConversations { [weak self] in
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
@@ -211,7 +211,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func refreshConversations(completion: @escaping () -> ()) {
         self.conversationListLoadingIndicator.isHidden = false
         self.conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchDirectTimelines { [weak self] in
+        ApiManager.shared.fetchConversations { [weak self] in
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
