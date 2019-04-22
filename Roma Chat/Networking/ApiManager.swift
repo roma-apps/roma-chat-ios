@@ -80,7 +80,7 @@ struct ApiManager {
     }
     
     /// Fetches the list of conversations from the Plemora API for the currently signed in user account.
-    func fetchConversations(completion: @escaping () -> ()) {
+    func fetchConversations(completion: @escaping (Error?) -> ()) {
         let request = Conversations.conversations()
         StoreStruct.client.run(request) { (directMessages) in
             if let convos = (directMessages.value) {
@@ -121,7 +121,11 @@ struct ApiManager {
                 StoreStruct.conversations = romaConversations
 
 
-                completion()
+                completion(nil)
+            } else {
+                if let error = directMessages.error {
+                    completion(error)
+                }
             }
         }
     }

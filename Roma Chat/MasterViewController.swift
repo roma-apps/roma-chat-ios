@@ -105,7 +105,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     private func fetchInitialData() {
         conversationListLoadingIndicator.isHidden = false
         conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchConversations { [weak self] in
+        ApiManager.shared.fetchConversations { [weak self] error in
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
@@ -113,6 +113,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
                     self?.emptyConversationList.isHidden = false
                     self?.conversationListLoadingIndicator.stopAnimating()
                     self?.conversationListLoadingIndicator.isHidden = true
+                    if let error = error {
+                        let alert = UIAlertController.init(title: "Conversation Fetch Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self?.navigationController?.present(alert, animated: true, completion: nil)
+                    }
                     return
                 }
                 self?.emptyConversationList.isHidden = true
@@ -211,7 +216,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func refreshConversations(completion: @escaping () -> ()) {
         self.conversationListLoadingIndicator.isHidden = false
         self.conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchConversations { [weak self] in
+        ApiManager.shared.fetchConversations { [weak self] error in
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
@@ -219,6 +224,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
                     self?.emptyConversationList.isHidden = false
                     self?.conversationListLoadingIndicator.stopAnimating()
                     self?.conversationListLoadingIndicator.isHidden = true
+                    if let error = error {
+                        let alert = UIAlertController.init(title: "Conversation Fetch Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self?.navigationController?.present(alert, animated: true, completion: nil)
+                    }
                     completion()
                     return
                 }
