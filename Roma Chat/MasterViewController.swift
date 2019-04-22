@@ -93,6 +93,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     }
     
     private func initViews() {
+        modifyBackgroundColor(visible: false)
         moveToScreen(screen: .Transparent, animated: false)
         showConversationScreen(.ConversationList, animated: false)
         self.conversationList.conversationListScreen = self.conversationListScreen
@@ -370,44 +371,84 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        if scrollView != self.screenContainerScrollView { return }
         
-        
-        //
-        //        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-        //        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-        //
-        //        // vertical
-        //        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-        //        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-        //
-        //        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-        //        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-        //
-        //
+        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
+        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
+
+        // vertical
+//        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
+//        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
+
+        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
+//        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
+
+
         /*
          * below code changes the background color of view on paging the scrollview
          */
-        //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
+        
+        scrollViewDidScrollToPercentageOffset(scrollView: scrollView, horizontalPercentageOffset: percentageHorizontalOffset)
         
         
-        /*
-         * below code scales the imageview on paging the scrollview
-         */
-        //        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-        //
-        //        if(percentOffset.x > 0 && percentOffset.x <= 0.33) {
-        //
-        //            conversationContainerView.transform = CGAffineTransform(scaleX: (0.33-percentOffset.x)/0.33, y: (0.33-percentOffset.x)/0.33)
-        //            transparentView.transform = CGAffineTransform(scaleX: percentOffset.x/0.33, y: percentOffset.x/0.33)
-        //
-        //        } else if(percentOffset.x > 0.33 && percentOffset.x <= 0.66) {
-        //            transparentView.transform = CGAffineTransform(scaleX: (0.66-percentOffset.x)/0.33, y: (0.66-percentOffset.x)/0.33)
-        //            feedContainerView.transform = CGAffineTransform(scaleX: percentOffset.x/0.66, y: percentOffset.x/0.66)
-        //
-        //        } else if(percentOffset.x > 0.66 && percentOffset.x <= 1) {
-        //            transparentView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.33, y: (0.75-percentOffset.x)/0.33)
-        //            feedContainerView.transform = CGAffineTransform(scaleX: percentOffset.x/1, y: percentOffset.x/1)
-        //        }
+//        /*
+//         * below code scales the imageview on paging the scrollview
+//         */
+//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
+//
+
+    }
+    
+    // this just gets the percentage offset.
+    // 0,0 = no scroll
+    // 1,1 = maximum scroll
+
+    func scrollViewDidScrollToPercentageOffset(scrollView: UIScrollView, horizontalPercentageOffset: CGFloat) {
+        
+        let x = horizontalPercentageOffset
+        //math
+        // 0.5 % offset === alpha = 0
+        // 0.7 || 0.3 % offset == alpha 1
+        // 0.7 <-> 0.5 == 1 <-> 0 <-> 1 == 0.5 <-> 0.3
+        
+        //recalculate perfect offset in range
+        
+        // if x <= 0.3 || x >= 0.7 -> alpha = 1
+        // if x == 0.5 alpha = 0
+        // if x > 0.3 && x < 0.5
+            // calculate x as % of range 0.3 ... 0.5 and set alpha as 1 ... 0
+        // if x < 0.7 && x > 0.5
+            // calculate x as % of 0.5 ... 0.7 and set alpha 0 ... 1
+        
+        let leftEdge = CGFloat(0.2)
+        let rightEdge = CGFloat(0.8)
+        let middle = CGFloat(0.5)
+        
+        if x <= leftEdge || x >= rightEdge {
+            backgroundColorView.alpha = 1
+        } else if x == middle {
+            backgroundColorView.alpha = 0
+        } else {
+            if x > leftEdge && x < middle {
+                let max = middle - leftEdge
+                let scaledX = x - leftEdge
+                let percentageOffset = scaledX / CGFloat(max) //max = 0.5 - 0.3
+                backgroundColorView.alpha = 1 - percentageOffset // let alpha = inverted percect offset
+            } else if x < rightEdge && x > middle {
+                let scaledX = x - middle
+                let max = rightEdge - middle
+                let percentageOffset = scaledX / CGFloat(max) // max = 0.7 - 0.5
+                backgroundColorView.alpha = percentageOffset
+            }
+        }
+    }
+    
+    func modifyBackgroundColor(visible: Bool) {
+        if visible {
+            backgroundColorView.alpha = 1
+        } else {
+            backgroundColorView.alpha = 0
+        }
     }
     
     

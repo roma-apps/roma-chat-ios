@@ -389,10 +389,10 @@
                                                             <constraint firstItem="hTm-O4-kNA" firstAttribute="centerX" secondItem="4b9-Bf-ojN" secondAttribute="centerX" id="ccg-zu-dnC"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWI-3g-Oe1" userLabel="GalleryButton">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWI-3g-Oe1" userLabel="CameraButton">
                                                         <rect key="frame" x="125" y="0.0" width="125" height="130"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-GB-hFm" userLabel="btnGallery">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgy-GB-hFm" userLabel="btnCamera">
                                                                 <rect key="frame" x="22.5" y="25" width="80" height="80"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="cgy-GB-hFm" secondAttribute="height" multiplier="1:1" id="ci4-Ls-Umd"/>
@@ -462,25 +462,20 @@
                                     </view>
                                     <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDr-wc-4YE" userLabel="ProfileScreen" customClass="ProfileScreen" customModule="Roma_Chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <subviews>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-yY-BYc" userLabel="PhotoScreen" customClass="PhotoScreen" customModule="Roma_Chat" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="rSO-yY-BYc" firstAttribute="leading" secondItem="XDr-wc-4YE" secondAttribute="leading" id="6z2-SF-VhR"/>
-                                            <constraint firstItem="rSO-yY-BYc" firstAttribute="top" secondItem="XDr-wc-4YE" secondAttribute="top" id="nZE-Ic-qOm"/>
-                                            <constraint firstAttribute="trailing" secondItem="rSO-yY-BYc" secondAttribute="trailing" id="vvW-vB-vzb"/>
-                                            <constraint firstAttribute="bottom" secondItem="rSO-yY-BYc" secondAttribute="bottom" id="wrB-bn-Nkq"/>
-                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSO-yY-BYc" userLabel="PhotoScreen" customClass="PhotoScreen" customModule="Roma_Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="rSO-yY-BYc" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="2rN-Lo-Wqd"/>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="3EG-Lk-MZd"/>
+                                    <constraint firstItem="rSO-yY-BYc" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="4uM-lT-xYj"/>
                                     <constraint firstAttribute="trailing" secondItem="iQM-hQ-H8g" secondAttribute="trailing" id="BDZ-Gx-fUz"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSO-yY-BYc" secondAttribute="trailing" id="E5w-8B-Rvu"/>
                                     <constraint firstItem="XDr-wc-4YE" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="Exa-fl-wYD"/>
                                     <constraint firstItem="srI-es-0EX" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" constant="30" id="NX3-Gq-ktr"/>
                                     <constraint firstAttribute="trailing" secondItem="5Ud-1T-MeV" secondAttribute="trailing" id="QFM-yG-R6B"/>
@@ -495,6 +490,7 @@
                                     <constraint firstItem="6Qz-pS-SVq" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="ftB-nM-AeE"/>
                                     <constraint firstAttribute="bottom" secondItem="X5F-OM-N6Z" secondAttribute="bottom" id="hsP-By-ZRB"/>
                                     <constraint firstItem="5Ud-1T-MeV" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="k6i-Ma-MD6"/>
+                                    <constraint firstAttribute="bottom" secondItem="rSO-yY-BYc" secondAttribute="bottom" id="k88-uq-Lj0"/>
                                     <constraint firstItem="z24-8k-Ruj" firstAttribute="top" secondItem="srI-es-0EX" secondAttribute="bottom" id="kAj-6e-CGD"/>
                                     <constraint firstItem="iQM-hQ-H8g" firstAttribute="top" secondItem="96a-Wu-sJs" secondAttribute="top" id="kYx-on-Mqk"/>
                                     <constraint firstItem="X5F-OM-N6Z" firstAttribute="leading" secondItem="96a-Wu-sJs" secondAttribute="leading" id="lAg-4b-GY2"/>
