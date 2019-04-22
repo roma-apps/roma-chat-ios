@@ -53,7 +53,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var emptyConversationList: UIView!
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var backgroundColorView:UIView!
+    @IBOutlet weak var navHeightConstraint:NSLayoutConstraint!
     
+    var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
     
@@ -139,6 +142,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     }
     
     @IBAction func btnCameraClicked(_ sender: UIButton) {
+        
         let currentPage = page(scrollView: screenContainerScrollView)
         if currentPage == .Transparent {
             #if targetEnvironment(simulator)
@@ -167,6 +171,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         profileScreen.isHidden = false
         profileScreen.delegate = self
+    }
+    
+    @IBAction func btnSwapCameraClicked(_ sender: UIButton){
+        
+        cameraView.swapCamera()
+        
     }
     
     func closeProfileScreen() {
@@ -349,7 +359,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
      * slideScrollView.delegate = self or
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        
+        
+        
         //
         //        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         //        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
@@ -387,5 +399,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         //            feedContainerView.transform = CGAffineTransform(scaleX: percentOffset.x/1, y: percentOffset.x/1)
         //        }
     }
+    
+    
     
 }
