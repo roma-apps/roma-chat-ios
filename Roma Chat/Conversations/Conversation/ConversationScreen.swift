@@ -8,16 +8,25 @@
 
 import UIKit
 
-class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
+class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var conversationTableView: UITableView!
+    @IBOutlet weak var conversationCollectionView: UICollectionView!
     
+    private let reuseIdentifier = "ConversationCell"
+
     var avatar : UIImage?
     
     // Our custom view from the XIB file
     var view: UIView!
     
     var conversation: RomaConversation?
+    
+    var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.size.width
+        layout.estimatedItemSize = CGSize(width: width, height: 10)
+        return layout
+    }()
     
     override init(frame: CGRect) {
         // 1. setup any properties here
@@ -66,9 +75,13 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
 //        //TODO: use current instance to determine corresponding account
 //        let account = accounts[0]
 //        lblAccountName.text = account.username
-        conversationTableView.dataSource = self
-        conversationTableView.delegate = self
-        conversationTableView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellReuseIdentifier: "ConversationCell")
+
+        conversationCollectionView.dataSource = self
+        conversationCollectionView.delegate = self
+        conversationCollectionView.collectionViewLayout = layout
+        conversationCollectionView.alwaysBounceVertical = true
+        conversationCollectionView.contentInsetAdjustmentBehavior = .always
+        conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     func refreshData() {
@@ -80,46 +93,62 @@ class ConversationScreen: UIView, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        conversationTableView.reloadData()
+        conversationCollectionView.reloadData()
         let lastMessageIndex = conversation.messages.count - 1
-        conversationTableView.scrollToRow(at: IndexPath(row: lastMessageIndex, section: 0), at: .none, animated: false)
+        conversationCollectionView.scrollToItem(at: IndexPath(row: lastMessageIndex, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true)
     }
     
     
     //MARK: - UITableViewDelegate & UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let conversation = conversation {
             return conversation.messages.count
         }
         return 0
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ConversationCell") as! ConversationCell
-        
-        if let conversation = conversation {
-            if let status = conversation.messages[indexPath.row] {
-                let username = status.account.username
-                let message = status.content.stripHTML()
-                cell.lblUsername?.text = username
-                cell.lblMessage?.text = message
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ConversationCell {
+            if let conversation = conversation {
+                if let status = conversation.messages[indexPath.row] {
+                    let username = status.account.username
+                    let message = status.content.stripHTML()
+                    cell.lblUsername?.text = username
+                    cell.lblMessage?.text = message
+                }
             }
-        }
         
-        return cell
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
+    //MARK: - Collection View Layout
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let availableWidth = view.frame.width
+//
+//        return CGSize(width: availableWidth, height: 200)
+//    }
+//
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
+        super.traitCollectionDidChange(previousTraitCollection)
+    }
+    
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
+//        layout.invalidateLayout()
+//        super.viewWillTransition(to: size, with: coordinator)
+//    }
 }

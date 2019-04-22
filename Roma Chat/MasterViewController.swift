@@ -376,33 +376,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
 
-        // vertical
-//        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-//        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-//        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-
-
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
         
         scrollViewDidScrollToPercentageOffset(scrollView: scrollView, horizontalPercentageOffset: percentageHorizontalOffset)
-        
-        
-//        /*
-//         * below code scales the imageview on paging the scrollview
-//         */
-//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-//
-
     }
     
     // this just gets the percentage offset.
-    // 0,0 = no scroll
-    // 1,1 = maximum scroll
-
     func scrollViewDidScrollToPercentageOffset(scrollView: UIScrollView, horizontalPercentageOffset: CGFloat) {
         
         let x = horizontalPercentageOffset
