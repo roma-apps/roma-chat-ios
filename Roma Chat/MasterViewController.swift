@@ -142,7 +142,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     }
     
     @IBAction func btnCameraClicked(_ sender: UIButton) {
-        // if
+        
         let currentPage = page(scrollView: screenContainerScrollView)
         if currentPage == .Transparent {
             #if targetEnvironment(simulator)
