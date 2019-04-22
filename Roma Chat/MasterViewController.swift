@@ -360,21 +360,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        // need to check the page index and hide the camera preview is any of the other views are displayed
-        pageIndex = Int(round(scrollView.contentOffset.x/view.frame.width))
-        var colorAlpha:CGFloat = 1
-        var height:CGFloat = 90
-        if pageIndex == 1 {
-            colorAlpha = 0
-            height = 130
-        }
         
-        self.navHeightConstraint.constant = height
-        
-        UIView.animate(withDuration: 0.35) {
-            self.backgroundColorView.alpha = colorAlpha
-            self.view.layoutIfNeeded()
-        }
         
         //
         //        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
