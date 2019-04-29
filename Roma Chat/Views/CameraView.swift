@@ -191,7 +191,7 @@ class CameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
             }
             
             if newVideoInput == nil || err != nil {
-                print("Error creating capture device input: \(err?.localizedDescription)")
+                print("Error creating capture device input: \(String(describing: err?.localizedDescription))")
             } else {
                 captureSession.addInput(newVideoInput)
             }
