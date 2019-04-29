@@ -528,6 +528,7 @@
                         <outlet property="emptyConversationList" destination="tSj-qP-Z0N" id="6Wh-Q7-9Us"/>
                         <outlet property="feedContainerView" destination="4gv-iB-XMm" id="dBB-pB-3Di"/>
                         <outlet property="masterContainerView" destination="96a-Wu-sJs" id="Ry7-Vi-foK"/>
+                        <outlet property="menuView" destination="6Qz-pS-SVq" id="3Bj-XQ-rgN"/>
                         <outlet property="navHeightConstraint" destination="sfa-aC-ird" id="u61-Sp-FkQ"/>
                         <outlet property="photoScreen" destination="rSO-yY-BYc" id="4Nc-kl-ocp"/>
                         <outlet property="profileScreen" destination="XDr-wc-4YE" id="YxR-Iv-9YB"/>

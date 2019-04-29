@@ -56,6 +56,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var backgroundColorView:UIView!
     @IBOutlet weak var navHeightConstraint:NSLayoutConstraint!
     
+    @IBOutlet weak var menuView: UIView!
+    
     var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -78,6 +80,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListTableView.register(UINib(nibName: "ConversationListCell", bundle: nil), forCellReuseIdentifier: "ConversationListCell")
         conversationList.delegate = self
         
+        conversationContainerScrollView.delegate = self
+
         cameraView.delegate = self
         photoScreen.delegate = self
         
@@ -371,11 +375,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView != self.screenContainerScrollView { return }
-        
         let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-
+        
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         
         scrollViewDidScrollToPercentageOffset(scrollView: scrollView, horizontalPercentageOffset: percentageHorizontalOffset)
@@ -384,42 +386,64 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     // this just gets the percentage offset.
     func scrollViewDidScrollToPercentageOffset(scrollView: UIScrollView, horizontalPercentageOffset: CGFloat) {
         
-        let x = horizontalPercentageOffset
-        //math
-        // 0.5 % offset === alpha = 0
-        // 0.7 || 0.3 % offset == alpha 1
-        // 0.7 <-> 0.5 == 1 <-> 0 <-> 1 == 0.5 <-> 0.3
-        
-        //recalculate perfect offset in range
-        
-        // if x <= 0.3 || x >= 0.7 -> alpha = 1
-        // if x == 0.5 alpha = 0
-        // if x > 0.3 && x < 0.5
+        if scrollView == screenContainerScrollView {
+            let x = horizontalPercentageOffset
+            //math
+            // 0.5 % offset === alpha = 0
+            // 0.7 || 0.3 % offset == alpha 1
+            // 0.7 <-> 0.5 == 1 <-> 0 <-> 1 == 0.5 <-> 0.3
+            
+            //recalculate perfect offset in range
+            
+            // if x <= 0.3 || x >= 0.7 -> alpha = 1
+            // if x == 0.5 alpha = 0
+            // if x > 0.3 && x < 0.5
             // calculate x as % of range 0.3 ... 0.5 and set alpha as 1 ... 0
-        // if x < 0.7 && x > 0.5
+            // if x < 0.7 && x > 0.5
             // calculate x as % of 0.5 ... 0.7 and set alpha 0 ... 1
-        
-        let leftEdge = CGFloat(0.2)
-        let rightEdge = CGFloat(0.8)
-        let middle = CGFloat(0.5)
-        
-        if x <= leftEdge || x >= rightEdge {
-            backgroundColorView.alpha = 1
-        } else if x == middle {
-            backgroundColorView.alpha = 0
-        } else {
-            if x > leftEdge && x < middle {
-                let max = middle - leftEdge
+            
+            let leftEdge = CGFloat(0.2)
+            let rightEdge = CGFloat(0.8)
+            let middle = CGFloat(0.5)
+            
+            if x <= leftEdge || x >= rightEdge {
+                backgroundColorView.alpha = 1
+            } else if x == middle {
+                backgroundColorView.alpha = 0
+            } else {
+                if x > leftEdge && x < middle {
+                    let max = middle - leftEdge
+                    let scaledX = x - leftEdge
+                    let percentageOffset = scaledX / CGFloat(max) //max = 0.5 - 0.3
+                    backgroundColorView.alpha = 1 - percentageOffset // let alpha = inverted percect offset
+                } else if x < rightEdge && x > middle {
+                    let scaledX = x - middle
+                    let max = rightEdge - middle
+                    let percentageOffset = scaledX / CGFloat(max) // max = 0.7 - 0.5
+                    backgroundColorView.alpha = percentageOffset
+                }
+            }
+        } else if scrollView == conversationContainerScrollView {
+            let x = horizontalPercentageOffset
+            
+            let leftEdge = CGFloat(0.6)
+            let rightEdge = CGFloat(1)
+            
+            if x <= leftEdge {
+                menuView.alpha = 0
+                menuView.isHidden = true
+            } else if x >= rightEdge {
+                menuView.isHidden = false
+                menuView.alpha = 1
+            } else {
+                if menuView.isHidden { menuView.isHidden = false }
+                let max = rightEdge - leftEdge
                 let scaledX = x - leftEdge
-                let percentageOffset = scaledX / CGFloat(max) //max = 0.5 - 0.3
-                backgroundColorView.alpha = 1 - percentageOffset // let alpha = inverted percect offset
-            } else if x < rightEdge && x > middle {
-                let scaledX = x - middle
-                let max = rightEdge - middle
-                let percentageOffset = scaledX / CGFloat(max) // max = 0.7 - 0.5
-                backgroundColorView.alpha = percentageOffset
+                let percentageOffset = scaledX / CGFloat(max)
+                menuView.alpha = percentageOffset
             }
         }
+
     }
     
     func modifyBackgroundColor(visible: Bool) {

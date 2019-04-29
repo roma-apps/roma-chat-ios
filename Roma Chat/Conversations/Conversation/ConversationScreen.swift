@@ -11,6 +11,7 @@ import UIKit
 class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var conversationCollectionView: UICollectionView!
+    @IBOutlet weak var fakeKeyboardHeightCnst: NSLayoutConstraint!
     
     private let reuseIdentifier = "ConversationCell"
 
@@ -82,7 +83,32 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
         conversationCollectionView.alwaysBounceVertical = true
         conversationCollectionView.contentInsetAdjustmentBehavior = .always
         conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        conversationCollectionView.keyboardDismissMode = .interactive
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc func keyboardWillChangeFrame(notification: NSNotification) {
+        print("keyboard heightc changed)")
+
+        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardFrame.size.height
+            print("keyboard height: \(keyboardHeight)")
+            conversationCollectionView.contentInset.bottom = keyboardHeight
+            conversationCollectionView.layoutIfNeeded()
+//            self.fakeKeyboardHeightCnst.constant = keyboardHeight
+//            self.view.layoutIfNeeded()
+            //do the chnages according ot this height
+        }
+    }
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y != 0 {
+//                self.view.frame.origin.y += keyboardSize.height
+//            }
+//        }
+//    }
     
     func refreshData() {
         guard let conversation = conversation else { return }
@@ -121,7 +147,6 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
                     cell.lblMessage?.text = message
                 }
             }
-        
             return cell
         }
         return UICollectionViewCell()
@@ -151,4 +176,10 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
 //        layout.invalidateLayout()
 //        super.viewWillTransition(to: size, with: coordinator)
 //    }
+    
+    
+    
+    
+    
+    
 }
