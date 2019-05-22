@@ -88,13 +88,9 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y != 0 {
-            var keyboardHeight = keyboardSize.height
-            if keyboardHeight > 0 {
-                keyboardHeight -= 58
-            }
-                self.fakeKeyboardHeightCnst.constant = keyboardHeight
+                self.fakeKeyboardHeightCnst.constant = 0
                 self.view.layoutIfNeeded()
-                print("keyboard height: \(keyboardSize.height)")
+                print("keyboard height hide: \(keyboardSize.height)")
 
 //            }
         }
@@ -183,7 +179,7 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func btnSendClicked(_ sender: UIButton) {
-        self.view.endEditing(true)
+        msgTextField.endEditing(true)
     }
     //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     //        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
