@@ -11,7 +11,9 @@ import UIKit
 class ConversationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var conversationCollectionView: UICollectionView!
-    
+    @IBOutlet weak var fakeKeyboardHeightCnst: NSLayoutConstraint!
+
+    @IBOutlet weak var msgTextField: UITextField!
     private let reuseIdentifier = "ConversationCell"
     
     var avatar : UIImage?
@@ -50,7 +52,55 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         conversationCollectionView.contentInsetAdjustmentBehavior = .always
         conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
+        conversationCollectionView.keyboardDismissMode = .onDrag
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+//    @objc func keyboardWillChangeFrame(notification: NSNotification) {
+//        print("keyboard heightc changed)")
+//
+//        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            let keyboardHeight = keyboardFrame.size.height
+//            print("keyboard height: \(keyboardHeight)")
+////            conversationCollectionView.contentInset.bottom = keyboardHeight
+////            conversationCollectionView.layoutIfNeeded()
+//            print("keyboard height: \(keyboardHeight)")
+//                        self.fakeKeyboardHeightCnst.constant = keyboardHeight
+//                        self.view.layoutIfNeeded()
+//            //do the chnages according ot this height
+//        }
+//    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y != 0 {
+            var keyboardHeight = keyboardSize.height
+                self.fakeKeyboardHeightCnst.constant = keyboardHeight
+                self.view.layoutIfNeeded()
+                print("keyboard height: \(keyboardHeight)")
+                
+//            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if self.view.frame.origin.y != 0 {
+            var keyboardHeight = keyboardSize.height
+            if keyboardHeight > 0 {
+                keyboardHeight -= 58
+            }
+                self.fakeKeyboardHeightCnst.constant = keyboardHeight
+                self.view.layoutIfNeeded()
+                print("keyboard height: \(keyboardSize.height)")
+
+//            }
+        }
+    }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -132,6 +182,9 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
 //        navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnSendClicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+    }
     //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     //        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
     //        layout.invalidateLayout()
