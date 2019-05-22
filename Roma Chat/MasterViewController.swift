@@ -39,9 +39,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var conversationListScreen: UIView!
     
     @IBOutlet weak var profileScreen: ProfileScreen!
-    @IBOutlet weak var conversationScreen: ConversationScreen!
-    
-    @IBOutlet weak var conversationContainerScrollView: UIScrollView!
     
     @IBOutlet weak var cnstCollapseTransparentView: NSLayoutConstraint!
     @IBOutlet weak var cnstExpandTransparentView: NSLayoutConstraint!
@@ -61,6 +58,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     let priorityDisabled : Float = 1.0
     
     let conversationList = ConversationListScreen()
+    
+    var conversationViewController: ConversationViewController?
     
     //MARK: - App Lifecycle
     
@@ -95,7 +94,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     private func initViews() {
         modifyBackgroundColor(visible: false)
         moveToScreen(screen: .Transparent, animated: false)
-        showConversationScreen(.ConversationList, animated: false)
+//        showConversationScreen(.ConversationList, animated: false)
         self.conversationList.conversationListScreen = self.conversationListScreen
         self.conversationList.tableView = self.conversationListTableView
     }
@@ -218,10 +217,24 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     //MARK: - Conversation List Screen Delegate
     
     func conversationClicked(conversation: RomaConversation, avatar: UIImage?) {
-        conversationScreen.conversation = conversation
-        conversationScreen.refreshData()
-        conversationScreen.avatar = avatar
-        showConversationScreen(.Conversation, animated: true)
+        self.conversationViewController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.conversationViewController) as? ConversationViewController
+        
+        guard let conversationVC = self.conversationViewController else { return }
+        
+        conversationVC.conversation = conversation
+        conversationVC.avatar = avatar
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(conversationVC, animated: false, completion: nil)
+        
+//        navigationController?.pushViewController(conversationVC, animated: true)
+
+//        showConversationScreen(.Conversation, animated: true)
     }
     
     func refreshConversations(completion: @escaping () -> ()) {
@@ -257,14 +270,14 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     //MARK: - View modifications
     
-    private func showConversationScreen(_ type: ConversationScreenType, animated: Bool) {
-        let pageWidth : CGFloat = conversationContainerView.frame.width
-        let targetPage :CGFloat = ( type == .ConversationList) ? 1.0 :  0.0
-        let slideToX = pageWidth * targetPage
-        
-        self.view.layoutIfNeeded()
-        self.conversationContainerScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: animated)
-    }
+//    private func showConversationScreen(_ type: ConversationScreenType, animated: Bool) {
+//        let pageWidth : CGFloat = conversationContainerView.frame.width
+//        let targetPage :CGFloat = ( type == .ConversationList) ? 1.0 :  0.0
+//        let slideToX = pageWidth * targetPage
+//
+//        self.view.layoutIfNeeded()
+//        self.conversationContainerScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: animated)
+//    }
     
     //MARK: - Pagination and Scrolling
     
@@ -354,11 +367,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
             let setToX = conversationContainerView.frame.width * 2.0
             self.screenContainerScrollView.setContentOffset(CGPoint(x: setToX, y:0), animated: false)
             
-            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
+//            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
         } else if page(scrollView: screenContainerScrollView) == .Transparent {
             //No need to check if transparent view is expanded since we just reached transparent view.
             
-            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
+//            if conversationContainerScrollView.contentOffset.x == 0 { showConversationScreen(.ConversationList, animated: false) } //Reset Conversation container scroll view
         } else {
             if !isTransparentViewExpanded() { modifyTransparentViewWidth(action: .Expand, andUpdate: true) }
         }

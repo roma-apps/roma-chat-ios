@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E64C31A2295BD3C0051989F /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64C3192295BD3C0051989F /* ConversationViewController.swift */; };
 		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
 		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
 		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
@@ -134,6 +135,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E64C3192295BD3C0051989F /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				94FD1D622256D545007464B4 /* ConversationScreen.swift */,
 				94FD1D642256E4DC007464B4 /* ConversationCell.swift */,
 				94FD1D662256E4E5007464B4 /* ConversationCell.xib */,
+				1E64C3192295BD3C0051989F /* ConversationViewController.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				94FD1D2C2256B03F007464B4 /* AttachmentType.swift in Sources */,
 				94FD1D1F2256B03F007464B4 /* Functions.swift in Sources */,
 				94FD1D452256B03F007464B4 /* HTTPMethod.swift in Sources */,
+				1E64C31A2295BD3C0051989F /* ConversationViewController.swift in Sources */,
 				94FD1D4B2256B03F007464B4 /* Favourites.swift in Sources */,
 				94FD1D3A2256B03F007464B4 /* Notification.swift in Sources */,
 				9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */,

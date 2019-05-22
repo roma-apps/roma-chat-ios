@@ -24,7 +24,8 @@ struct Storyboard {
     static var masterNavigationController = "MasterNavigationController"
     static var masterViewController = "MasterViewController"
     static var settingsViewController = "SettingsViewController"
-    
+    static var conversationViewController = "ConversationViewController"
+
     //UIViews
     static var profileView = "ProfileView"
 
