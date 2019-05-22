@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     var window: UIWindow?
 
     var landingNavigationController: LandingNavigationController?
-    var masterNavigationController: MasterNavigationController?
+//    var masterNavigationController: MasterNavigationController?
+    var masterPageViewController: MasterPageViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -87,8 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     }
     
     private func showMainScreen() {
-        self.masterNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as? MasterNavigationController
-        self.window?.rootViewController = self.masterNavigationController
+//        self.masterNavigationController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterNavigationController) as? MasterNavigationController
+//        self.window?.rootViewController = self.masterNavigationController
+        
+        
+        self.masterPageViewController = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.masterPageViewController) as? MasterPageViewController
+        self.window?.rootViewController = self.masterPageViewController
     }
     
     private func fetchAccessTokenAndProceed() {
@@ -110,7 +115,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SFSafariViewControllerDel
     
     public func logout() {
         showLandingScreen()
-        self.masterNavigationController = nil
+//        self.masterNavigationController = nil
+        self.masterPageViewController = nil
     }
 
 }

@@ -58,6 +58,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     @IBOutlet weak var menuView: UIView!
     
+//    var pageIndex: Int?
+//    var petCard: PetCard?
+    
     var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -89,11 +92,20 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         textFieldInsideSearchBar?.textColor = .white
         
         fetchInitialData()
+        
+        
+        //Animation Related
+        
+        self.view.layer.masksToBounds = true
+
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initViews()
+        
+
     }
     
     private func initViews() {
@@ -110,10 +122,40 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     //MARK: - Data Fetch
     
+//    private func fetchInitialData() {
+//        conversationListLoadingIndicator.isHidden = false
+//        conversationListLoadingIndicator.startAnimating()
+//        ApiManager.shared.fetchConversations { [weak self] error in
+//            DispatchQueue.main.async {
+//                let conversations = StoreStruct.conversations
+//                if conversations.isEmpty {
+//                    //display empty table
+//                    self?.emptyConversationList.isHidden = false
+//                    self?.conversationListLoadingIndicator.stopAnimating()
+//                    self?.conversationListLoadingIndicator.isHidden = true
+//                    if let error = error {
+//                        let alert = UIAlertController.init(title: "Conversation Fetch Error", message: error.localizedDescription, preferredStyle: .alert)
+//                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//                        self?.navigationController?.present(alert, animated: true, completion: nil)
+//                    }
+//                    return
+//                }
+//                self?.emptyConversationList.isHidden = true
+//                self?.conversationList.initData(conversations)
+//                self?.conversationListTableView.reloadData()
+//                self?.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
+//                self?.conversationListLoadingIndicator.stopAnimating()
+//                self?.conversationListLoadingIndicator.isHidden = true
+//
+//            }
+//        }
+//    }
+    
+    //Timelines test
     private func fetchInitialData() {
         conversationListLoadingIndicator.isHidden = false
         conversationListLoadingIndicator.startAnimating()
-        ApiManager.shared.fetchConversations { [weak self] error in
+        ApiManager.shared.fetchDirectTimelines { [weak self] error in
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
@@ -134,7 +176,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
                 self?.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
                 self?.conversationListLoadingIndicator.stopAnimating()
                 self?.conversationListLoadingIndicator.isHidden = true
-
+                
             }
         }
     }
@@ -142,13 +184,16 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     //MARK: - Main Screen Actions
     
     @IBAction func btnConversationClicked(_ sender: UIButton) {
-        let currentPage = page(scrollView: screenContainerScrollView)
-        if currentPage == .Conversation { return }
         
-        //If on Feed screen, Collapse Transparent view first
-        if currentPage == .Feed { modifyTransparentViewWidth(action: .Collapse, andUpdate: true) }
-        
-        moveToScreen(screen: .Conversation, animated: true)
+        //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+
+//        let currentPage = page(scrollView: screenContainerScrollView)
+//        if currentPage == .Conversation { return }
+//
+//        //If on Feed screen, Collapse Transparent view first
+//        if currentPage == .Feed { modifyTransparentViewWidth(action: .Collapse, andUpdate: true) }
+//
+//        moveToScreen(screen: .Conversation, animated: true)
     }
     
     @IBAction func btnCameraClicked(_ sender: UIButton) {

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E8389C72277B21C00DE49AB /* ConversationScreenFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8389C62277B21C00DE49AB /* ConversationScreenFooter.xib */; };
+		1E8389C92277B2A000DE49AB /* ConversationScreenFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8389C82277B2A000DE49AB /* ConversationScreenFooter.swift */; };
+		1E8389CB227B34CF00DE49AB /* MasterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8389CA227B34CF00DE49AB /* MasterPageViewController.swift */; };
+		1E8389CF227B46C100DE49AB /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8389CE227B46C100DE49AB /* Animations.swift */; };
+		1E8389D1227B498F00DE49AB /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8389D0227B498F00DE49AB /* ConversationViewController.swift */; };
+		1E8389DF227D0C3800DE49AB /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8389DE227D0C3800DE49AB /* Interactor.swift */; };
 		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
 		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
 		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
@@ -134,6 +140,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E8389C62277B21C00DE49AB /* ConversationScreenFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationScreenFooter.xib; sourceTree = "<group>"; };
+		1E8389C82277B2A000DE49AB /* ConversationScreenFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationScreenFooter.swift; sourceTree = "<group>"; };
+		1E8389CA227B34CF00DE49AB /* MasterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPageViewController.swift; sourceTree = "<group>"; };
+		1E8389CE227B46C100DE49AB /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		1E8389D0227B498F00DE49AB /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		1E8389DE227D0C3800DE49AB /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -326,6 +338,9 @@
 				94FD1D622256D545007464B4 /* ConversationScreen.swift */,
 				94FD1D642256E4DC007464B4 /* ConversationCell.swift */,
 				94FD1D662256E4E5007464B4 /* ConversationCell.xib */,
+				1E8389C62277B21C00DE49AB /* ConversationScreenFooter.xib */,
+				1E8389C82277B2A000DE49AB /* ConversationScreenFooter.swift */,
+				1E8389D0227B498F00DE49AB /* ConversationViewController.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -378,6 +393,7 @@
 				9413EA99224B298F00C97862 /* NotificationNames.swift */,
 				9413EA4322495AF600C97862 /* Storyboard.swift */,
 				9413EA93224B20AD00C97862 /* Spinner.swift */,
+				1E8389CE227B46C100DE49AB /* Animations.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -518,6 +534,7 @@
 				9413EA4122495A7500C97862 /* LandingNavigationController.swift */,
 				947543C0223758F900289005 /* LandingViewController.swift */,
 				9413EA4522495BEE00C97862 /* MasterNavigationController.swift */,
+				1E8389CA227B34CF00DE49AB /* MasterPageViewController.swift */,
 				949E482E2237313E00B931F9 /* MasterViewController.swift */,
 				A9BE358C223344BA00F4EC8C /* Main.storyboard */,
 				A9BE358F223344BD00F4EC8C /* Assets.xcassets */,
@@ -533,6 +550,7 @@
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
 				9413EA49224A741900C97862 /* GoogleService-Info.plist */,
 				9413EA98224B278A00C97862 /* Helpers */,
+				1E8389DE227D0C3800DE49AB /* Interactor.swift */,
 			);
 			path = "Roma Chat";
 			sourceTree = "<group>";
@@ -691,6 +709,7 @@
 				94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */,
 				94FD1D612256D469007464B4 /* ConversationScreen.xib in Resources */,
 				9413EA4A224A741900C97862 /* GoogleService-Info.plist in Resources */,
+				1E8389C72277B21C00DE49AB /* ConversationScreenFooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +895,7 @@
 				94648C4A225D7723002AE701 /* PhotoScreen.swift in Sources */,
 				94FD1D262256B03F007464B4 /* Decodable.swift in Sources */,
 				9413EA34224486DC00C97862 /* Storage.swift in Sources */,
+				1E8389CF227B46C100DE49AB /* Animations.swift in Sources */,
 				94FD1D2A2256B03F007464B4 /* Report.swift in Sources */,
 				94FD1D402256B03F007464B4 /* Tag.swift in Sources */,
 				94FD1D532256B03F007464B4 /* Clients.swift in Sources */,
@@ -887,6 +907,7 @@
 				94FD1D222256B03F007464B4 /* URLComponents.swift in Sources */,
 				94FD1D422256B03F007464B4 /* Account.swift in Sources */,
 				94FD1D282256B03F007464B4 /* DateFormatter.swift in Sources */,
+				1E8389CB227B34CF00DE49AB /* MasterPageViewController.swift in Sources */,
 				94FD1D342256B03F007464B4 /* AccessScope.swift in Sources */,
 				94FD1D4D2256B03F007464B4 /* Notifications.swift in Sources */,
 				94FD1D3B2256B03F007464B4 /* Application.swift in Sources */,
@@ -894,9 +915,11 @@
 				94FD1D462256B03F007464B4 /* Mutes.swift in Sources */,
 				9413EA4422495AF600C97862 /* Storyboard.swift in Sources */,
 				94FD1D3C2256B03F007464B4 /* StatusPara.swift in Sources */,
+				1E8389DF227D0C3800DE49AB /* Interactor.swift in Sources */,
 				947543C1223758F900289005 /* LandingViewController.swift in Sources */,
 				9413E8FB2241F8FF00C97862 /* ConversationListCell.swift in Sources */,
 				94FD1D2B2256B03F007464B4 /* Mention.swift in Sources */,
+				1E8389D1227B498F00DE49AB /* ConversationViewController.swift in Sources */,
 				94FD1D3E2256B03F007464B4 /* HashType.swift in Sources */,
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
 				94FD1D1B2256B03F007464B4 /* PaginationItem.swift in Sources */,
@@ -909,6 +932,7 @@
 				94FD1D2D2256B03F007464B4 /* Visibility.swift in Sources */,
 				94FD1D5C2256B03F007464B4 /* Payload.swift in Sources */,
 				94FD1D6922581623007464B4 /* RomaConversation.swift in Sources */,
+				1E8389C92277B2A000DE49AB /* ConversationScreenFooter.swift in Sources */,
 				94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */,
 				94FD1D4A2256B03F007464B4 /* Login.swift in Sources */,
 				94FD1D3D2256B03F007464B4 /* Status.swift in Sources */,

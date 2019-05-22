@@ -13,7 +13,22 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
     @IBOutlet weak var conversationCollectionView: UICollectionView!
     @IBOutlet weak var fakeKeyboardHeightCnst: NSLayoutConstraint!
     
+    @IBOutlet weak var messagingContainerView: UIView!
+    
+    @IBOutlet weak var messagingTextView: UITextField!
+    
     private let reuseIdentifier = "ConversationCell"
+    
+    /// An empty view used as a 'UIResponder.inputAccessoryView'. When the scrollview
+    /// 'keyboardDismissMode' is '.interactive', the keyboard doesn't post frame change
+    /// notifications to allow us to move the text view as the keyboard interactively is dimsssed.
+    /// This view has a zero height and sits above the keyboard as it apepars. We can then use
+    /// this view to adjust the collectionView's constraints to move it alongside the keyboard.
+    let accessoryView = UIView(frame: .zero)
+    
+    override var inputAccessoryView: UIView? {
+        return messagingContainerView
+    }
 
     var avatar : UIImage?
     
@@ -26,6 +41,7 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.size.width
         layout.estimatedItemSize = CGSize(width: width, height: 10)
+        layout.sectionFootersPinToVisibleBounds = true
         return layout
     }()
     
@@ -85,6 +101,14 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
         conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         conversationCollectionView.keyboardDismissMode = .interactive
         
+        messagingContainerView.translatesAutoresizingMaskIntoConstraints = false
+        messagingTextView.translatesAutoresizingMaskIntoConstraints = false
+        messagingContainerView.autoresizingMask = .flexibleHeight
+        inputAccessoryView?.autoresizingMask = .flexibleHeight
+        
+
+        conversationCollectionView.register(UINib(nibName: "ConversationScreenFooter", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ConversationScreenFooter")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrame), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -95,8 +119,6 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
         if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardFrame.size.height
             print("keyboard height: \(keyboardHeight)")
-            conversationCollectionView.contentInset.bottom = keyboardHeight
-            conversationCollectionView.layoutIfNeeded()
 //            self.fakeKeyboardHeightCnst.constant = keyboardHeight
 //            self.view.layoutIfNeeded()
             //do the chnages according ot this height
@@ -129,6 +151,18 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+//
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//
+//        if kind == UICollectionView.elementKindSectionFooter {
+//            if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+//                                                                                withReuseIdentifier:"ConversationScreenFooter", for: indexPath) as? ConversationScreenFooter {
+//                return headerView
+//            }
+//        }
+//
+//        return UICollectionReusableView()
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let conversation = conversation {

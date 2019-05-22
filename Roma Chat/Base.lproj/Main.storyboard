@@ -104,6 +104,30 @@
             </objects>
             <point key="canvasLocation" x="-226" y="26"/>
         </scene>
+        <!--Conversation View Controller-->
+        <scene sceneID="aTj-IX-M1p">
+            <objects>
+                <viewController storyboardIdentifier="ConversationViewController" modalPresentationStyle="overCurrentContext" id="RRG-gS-dqJ" customClass="ConversationViewController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vbS-yH-woO" customClass="ConversationVi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="etZ-8j-fVR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="O7G-WD-1xg" appends="YES" id="Y7H-nf-ea8"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ve0-TT-eEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="O7G-WD-1xg">
+                    <connections>
+                        <action selector="handleGesture:" destination="RRG-gS-dqJ" id="YDA-D6-tAW"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="788" y="24"/>
+        </scene>
         <!--Master View Controller-->
         <scene sceneID="rb7-m8-ozY">
             <objects>
@@ -331,7 +355,7 @@
                                                 <rect key="frame" x="315" y="0.0" width="60" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wh-cf-Owu" userLabel="btnReverseCamera">
-                                                        <rect key="frame" x="17" y="19" width="26" height="22"/>
+                                                        <rect key="frame" x="22" y="19" width="16" height="22"/>
                                                         <state key="normal" image="SwitchCameraIcon"/>
                                                         <connections>
                                                             <action selector="btnSwapCameraClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="OyH-JN-GEI"/>
@@ -536,11 +560,22 @@
                         <outlet property="screenContainerView" destination="X5F-OM-N6Z" id="Mdq-c3-DWP"/>
                         <outlet property="searchBar" destination="ecB-FG-OyU" id="Dtc-B7-wzD"/>
                         <outlet property="transparentView" destination="UUp-T7-r0w" id="M1B-or-6dc"/>
+                        <segue destination="RRG-gS-dqJ" kind="presentation" identifier="reveal" id="4dp-4N-hM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N3X-Rv-ySU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228" y="703.89805097451278"/>
+            <point key="canvasLocation" x="-204" y="704"/>
+        </scene>
+        <!--Master Page View Controller-->
+        <scene sceneID="77K-xq-iP3">
+            <objects>
+                <pageViewController storyboardIdentifier="MasterPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ff6-4X-bBM" customClass="MasterPageViewController" customModule="Roma_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TsP-gS-UGb"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDs-78-3jb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="704"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Pzz-J9-KpH">

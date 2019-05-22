@@ -41,7 +41,7 @@ struct ApiManager {
     }
     
     /// Fetches the list of timelines from the Plemora API for the currently signed in user account.
-    func fetchDirectTimelines(completion: @escaping () -> ()) {
+    func fetchDirectTimelines(completion: @escaping (Error?) -> ()) {
         let request = Timelines.direct()
         StoreStruct.client.run(request) { (statuses) in
             if let stat = (statuses.value) {
@@ -74,7 +74,11 @@ struct ApiManager {
 
                 StoreStruct.conversations = romaConversations
 
-                completion()
+                completion(nil)
+            } else {
+                if let error = statuses.error {
+                    completion(error)
+                }
             }
         }
     }
