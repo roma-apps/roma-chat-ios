@@ -179,7 +179,7 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func btnSendClicked(_ sender: UIButton) {
-        msgTextField.endEditing(true)
+        //send message and display
     }
     //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     //        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
