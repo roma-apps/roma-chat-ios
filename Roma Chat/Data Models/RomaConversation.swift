@@ -18,6 +18,8 @@ public class RomaConversation {
     public let lastStatus: Status?
     /// Whether the message has been read.
     public let unread: Bool
+    /// User account
+    public let user: Account?
     /// Message list
     
     /// The avatar image to be displayed on the navigation bar and conversation list cell
@@ -25,34 +27,36 @@ public class RomaConversation {
     
     public var messages: [Status?]
     
-    init(_ conversation: Conversation, messages: [Status?]) {
-        self.id = conversation.id
+    init(_ conversation: Conversation, messages: [Status?], user: Account) {
+        self.id = user.username
         self.accounts = conversation.accounts
         self.lastStatus = conversation.lastStatus
         self.unread = conversation.unread
+        self.user = user
         
         //init local properties
         self.messages = messages
         
         //Lazy fetch the avatar image
-        guard let account = self.accounts.last else { return }
-        ApiManager.shared.fetchAvatarForAccount(account: account) { [weak self] image in
+//        guard let user = user else { return }
+        ApiManager.shared.fetchAvatarForAccount(account: user) { [weak self] image in
             self?.avatarThumbnailImage = image
         }
     }
     
-    init(_ firstStatus: Status, messages: [Status?]) {
+    init(_ firstStatus: Status, messages: [Status?], user: Account?) {
         self.id = firstStatus.account.id
         self.accounts = [firstStatus.account] //TODO: add all accounts included in statuses
         self.lastStatus = nil //TODO: fix
         self.unread = false //TODO: determine this
+        self.user = user
         
         //init local properties
         self.messages = messages
         
         //Lazy fetch the avatar image
-        guard let account = self.accounts.last else { return }
-        ApiManager.shared.fetchAvatarForAccount(account: account) { [weak self] image in
+        guard let user = user else { return }
+        ApiManager.shared.fetchAvatarForAccount(account: user) { [weak self] image in
             self?.avatarThumbnailImage = image
         }
     }

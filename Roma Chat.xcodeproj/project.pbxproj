@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E48E3A022974CBF009C9F0A /* StreamUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E48E39F22974CBF009C9F0A /* StreamUpdate.swift */; };
 		1E64C31A2295BD3C0051989F /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64C3192295BD3C0051989F /* ConversationViewController.swift */; };
+		1E64C31C2295F6960051989F /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E64C31B2295F6960051989F /* Stream.swift */; };
 		5F04EBA0B8E237F946A6D5BE /* Pods_Roma_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */; };
 		75B556434460E795D72F1680 /* Pods_Roma_ChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */; };
 		7F9B95617CA2CDF9BB2FFD2B /* Pods_Roma_ChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD73DE07CCCCFA7381287F8 /* Pods_Roma_ChatTests.framework */; };
@@ -135,7 +137,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E48E39F22974CBF009C9F0A /* StreamUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamUpdate.swift; sourceTree = "<group>"; };
 		1E64C3192295BD3C0051989F /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		1E64C31B2295F6960051989F /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		1EAA919B2295FC37001F4CEE /* Roma Chat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roma Chat-Bridging-Header.h"; sourceTree = "<group>"; };
 		24D86DA479337042E8AA515B /* Pods_Roma_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634767F3FC2BEB8B0E492FEE /* Pods_Roma_ChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roma_ChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A3C51FE1870CB70DCEF1BB /* Pods-Roma ChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roma ChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-Roma ChatUITests/Pods-Roma ChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -348,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				9413EA91224B1FF200C97862 /* ApiManager.swift */,
+				1E64C31B2295F6960051989F /* Stream.swift */,
 				9413EA4F224AF25000C97862 /* Authentication */,
 			);
 			path = Networking;
@@ -415,6 +421,7 @@
 				94FD1D182256B03F007464B4 /* ClientError.swift */,
 				94FD1D192256B03F007464B4 /* Payload.swift */,
 				94FD1D1A2256B03F007464B4 /* MediaAttachment.swift */,
+				1E48E39F22974CBF009C9F0A /* StreamUpdate.swift */,
 			);
 			path = MastodonKit;
 			sourceTree = "<group>";
@@ -536,6 +543,7 @@
 				A9BE3594223344BD00F4EC8C /* Info.plist */,
 				9413EA49224A741900C97862 /* GoogleService-Info.plist */,
 				9413EA98224B278A00C97862 /* Helpers */,
+				1EAA919B2295FC37001F4CEE /* Roma Chat-Bridging-Header.h */,
 			);
 			path = "Roma Chat";
 			sourceTree = "<group>";
@@ -808,6 +816,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Roma Chat/Pods-Roma Chat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -815,6 +824,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,6 +855,7 @@
 				9413EA92224B1FF200C97862 /* ApiManager.swift in Sources */,
 				94FD1D5A2256B03F007464B4 /* RequestRange.swift in Sources */,
 				94FD1D472256B03F007464B4 /* Instances.swift in Sources */,
+				1E48E3A022974CBF009C9F0A /* StreamUpdate.swift in Sources */,
 				94FD1D432256B03F007464B4 /* NotificationType.swift in Sources */,
 				94FD1D542256B03F007464B4 /* DomainBlocks.swift in Sources */,
 				94FD1D2E2256B03F007464B4 /* ScheduledStatus.swift in Sources */,
@@ -860,6 +871,7 @@
 				94FD1D512256B03F007464B4 /* Lists.swift in Sources */,
 				94FD1D592256B03F007464B4 /* Request.swift in Sources */,
 				94FD1D372256B03F007464B4 /* Context.swift in Sources */,
+				1E64C31C2295F6960051989F /* Stream.swift in Sources */,
 				9425690F224D8ED9001F63CC /* SettingsViewController.swift in Sources */,
 				94FD1D302256B03F007464B4 /* Empty.swift in Sources */,
 				9413EA4622495BEE00C97862 /* MasterNavigationController.swift in Sources */,
@@ -1105,6 +1117,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Roma Chat/Roma Chat-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1124,6 +1137,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vm.Roma-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Roma Chat/Roma Chat-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

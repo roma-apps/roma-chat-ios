@@ -77,15 +77,28 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
 
         if let conversations = conversationsData, conversations.count > indexPath.row {
             let conversation = conversations[indexPath.row]
-            if let lastAccount = conversation.accounts.last {
-                cell.lblTitle?.text = lastAccount.username
-                cell.backgroundColor = backgroundBlue
-                
-                lastAccount.getCachedAvatarImage { (avatarImage) in
-                    //refresh cell image if cell is visible
-                    DispatchQueue.main.async {
-                        cell.imgAvatarView.image = avatarImage
-                        cell.reloadInputViews()
+            if let user = conversation.user {
+                    cell.lblTitle?.text = user.username
+                    cell.backgroundColor = backgroundBlue
+                    
+                    user.getCachedAvatarImage { (avatarImage) in
+                        //refresh cell image if cell is visible
+                        DispatchQueue.main.async {
+                            cell.imgAvatarView.image = avatarImage
+                            cell.reloadInputViews()
+                        }
+                    }
+            } else {
+                if let lastAccount = conversation.accounts.last {
+                    cell.lblTitle?.text = lastAccount.username
+                    cell.backgroundColor = backgroundBlue
+                    
+                    lastAccount.getCachedAvatarImage { (avatarImage) in
+                        //refresh cell image if cell is visible
+                        DispatchQueue.main.async {
+                            cell.imgAvatarView.image = avatarImage
+                            cell.reloadInputViews()
+                        }
                     }
                 }
             }

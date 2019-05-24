@@ -9,6 +9,7 @@ target 'Roma Chat' do
 pod 'Firebase/Core'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'Starscream'
 
   target 'Roma ChatTests' do
     inherit! :search_paths

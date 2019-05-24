@@ -56,6 +56,10 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(conversationsRefreshed(_:)), name: .init("conversations_refreshed"), object: nil)
+        
+        
     }
     
 //    @objc func keyboardWillChangeFrame(notification: NSNotification) {
@@ -94,6 +98,20 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
 
 //            }
         }
+    }
+    
+    @objc func conversationsRefreshed(_ notification: Notification) {
+        
+        print("conversations refreshed")
+        guard let conversation = conversation else { return }
+        let thisConvo = StoreStruct.conversations.filter{ $0.id == conversation.id }.first
+
+        self.conversation = thisConvo
+                
+        DispatchQueue.main.async {
+            self.conversationCollectionView.reloadData()
+        }
+        
     }
     
 
@@ -180,6 +198,16 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func btnSendClicked(_ sender: UIButton) {
         //send message and display
+        
+        var replyToId: String?
+        
+        if let conversation = conversation, let lastStatus = conversation.lastStatus {
+            replyToId = lastStatus.id
+        }
+        
+        ApiManager.shared.sendDirectMessageStatus(message: msgTextField.text ?? "", replyToId: replyToId)
+        
+        //refresh conversation list from backend
     }
     //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     //        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)

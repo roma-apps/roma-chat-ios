@@ -109,6 +109,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         conversationListLoadingIndicator.isHidden = false
         conversationListLoadingIndicator.startAnimating()
         ApiManager.shared.fetchConversations { [weak self] error in
+            Stream.shared.initStreams()
+
             DispatchQueue.main.async {
                 let conversations = StoreStruct.conversations
                 if conversations.isEmpty {
