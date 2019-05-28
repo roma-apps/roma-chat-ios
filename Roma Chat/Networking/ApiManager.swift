@@ -197,6 +197,8 @@ struct ApiManager {
 
         StoreStruct.client.run(request) { (status) in
             if let convos = (status.value) {
+                Stream.shared.refreshConversations()
+
                
                 print("")
 //                StoreStruct.directMessages = convos

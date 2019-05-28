@@ -16,6 +16,8 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var msgTextField: UITextField!
     private let reuseIdentifier = "ConversationCell"
     
+    private var reloadTriggered = false
+    
     var avatar : UIImage?
     
     var conversation: RomaConversation?
@@ -52,15 +54,30 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         conversationCollectionView.contentInsetAdjustmentBehavior = .always
         conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         
-        conversationCollectionView.keyboardDismissMode = .onDrag
+        conversationCollectionView.keyboardDismissMode = .interactive
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(conversationsRefreshed(_:)), name: .init("conversations_refreshed"), object: nil)
         
+//        [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionOld context:NULL];
         
+
     }
+    
+//
+//    - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary  *)change context:(void *)context
+//    {
+//    // You will get here when the reloadData finished
+//    }
+
+//
+//
+//    - (void)dealloc
+//    {
+//    [self.collectionView removeObserver:self forKeyPath:@"contentSize" context:NULL];
+//    }
     
 //    @objc func keyboardWillChangeFrame(notification: NSNotification) {
 //        print("keyboard heightc changed)")
@@ -80,10 +97,12 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y != 0 {
-            var keyboardHeight = keyboardSize.height
+                let keyboardHeight = keyboardSize.height
                 self.fakeKeyboardHeightCnst.constant = keyboardHeight
                 self.view.layoutIfNeeded()
                 print("keyboard height: \(keyboardHeight)")
+                guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
+                self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
                 
 //            }
         }
@@ -107,9 +126,12 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         let thisConvo = StoreStruct.conversations.filter{ $0.id == conversation.id }.first
 
         self.conversation = thisConvo
-                
+        
         DispatchQueue.main.async {
+            self.reloadTriggered = true
             self.conversationCollectionView.reloadData()
+//            guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
+//            self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
         }
         
     }
@@ -206,6 +228,8 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         ApiManager.shared.sendDirectMessageStatus(message: msgTextField.text ?? "", replyToId: replyToId)
+        
+        msgTextField.text = ""
         
         //refresh conversation list from backend
     }

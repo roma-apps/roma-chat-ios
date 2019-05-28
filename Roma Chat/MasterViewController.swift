@@ -84,6 +84,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         textFieldInsideSearchBar?.textColor = .white
         
         fetchInitialData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(conversationsRefreshed(_:)), name: .init("conversations_refreshed"), object: nil)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +138,35 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
             }
         }
     }
+    
+    
+    @objc func conversationsRefreshed(_ notification: Notification) {
+        
+        print("conversations refreshed")
+        
+        let conversations = StoreStruct.conversations
+        if conversations.isEmpty {
+            //display empty table
+            DispatchQueue.main.async {
+                self.emptyConversationList.isHidden = false
+                self.conversationListLoadingIndicator.stopAnimating()
+                self.conversationListLoadingIndicator.isHidden = true
+                return
+            }
+
+        }
+        DispatchQueue.main.async {
+            self.emptyConversationList.isHidden = true
+            self.conversationList.initData(conversations)
+            self.conversationListTableView.reloadData()
+            self.conversationList.setupViews() //This needs to be done after the initial data fetch to ensure the table size is taken into account
+            self.conversationListLoadingIndicator.stopAnimating()
+            self.conversationListLoadingIndicator.isHidden = true
+        }
+
+        
+    }
+    
     
     //MARK: - Main Screen Actions
     
