@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+//TODO: Depreceated
+
 class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var conversationCollectionView: UICollectionView!

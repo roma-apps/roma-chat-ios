@@ -22,6 +22,10 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     
     var conversation: RomaConversation?
     
+    var accounts: [Account]?
+    
+    var chatUsername: String?
+    
     var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.size.width
@@ -63,7 +67,18 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         
 //        [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionOld context:NULL];
         
+        setupAccounts()
 
+    }
+    
+    func setupAccounts() {
+        guard let conversation = conversation, let chatUser = conversation.user else { return }
+        self.chatUsername = chatUser.username
+        
+        let currentUsername = StoreStruct.currentUser.username
+        let convAccounts = conversation.accounts
+        self.accounts = convAccounts.filter{ $0.username != currentUsername }
+        print(self.accounts ?? "")
     }
     
 //
@@ -227,7 +242,11 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
             replyToId = lastStatus.id
         }
         
-        ApiManager.shared.sendDirectMessageStatus(message: msgTextField.text ?? "", replyToId: replyToId)
+        guard let msg = msgTextField.text, msg.isEmpty == false  else { return }
+        
+        let filteredMsg = tagIfNotTaggedChatUser(msg: msg)
+        
+        ApiManager.shared.sendDirectMessageStatus(message: filteredMsg, replyToId: replyToId)
         
         msgTextField.text = ""
         
@@ -238,4 +257,43 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     //        layout.invalidateLayout()
     //        super.viewWillTransition(to: size, with: coordinator)
     //    }
+    
+    //Used to tag all accounts in this chat if no account is tagged in the message
+    func tagIfNotTaggedAllAccounts(msg: String) -> String {
+        
+        let tagChar = "@"
+        
+        if msg.contains(tagChar) {
+            return msg
+        } else {
+            //tag all users not current user
+            
+            guard let accounts = self.accounts else { return msg }
+            
+            var fullMsg = ""
+            for account in accounts {
+                fullMsg += "@\(account.username) "
+            }
+            
+            fullMsg += msg
+            
+            return fullMsg
+        }
+        
+    }
+    
+    //used to tag only the specified chat user if no other is tagged
+    func tagIfNotTaggedChatUser(msg: String) -> String {
+        
+        let tagChar = "@"
+        
+        if msg.contains(tagChar) {
+            return msg
+        } else {
+            //tag chat user
+            guard let chatUsername = self.chatUsername else { return msg }
+            return "@\(chatUsername) \(msg)"
+        }
+        
+    }
 }
