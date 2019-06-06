@@ -33,22 +33,6 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         return layout
     }()
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        //        instances = InstanceData.getAllInstances()
-//        //        accounts = Account.getAccounts()
-//        //        //TODO: use current instance to determine corresponding account
-//        //        let account = accounts[0]
-//        //        lblAccountName.text = account.username
-//
-//        conversationCollectionView.dataSource = self
-//        conversationCollectionView.delegate = self
-//        conversationCollectionView.collectionViewLayout = layout
-//        conversationCollectionView.alwaysBounceVertical = true
-//        conversationCollectionView.contentInsetAdjustmentBehavior = .always
-//        conversationCollectionView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         conversationCollectionView.dataSource = self
@@ -81,34 +65,6 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         print(self.accounts ?? "")
     }
     
-//
-//    - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary  *)change context:(void *)context
-//    {
-//    // You will get here when the reloadData finished
-//    }
-
-//
-//
-//    - (void)dealloc
-//    {
-//    [self.collectionView removeObserver:self forKeyPath:@"contentSize" context:NULL];
-//    }
-    
-//    @objc func keyboardWillChangeFrame(notification: NSNotification) {
-//        print("keyboard heightc changed)")
-//
-//        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-//            let keyboardHeight = keyboardFrame.size.height
-//            print("keyboard height: \(keyboardHeight)")
-////            conversationCollectionView.contentInset.bottom = keyboardHeight
-////            conversationCollectionView.layoutIfNeeded()
-//            print("keyboard height: \(keyboardHeight)")
-//                        self.fakeKeyboardHeightCnst.constant = keyboardHeight
-//                        self.view.layoutIfNeeded()
-//            //do the chnages according ot this height
-//        }
-//    }
-    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y != 0 {
@@ -140,15 +96,92 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         guard let conversation = conversation else { return }
         let thisConvo = StoreStruct.conversations.filter{ $0.id == conversation.id }.first
 
-        self.conversation = thisConvo
-        
+        let oldMessages = conversation.messages
+        guard let newMessages = thisConvo?.messages else { return }
+
+        let diff = difference(between: oldMessages, and: newMessages)
+
+        var insertions: [Status?] = []
+        var deletions: [Status?] = []
+        //find inserts and deletions in oldMessages
+        for message in diff {
+            if oldMessages.contains(message) {
+                deletions.append(message)
+            } else {
+                insertions.append(message)
+            }
+        }
+
+//        if newMessages.count > oldMessages.count {
+//            //append diff to conversation
+////            DispatchQueue.main.async {
+////            }
+//        } else {
+//            //reset
+//            self.conversation = thisConvo
+//
         DispatchQueue.main.async {
-            self.reloadTriggered = true
-            self.conversationCollectionView.reloadData()
-//            guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
-//            self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
+            self.updateCollectionView(oldMessages: oldMessages, newMessages: newMessages, diff: diff, insertions: insertions, deletions: deletions)
+
+//                self.reloadTriggered = true
+//                self.conversationCollectionView.reloadData()
+//                //            guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
+//                //            self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
+//            }
         }
         
+        
+    }
+    
+    func updateCollectionView(oldMessages: [Status?], newMessages: [Status?], diff: [Status?], insertions: [Status?], deletions: [Status?]) {
+        
+        var deleteIndexes = [Array<Any>.Index]()
+        for message in deletions {
+            if let index = self.conversation?.messages.firstIndex(of: message) {
+                deleteIndexes.append(index)
+//                if let distance =  self.conversation?.messages.distance(from:  self.conversation?.messages.startIndex ?? 0, to: index) {
+//                    deleteIndexes.append(distance)
+//                }
+            }
+        }
+        
+        //perform deletes
+        for index in deleteIndexes {
+            self.conversation?.messages.remove(at: index)
+        }
+
+        var insertIndexes = [Array<Any>.Index]()
+        for message in insertions {
+            self.conversation?.messages.append(message)
+            if let index = self.conversation?.messages.firstIndex(of: message) {
+                insertIndexes.append(index)
+            }
+        }
+        
+        
+//        for status in diff {
+            self.conversationCollectionView.performBatchUpdates({
+                let deleteIndexPaths = deleteIndexes.map { IndexPath(item: $0, section: 0) }
+
+              //  self.conversationCollectionView.deleteItems(at: deleteIndexPaths)
+                
+                let insertIndexPaths = insertIndexes.map { IndexPath(item: $0, section: 0) }
+               // self.conversationCollectionView.insertItems(at: insertIndexPaths)
+
+//                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
+//                let lastIndexPath = IndexPath(item: lastIndex, section: 0)
+//                self.conversationCollectionView.insertItems(at: [lastIndexPath])
+            }, completion: { _ in
+//                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
+//                let lastIndexPathNew = IndexPath(item: lastIndex, section: 0)
+//                self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
+
+            })
+            //
+            ////                    let lastIndexPathNew = IndexPath(item: lastIndex + 1, section: 0)
+            //
+            ////                    self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
+//        }
     }
     
 
@@ -169,8 +202,8 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         conversationCollectionView.reloadData()
-        let lastMessageIndex = conversation.messages.count - 1
-        conversationCollectionView.scrollToItem(at: IndexPath(row: lastMessageIndex, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true)
+//        let lastMessageIndex = conversation.messages.count - 1
+//        conversationCollectionView.scrollToItem(at: IndexPath(row: lastMessageIndex, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true)
     }
     
     
@@ -295,5 +328,11 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
             return "@\(chatUsername) \(msg)"
         }
         
+    }
+    
+    func difference(between: [Status?], and: [Status?]) -> [Status?] {
+        let thisSet = Set(between)
+        let otherSet = Set(and)
+        return Array(thisSet.symmetricDifference(otherSet))
     }
 }

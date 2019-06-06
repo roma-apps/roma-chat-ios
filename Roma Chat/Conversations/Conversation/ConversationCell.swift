@@ -24,6 +24,8 @@ class ConversationCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = UIColor.red
+        lblUsername.translatesAutoresizingMaskIntoConstraints = false
+        lblMessage.translatesAutoresizingMaskIntoConstraints = false
         setupViews()
     }
     
@@ -43,8 +45,8 @@ class ConversationCell: UICollectionViewCell {
     
     func setupViews() {
         if let lastSubview = contentView.subviews.last {
-            contentView.bottomAnchor.constraint(equalTo: lastSubview.bottomAnchor, constant: 10).isActive = true
+            contentView.bottomAnchor.constraint(equalTo: lastSubview.bottomAnchor, constant: 0).isActive = true
         }
     }
-        
+    
 }

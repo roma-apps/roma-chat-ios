@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Status: Codable {
+public class Status: Codable, Hashable {
     /// The ID of the status.
     public var id: String
     /// A Fediverse-unique resource ID.
@@ -80,6 +80,10 @@ public class Status: Codable {
         case language
         case reblog
         case pinned
+    }
+    
+    public var hashValue: Int {
+        return id.hashValue
     }
 }
 
