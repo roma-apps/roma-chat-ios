@@ -28,12 +28,25 @@ struct ApiManager {
     //TODO: Error reporting
     
     /// Fetches the list of timelines from the Plemora API for the currently signed in user account.
-    func fetchTimelines(completion: @escaping () -> ()) {
+    func fetchHomeTimelines(completion: @escaping () -> ()) {
         let request = Timelines.home()
         StoreStruct.client.run(request) { (statuses) in
             if let stat = (statuses.value) {
                 StoreStruct.statusesHome = stat
                 StoreStruct.statusesHome = NSOrderedSet(array: StoreStruct.statusesHome).array as! [Status]
+                NotificationCenter.default.post(name: NotificationName.shared.timelines, object: nil)
+                completion()
+            }
+        }
+    }
+    
+    /// Fetches the list of public timelines from the Plemora API for the currently signed in user account.
+    func fetchPublicTimelines(completion: @escaping () -> ()) {
+        let request = Timelines.public()
+        StoreStruct.client.run(request) { (statuses) in
+            if let stat = (statuses.value) {
+                StoreStruct.statusesFederated = stat
+                StoreStruct.statusesFederated = NSOrderedSet(array: StoreStruct.statusesFederated).array as! [Status]
                 NotificationCenter.default.post(name: NotificationName.shared.timelines, object: nil)
                 completion()
             }

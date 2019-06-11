@@ -14,6 +14,12 @@ enum ScreenType {
     case Transparent
 }
 
+enum FeedScreenType {
+    case Home
+    case Public
+    case Local
+}
+
 enum ConversationScreenType {
     case ConversationList
     case Conversation
@@ -53,6 +59,18 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var backgroundColorView:UIView!
     @IBOutlet weak var navHeightConstraint:NSLayoutConstraint!
     
+    @IBOutlet weak var feedScrollView: UIScrollView!
+    
+    @IBOutlet weak var feedTableContainer: UIView!
+    @IBOutlet weak var homeFeedScreen: FeedScreen!
+    @IBOutlet weak var publicFeedScreen: FeedScreen!
+    @IBOutlet weak var localFeedScreen: FeedScreen!
+    
+    @IBOutlet weak var lblHome: UILabel!
+    @IBOutlet weak var lblPublic: UILabel!
+    @IBOutlet weak var lblLocal: UILabel!
+    
+    
     var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -69,6 +87,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         screenContainerScrollView.delegate = self
         screenContainerScrollView.contentInsetAdjustmentBehavior = .never
+        
+        feedScrollView.delegate = self
+        feedScrollView.contentInsetAdjustmentBehavior = .never
+
         
         // Init Conversation List
         conversationListTableView.contentInset = UIEdgeInsets(top: 60.0, left: 0, bottom: 0, right: 0)
@@ -135,6 +157,22 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
                 self?.conversationListLoadingIndicator.stopAnimating()
                 self?.conversationListLoadingIndicator.isHidden = true
 
+            }
+        }
+        
+        ApiManager.shared.fetchHomeTimelines { [weak self] in
+            
+            DispatchQueue.main.async {
+                self?.homeFeedScreen.statuses = StoreStruct.statusesHome
+                self?.homeFeedScreen.refreshData()
+            }
+        }
+        
+        ApiManager.shared.fetchPublicTimelines { [weak self] in
+            
+            DispatchQueue.main.async {
+                self?.publicFeedScreen.statuses = StoreStruct.statusesFederated
+                self?.publicFeedScreen.refreshData()
             }
         }
     }
@@ -392,6 +430,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if scrollView != screenContainerScrollView { return }
         /// Shrink the width of the transparent view after the scrollview has animated so if the user toggles between Conversation List and Feed the trasnsparent view does not appear
         
         /// Just reached target page, expand transparent view and readjust content offset
@@ -417,8 +456,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
      * slideScrollView.delegate = self or
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if scrollView != self.screenContainerScrollView { return }
+        if scrollView == feedScrollView {
+            adjustFeedTabBarFonts()
+            return
+        }
+//        if scrollView != screenContainerScrollView { return }
+
         
         let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
@@ -430,7 +473,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     
     // this just gets the percentage offset.
     func scrollViewDidScrollToPercentageOffset(scrollView: UIScrollView, horizontalPercentageOffset: CGFloat) {
-        
+        if scrollView != screenContainerScrollView { return }
+
         let x = horizontalPercentageOffset
         //math
         // 0.5 % offset === alpha = 0
@@ -478,5 +522,81 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     }
     
     
+    //MARK: - Feed Screen Functions
+    
+    @IBAction func btnHomeClicked(_ sender: Any) {
+        guard let currentPage = feedPage(scrollView: feedScrollView) else { return }
+        if currentPage == .Home { return }
+        
+        moveToFeedScreen(screen: .Home, animated: true)
+    }
+    
+    @IBAction func btnPublicClicked(_ sender: Any) {
+        guard let currentPage = feedPage(scrollView: feedScrollView) else { return }
+        if currentPage == .Public { return }
+        
+        moveToFeedScreen(screen: .Public, animated: true)
+    }
+    
+    @IBAction func btnLocalClicked(_ sender: Any) {
+        guard let currentPage = feedPage(scrollView: feedScrollView) else { return }
+        if currentPage == .Local { return }
+        
+        moveToFeedScreen(screen: .Local, animated: true)
+    }
+    
+    
+    private func feedPage (scrollView: UIScrollView) -> FeedScreenType? {
+        let width = scrollView.frame.width
+        let pageNumber = scrollView.contentOffset.x / width
+
+        if pageNumber == 0 { return .Home }
+        else if pageNumber == 1 { return .Public }
+        else if pageNumber == 2 { return .Local }
+        else {
+            return nil
+        }
+    }
+    
+    private func moveToFeedScreen (screen: FeedScreenType, animated: Bool) {
+        let pageWidth : CGFloat = feedTableContainer.frame.width
+        var targetPage :CGFloat = 0.0
+        
+        switch screen {
+        case .Home:
+            targetPage = 0
+        case .Public:
+            targetPage = 1.0
+        case .Local:
+            targetPage = 2.0
+        }
+        
+        let slideToX = pageWidth * targetPage
+        
+        self.view.layoutIfNeeded()
+        self.feedScrollView.setContentOffset(CGPoint(x: slideToX, y:0), animated: true)
+    }
+    
+    func adjustFeedTabBarFonts() {
+        //set feed tab bar title bold
+        guard let currentPage = feedPage(scrollView: feedScrollView) else { return }
+        
+        let bold = UIFont.boldSystemFont(ofSize: 17.0)
+        let regular = UIFont.systemFont(ofSize: 17.0)
+        
+        if currentPage == .Home {
+            self.lblHome.font = bold
+            self.lblPublic.font = regular
+            self.lblLocal.font = regular
+        } else if currentPage == .Public {
+            self.lblHome.font = regular
+            self.lblPublic.font = bold
+            self.lblLocal.font = regular
+        } else if currentPage == .Local {
+            self.lblHome.font = regular
+            self.lblPublic.font = regular
+            self.lblLocal.font = bold
+        }
+    }
     
 }

@@ -39,6 +39,10 @@
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
 		949E48392237370F00B931F9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E48382237370F00B931F9 /* CameraView.swift */; };
+		94DC289822B0269B00DF450D /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DC289722B0269B00DF450D /* FeedScreen.swift */; };
+		94DC289A22B026A900DF450D /* FeedScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DC289922B026A900DF450D /* FeedScreen.xib */; };
+		94DC289C22B04D7600DF450D /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DC289B22B04D7600DF450D /* FeedCell.swift */; };
+		94DC289E22B04D8100DF450D /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DC289D22B04D8100DF450D /* FeedCell.xib */; };
 		94FD1D1B2256B03F007464B4 /* PaginationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1CD52256B03F007464B4 /* PaginationItem.swift */; };
 		94FD1D1C2256B03F007464B4 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1CD62256B03F007464B4 /* Conversation.swift */; };
 		94FD1D1D2256B03F007464B4 /* ClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FD1CD72256B03F007464B4 /* ClientType.swift */; };
@@ -171,6 +175,10 @@
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		949E48382237370F00B931F9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		94DC289722B0269B00DF450D /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
+		94DC289922B026A900DF450D /* FeedScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedScreen.xib; sourceTree = "<group>"; };
+		94DC289B22B04D7600DF450D /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		94DC289D22B04D8100DF450D /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		94FD1CD52256B03F007464B4 /* PaginationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationItem.swift; sourceTree = "<group>"; };
 		94FD1CD62256B03F007464B4 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		94FD1CD72256B03F007464B4 /* ClientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientType.swift; sourceTree = "<group>"; };
@@ -312,6 +320,10 @@
 		9413E8FE2241FF2700C97862 /* Feeds */ = {
 			isa = PBXGroup;
 			children = (
+				94DC289722B0269B00DF450D /* FeedScreen.swift */,
+				94DC289922B026A900DF450D /* FeedScreen.xib */,
+				94DC289B22B04D7600DF450D /* FeedCell.swift */,
+				94DC289D22B04D8100DF450D /* FeedCell.xib */,
 			);
 			path = Feeds;
 			sourceTree = "<group>";
@@ -696,8 +708,10 @@
 				94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */,
 				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
+				94DC289E22B04D8100DF450D /* FeedCell.xib in Resources */,
 				94FD1D672256E4E5007464B4 /* ConversationCell.xib in Resources */,
 				A9BE358E223344BA00F4EC8C /* Main.storyboard in Resources */,
+				94DC289A22B026A900DF450D /* FeedScreen.xib in Resources */,
 				9413E8F92241F8E900C97862 /* ConversationListCell.xib in Resources */,
 				94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */,
 				94FD1D612256D469007464B4 /* ConversationScreen.xib in Resources */,
@@ -868,6 +882,7 @@
 				9425690D224D85CD001F63CC /* ProfileScreen.swift in Sources */,
 				94FD1D5D2256B03F007464B4 /* MediaAttachment.swift in Sources */,
 				94FD1D232256B03F007464B4 /* CharacterSet.swift in Sources */,
+				94DC289C22B04D7600DF450D /* FeedCell.swift in Sources */,
 				94FD1D512256B03F007464B4 /* Lists.swift in Sources */,
 				94FD1D592256B03F007464B4 /* Request.swift in Sources */,
 				94FD1D372256B03F007464B4 /* Context.swift in Sources */,
@@ -913,6 +928,7 @@
 				947543C1223758F900289005 /* LandingViewController.swift in Sources */,
 				9413E8FB2241F8FF00C97862 /* ConversationListCell.swift in Sources */,
 				94FD1D2B2256B03F007464B4 /* Mention.swift in Sources */,
+				94DC289822B0269B00DF450D /* FeedScreen.swift in Sources */,
 				94FD1D3E2256B03F007464B4 /* HashType.swift in Sources */,
 				A9BE3589223344BA00F4EC8C /* AppDelegate.swift in Sources */,
 				94FD1D1B2256B03F007464B4 /* PaginationItem.swift in Sources */,
