@@ -35,6 +35,8 @@
 		94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */; };
 		94648C4A225D7723002AE701 /* PhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94648C49225D7723002AE701 /* PhotoScreen.swift */; };
 		94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94648C4B225D7738002AE701 /* PhotoScreen.xib */; };
+		946E297C22B2F73500995A75 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E297B22B2F73500995A75 /* ConversationTableViewCell.swift */; };
+		946E297E22B2F74500995A75 /* ConversationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946E297D22B2F74500995A75 /* ConversationTableViewCell.xib */; };
 		947543C1223758F900289005 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947543C0223758F900289005 /* LandingViewController.swift */; };
 		949E482F2237313E00B931F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E482E2237313E00B931F9 /* MasterViewController.swift */; };
 		949E4837223736FD00B931F9 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949E4836223736FD00B931F9 /* CameraView.xib */; };
@@ -171,6 +173,8 @@
 		94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		94648C49225D7723002AE701 /* PhotoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScreen.swift; sourceTree = "<group>"; };
 		94648C4B225D7738002AE701 /* PhotoScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoScreen.xib; sourceTree = "<group>"; };
+		946E297B22B2F73500995A75 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		946E297D22B2F74500995A75 /* ConversationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationTableViewCell.xib; sourceTree = "<group>"; };
 		947543C0223758F900289005 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		949E482E2237313E00B931F9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		949E4836223736FD00B931F9 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				94FD1D642256E4DC007464B4 /* ConversationCell.swift */,
 				94FD1D662256E4E5007464B4 /* ConversationCell.xib */,
 				1E64C3192295BD3C0051989F /* ConversationViewController.swift */,
+				946E297B22B2F73500995A75 /* ConversationTableViewCell.swift */,
+				946E297D22B2F74500995A75 /* ConversationTableViewCell.xib */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 			files = (
 				A9BE3593223344BD00F4EC8C /* LaunchScreen.storyboard in Resources */,
 				A9BE3590223344BD00F4EC8C /* Assets.xcassets in Resources */,
+				946E297E22B2F74500995A75 /* ConversationTableViewCell.xib in Resources */,
 				94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */,
 				9425690B224D856C001F63CC /* ProfileScreen.xib in Resources */,
 				949E4837223736FD00B931F9 /* CameraView.xib in Resources */,
@@ -913,6 +920,7 @@
 				94FD1D492256B03F007464B4 /* FollowRequests.swift in Sources */,
 				94FD1D442256B03F007464B4 /* RequestError.swift in Sources */,
 				94FD1D572256B03F007464B4 /* Pagination.swift in Sources */,
+				946E297C22B2F73500995A75 /* ConversationTableViewCell.swift in Sources */,
 				94FD1D212256B03F007464B4 /* Result.swift in Sources */,
 				94FD1D1E2256B03F007464B4 /* Parameter.swift in Sources */,
 				94FD1D222256B03F007464B4 /* URLComponents.swift in Sources */,

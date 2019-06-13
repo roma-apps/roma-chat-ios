@@ -154,4 +154,7 @@ class ConversationScreen: UIView, UICollectionViewDelegate, UICollectionViewData
 //        layout.invalidateLayout()
 //        super.viewWillTransition(to: size, with: coordinator)
 //    }
+    
+
+    
 }

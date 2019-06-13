@@ -13,6 +13,7 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var txtServerUrl: UITextField!
     @IBOutlet weak var btnGo: UIButton!
+    @IBOutlet weak var btnContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +25,15 @@ class LandingViewController: UIViewController {
         
         let scrollViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         scrollView.addGestureRecognizer(scrollViewTapGesture)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         txtServerUrl.text = ""
+        
+        btnContainer.layer.cornerRadius = 5
     }
 
     //TODO: Fix up scrolling only when overlapping views

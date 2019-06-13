@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ConversationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var conversationCollectionView: UICollectionView!
     @IBOutlet weak var fakeKeyboardHeightCnst: NSLayoutConstraint!
@@ -18,6 +18,7 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     
     private var reloadTriggered = false
     
+    @IBOutlet weak var lblChatUsername: UILabel!
     var avatar : UIImage?
     
     var conversation: RomaConversation?
@@ -26,6 +27,10 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     
     var chatUsername: String?
     
+    let greenColor = UIColor(red:0.15, green:0.71, blue:0.15, alpha:1.0)
+    
+    @IBOutlet weak var imgBack: UIImageView!
+    
     var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.size.width
@@ -33,6 +38,9 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         return layout
     }()
     
+    @IBOutlet weak var tableView: UITableView!
+    private let tableReuseIdentifier = "ConversationTableViewCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         conversationCollectionView.dataSource = self
@@ -51,6 +59,17 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         
 //        [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionOld context:NULL];
         
+        msgTextField.tintColor = greenColor
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: tableReuseIdentifier, bundle: nil), forCellReuseIdentifier: tableReuseIdentifier)
+        tableView.keyboardDismissMode = .interactive
+        tableView.separatorStyle = .none
+        
+        imgBack.tintColor = .white
+
+        
         setupAccounts()
 
     }
@@ -59,10 +78,13 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         guard let conversation = conversation, let chatUser = conversation.user else { return }
         self.chatUsername = chatUser.username
         
+        lblChatUsername.text = chatUsername?.uppercased()
+        lblChatUsername.layoutIfNeeded()
+        
         let currentUsername = StoreStruct.currentUser.username
         let convAccounts = conversation.accounts
         self.accounts = convAccounts.filter{ $0.username != currentUsername }
-        print(self.accounts ?? "")
+//        print(self.accounts ?? "")
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -74,7 +96,10 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
                 print("keyboard height: \(keyboardHeight)")
                 guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
                 self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
-                
+            
+            
+                self.tableView.scrollToRow(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
+
 //            }
         }
     }
@@ -92,96 +117,110 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
     
     @objc func conversationsRefreshed(_ notification: Notification) {
         
+        
+        
+
+        
         print("conversations refreshed")
         guard let conversation = conversation else { return }
         let thisConvo = StoreStruct.conversations.filter{ $0.id == conversation.id }.first
-
-        let oldMessages = conversation.messages
-        guard let newMessages = thisConvo?.messages else { return }
-
-        let diff = difference(between: oldMessages, and: newMessages)
-
-        var insertions: [Status?] = []
-        var deletions: [Status?] = []
-        //find inserts and deletions in oldMessages
-        for message in diff {
-            if oldMessages.contains(message) {
-                deletions.append(message)
-            } else {
-                insertions.append(message)
-            }
-        }
-
-//        if newMessages.count > oldMessages.count {
-//            //append diff to conversation
-////            DispatchQueue.main.async {
-////            }
-//        } else {
-//            //reset
-//            self.conversation = thisConvo
-//
+        self.conversation = thisConvo
+        
         DispatchQueue.main.async {
-            self.updateCollectionView(oldMessages: oldMessages, newMessages: newMessages, diff: diff, insertions: insertions, deletions: deletions)
 
-//                self.reloadTriggered = true
-//                self.conversationCollectionView.reloadData()
-//                //            guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
-//                //            self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
-//            }
+            self.tableView.reloadData()
+            self.tableView.scrollToRow(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
         }
+
+        
+//
+//        let oldMessages = conversation.messages
+//        guard let newMessages = thisConvo?.messages else { return }
+//
+//        let diff = difference(between: oldMessages, and: newMessages)
+//
+//        var insertions: [Status?] = []
+//        var deletions: [Status?] = []
+//        //find inserts and deletions in oldMessages
+//        for message in diff {
+//            if oldMessages.contains(message) {
+//                deletions.append(message)
+//            } else {
+//                insertions.append(message)
+//            }
+//        }
+//
+////        if newMessages.count > oldMessages.count {
+////            //append diff to conversation
+//////            DispatchQueue.main.async {
+//////            }
+////        } else {
+////            //reset
+////            self.conversation = thisConvo
+////
+//        DispatchQueue.main.async {
+//            self.updateCollectionView(oldMessages: oldMessages, newMessages: newMessages, diff: diff, insertions: insertions, deletions: deletions)
+//
+////                self.reloadTriggered = true
+////                self.conversationCollectionView.reloadData()
+////                //            guard let conversation = self.conversation, conversation.messages.count > 0 else {return}
+////                //            self.conversationCollectionView.scrollToItem(at: IndexPath(item: conversation.messages.count - 1, section: 0), at: .bottom, animated: true)
+////            }
+//        }
         
         
     }
     
     func updateCollectionView(oldMessages: [Status?], newMessages: [Status?], diff: [Status?], insertions: [Status?], deletions: [Status?]) {
         
-        var deleteIndexes = [Array<Any>.Index]()
-        for message in deletions {
-            if let index = self.conversation?.messages.firstIndex(of: message) {
-                deleteIndexes.append(index)
-//                if let distance =  self.conversation?.messages.distance(from:  self.conversation?.messages.startIndex ?? 0, to: index) {
-//                    deleteIndexes.append(distance)
-//                }
-            }
-        }
-        
-        //perform deletes
-        for index in deleteIndexes {
-            self.conversation?.messages.remove(at: index)
-        }
-
-        var insertIndexes = [Array<Any>.Index]()
-        for message in insertions {
-            self.conversation?.messages.append(message)
-            if let index = self.conversation?.messages.firstIndex(of: message) {
-                insertIndexes.append(index)
-            }
-        }
-        
-        
-//        for status in diff {
-            self.conversationCollectionView.performBatchUpdates({
-                let deleteIndexPaths = deleteIndexes.map { IndexPath(item: $0, section: 0) }
-
-              //  self.conversationCollectionView.deleteItems(at: deleteIndexPaths)
-                
-                let insertIndexPaths = insertIndexes.map { IndexPath(item: $0, section: 0) }
-               // self.conversationCollectionView.insertItems(at: insertIndexPaths)
-
-//                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
-//                let lastIndexPath = IndexPath(item: lastIndex, section: 0)
-//                self.conversationCollectionView.insertItems(at: [lastIndexPath])
-            }, completion: { _ in
-//                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
-//                let lastIndexPathNew = IndexPath(item: lastIndex, section: 0)
-//                self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
-
-            })
-            //
-            ////                    let lastIndexPathNew = IndexPath(item: lastIndex + 1, section: 0)
-            //
-            ////                    self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
+//        var deleteIndexes = [Array<Any>.Index]()
+//        for message in deletions {
+//            if let index = self.conversation?.messages.firstIndex(of: message) {
+//                deleteIndexes.append(index)
+////                if let distance =  self.conversation?.messages.distance(from:  self.conversation?.messages.startIndex ?? 0, to: index) {
+////                    deleteIndexes.append(distance)
+////                }
+//            }
 //        }
+//
+//        //perform deletes
+//        for index in deleteIndexes {
+//            self.conversation?.messages.remove(at: index)
+//        }
+//
+//        var insertIndexes = [Array<Any>.Index]()
+//        for message in insertions {
+//            self.conversation?.messages.append(message)
+//            if let index = self.conversation?.messages.firstIndex(of: message) {
+//                insertIndexes.append(index)
+//            }
+//        }
+        
+
+
+//        for status in diff {
+//            self.conversationCollectionView.performBatchUpdates({
+//                let deleteIndexPaths = deleteIndexes.map { IndexPath(item: $0, section: 0) }
+//
+//              //  self.conversationCollectionView.deleteItems(at: deleteIndexPaths)
+//
+//                let insertIndexPaths = insertIndexes.map { IndexPath(item: $0, section: 0) }
+//               // self.conversationCollectionView.insertItems(at: insertIndexPaths)
+//
+////                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
+////                let lastIndexPath = IndexPath(item: lastIndex, section: 0)
+////                self.conversationCollectionView.insertItems(at: [lastIndexPath])
+//            }, completion: { _ in
+////                let lastIndex = self.conversationCollectionView.numberOfItems(inSection: 0) - 1
+////                let lastIndexPathNew = IndexPath(item: lastIndex, section: 0)
+////                self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
+//
+//            })
+//            //
+//            ////                    let lastIndexPathNew = IndexPath(item: lastIndex + 1, section: 0)
+//            //
+//            ////                    self.conversationCollectionView.scrollToItem(at: lastIndexPathNew, at: .bottom, animated: true)
+////        }
     }
     
 
@@ -202,6 +241,7 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         conversationCollectionView.reloadData()
+        tableView.reloadData()
 //        let lastMessageIndex = conversation.messages.count - 1
 //        conversationCollectionView.scrollToItem(at: IndexPath(row: lastMessageIndex, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true)
     }
@@ -335,4 +375,117 @@ class ConversationViewController: UIViewController, UICollectionViewDelegate, UI
         let otherSet = Set(and)
         return Array(thisSet.symmetricDifference(otherSet))
     }
+    
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let conversation = conversation {
+            return conversation.messages.count
+        }
+        return 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: tableReuseIdentifier) as? ConversationTableViewCell {
+            
+            if let conversation = conversation {
+                if let status = conversation.messages[indexPath.row] {
+                    let username = status.account.username
+                    let message = status.content.stripHTML()
+                    
+                    if shouldShowDate(index: indexPath.row) {
+                        //Show date and name
+                        cell.setDate(date: status.createdAt, show: true)
+                        cell.setName(name: username, show: true)
+                    } else if shouldShowName(index: indexPath.row) {
+                        //show name no date
+                        cell.setDate(date: nil, show: false)
+                        cell.setName(name: username, show: true)
+                    } else {
+                        //hide both
+                        cell.setDate(date: nil, show: false)
+                        cell.setName(name: "", show: false)
+                    }
+                    
+                    if username == StoreStruct.currentUser.username {
+                        cell.setupForCurrentUser(currentUser: true)
+                    } else {
+                        cell.setupForCurrentUser(currentUser: false)
+                    }
+                    
+//                    cell.lblName?.text = username
+                    cell.lblMessage?.text = message
+                }
+            }
+            
+            return cell
+            
+            
+//
+//            if let statuses = statuses {
+//                if statuses.count > indexPath.row {
+//                    let thisStatus = statuses[indexPath.row]
+//                    cell.lblTitle?.text = thisStatus.account.username.stripHTML()
+//                    cell.lblContent?.text = thisStatus.content.stripHTML()
+//                    thisStatus.account.getCachedAvatarImage { (avatarImage) in
+//                        //refresh cell image if cell is visible
+//                        DispatchQueue.main.async {
+//                            cell.imgAvatar.image = avatarImage
+//                            cell.reloadInputViews()
+//                        }
+//                    }
+//
+//                    cell.lblTime?.text = convertToTimeSinceNowString(date: thisStatus.createdAt)
+//                } else {
+//                    return UITableViewCell()
+//
+//                }
+//
+//            }
+//
+//            return cell
+        }
+        return UITableViewCell()
+    }
+    
+
+    //if should show date, then you should show name too
+    func shouldShowDate(index: Int) -> Bool {
+        if index == 0 { return true }
+        
+        if let curItem = conversation?.messages[index], let prevItem = conversation?.messages[index - 1] {
+            let interval = curItem.createdAt.timeIntervalSince(prevItem.createdAt)
+            
+            let days = floor(interval / 86400)
+            
+            if days > 0 {
+                return true
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
+    func shouldShowName(index: Int) -> Bool {
+        if index == 0 { return true }
+        
+        if let curItem = conversation?.messages[index], let prevItem = conversation?.messages[index - 1] {
+            
+            if curItem.account.username != prevItem.account.username {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    
 }

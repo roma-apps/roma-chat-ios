@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NotificationName {
     
@@ -16,5 +17,9 @@ struct NotificationName {
     
     let timelines = NSNotification.Name(rawValue: "timelines_changed")
     let conversations = NSNotification.Name(rawValue: "conversations_changed")
+
+    
+    let mfcGreen = UIColor(red:0.13, green:0.58, blue:0.07, alpha:1.0)
+    
 
 }
