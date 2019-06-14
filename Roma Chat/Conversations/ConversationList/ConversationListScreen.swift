@@ -46,7 +46,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
             
             backgroundView.contentMode = .scaleAspectFill
             backgroundView.clipsToBounds = true
-            backgroundView.backgroundColor = backgroundBlue
+            backgroundView.backgroundColor = .white
             conversationListScreen.addSubview(backgroundView)
             conversationListScreen.sendSubviewToBack(backgroundView)
         }
@@ -79,7 +79,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
             let conversation = conversations[indexPath.row]
             if let user = conversation.user {
                     cell.lblTitle?.text = user.username
-                    cell.backgroundColor = backgroundBlue
+                    cell.backgroundColor = .white
                     
                     user.getCachedAvatarImage { (avatarImage) in
                         //refresh cell image if cell is visible
@@ -91,7 +91,7 @@ class ConversationListScreen: NSObject, UITableViewDelegate, UITableViewDataSour
             } else {
                 if let lastAccount = conversation.accounts.last {
                     cell.lblTitle?.text = lastAccount.username
-                    cell.backgroundColor = backgroundBlue
+                    cell.backgroundColor = .white
                     
                     lastAccount.getCachedAvatarImage { (avatarImage) in
                         //refresh cell image if cell is visible

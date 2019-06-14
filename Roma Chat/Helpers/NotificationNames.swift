@@ -19,7 +19,7 @@ struct NotificationName {
     let conversations = NSNotification.Name(rawValue: "conversations_changed")
 
     
-    let mfcGreen = UIColor(red:0.13, green:0.58, blue:0.07, alpha:1.0)
+    let mfcGreen = UIColor(red:0.02, green:0.46, blue:0.01, alpha:1.0)
     
 
 }
