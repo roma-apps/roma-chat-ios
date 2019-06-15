@@ -15,8 +15,13 @@ class ConversationListCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     
+    @IBOutlet weak var iconConversationStatus: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        iconConversationStatus.layer.borderWidth = 1.0
+        iconConversationStatus.layer.borderColor = UIColor.lightGray.cgColor
+        
     }
 }

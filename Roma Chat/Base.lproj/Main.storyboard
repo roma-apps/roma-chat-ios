@@ -141,7 +141,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ud-1T-MeV">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <color key="backgroundColor" red="0.68828648328781128" green="0.86917763948440552" blue="0.38502037525177002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.015686274510000001" green="0.45882352939999999" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5F-OM-N6Z" userLabel="ScreenContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -311,7 +311,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.015686274510000001" green="0.45882352939999999" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="8qi-Ip-AJQ" firstAttribute="top" secondItem="ZBH-V1-zfR" secondAttribute="top" id="0zY-dJ-Uzj"/>
                                                                             <constraint firstItem="hZy-tG-Huo" firstAttribute="top" secondItem="ZBH-V1-zfR" secondAttribute="top" id="8O0-yD-6Hs"/>
@@ -374,7 +374,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="ZBH-V1-zfR" firstAttribute="top" secondItem="Yu7-ci-bbH" secondAttribute="top" id="0YN-iD-2D1"/>
                                                                     <constraint firstAttribute="bottom" secondItem="D6t-nn-0R0" secondAttribute="bottom" id="ETG-fD-BJd"/>
@@ -513,9 +513,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4b9-Bf-ojN" userLabel="ConversationButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="130"/>
                                                         <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CONV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9z-6y-a76" userLabel="lblConversationBtn">
+                                                                <rect key="frame" x="41" y="54" width="42" height="21"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTm-O4-kNA" userLabel="btnConversation">
-                                                                <rect key="frame" x="41.5" y="48" width="42" height="34"/>
-                                                                <state key="normal" title="Conv">
+                                                                <rect key="frame" x="38.5" y="48.5" width="48.5" height="33"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <state key="normal">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
@@ -526,7 +534,11 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="hTm-O4-kNA" firstAttribute="centerY" secondItem="4b9-Bf-ojN" secondAttribute="centerY" id="Bix-gk-Nbq"/>
+                                                            <constraint firstItem="l9z-6y-a76" firstAttribute="trailing" secondItem="hTm-O4-kNA" secondAttribute="trailing" id="Ra9-pO-l7h"/>
                                                             <constraint firstItem="hTm-O4-kNA" firstAttribute="centerX" secondItem="4b9-Bf-ojN" secondAttribute="centerX" id="ccg-zu-dnC"/>
+                                                            <constraint firstItem="l9z-6y-a76" firstAttribute="top" secondItem="hTm-O4-kNA" secondAttribute="top" id="hWD-u0-jRg"/>
+                                                            <constraint firstItem="l9z-6y-a76" firstAttribute="leading" secondItem="hTm-O4-kNA" secondAttribute="leading" id="uIK-KO-49a"/>
+                                                            <constraint firstItem="l9z-6y-a76" firstAttribute="bottom" secondItem="hTm-O4-kNA" secondAttribute="bottom" id="yPD-JL-dME"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWI-3g-Oe1" userLabel="CameraButton">
@@ -556,9 +568,17 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAD-oG-Yc9" userLabel="FeedButton">
                                                         <rect key="frame" x="250" y="0.0" width="125" height="130"/>
                                                         <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FEED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NM-35-MV9" userLabel="lblFeedBtn">
+                                                                <rect key="frame" x="41" y="54" width="42" height="21"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <color key="textColor" red="0.8220508835" green="0.8220508835" blue="0.8220508835" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENC-CA-5cQ" userLabel="btnFeed">
-                                                                <rect key="frame" x="45.5" y="50" width="34" height="30"/>
-                                                                <state key="normal" title="Feed">
+                                                                <rect key="frame" x="41.5" y="48.5" width="42" height="33"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <state key="normal">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
@@ -568,8 +588,12 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="7NM-35-MV9" firstAttribute="top" secondItem="ENC-CA-5cQ" secondAttribute="top" id="8LC-Cv-TFc"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="centerX" secondItem="xAD-oG-Yc9" secondAttribute="centerX" id="akc-Ca-Dzb"/>
+                                                            <constraint firstItem="7NM-35-MV9" firstAttribute="bottom" secondItem="ENC-CA-5cQ" secondAttribute="bottom" id="baa-a0-dUc"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="centerY" secondItem="xAD-oG-Yc9" secondAttribute="centerY" id="vJk-YL-oQu"/>
+                                                            <constraint firstItem="7NM-35-MV9" firstAttribute="leading" secondItem="ENC-CA-5cQ" secondAttribute="leading" id="yRK-eY-bLi"/>
+                                                            <constraint firstItem="7NM-35-MV9" firstAttribute="trailing" secondItem="ENC-CA-5cQ" secondAttribute="trailing" id="zpV-R5-0LP"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -666,6 +690,8 @@
                         <outlet property="feedScrollView" destination="P2K-nX-Vwu" id="hyS-V7-fXV"/>
                         <outlet property="feedTableContainer" destination="D6t-nn-0R0" id="Bsh-Oc-2oT"/>
                         <outlet property="homeFeedScreen" destination="P0f-vQ-AZI" id="eqX-s6-Jq2"/>
+                        <outlet property="lblConvButton" destination="l9z-6y-a76" id="Q1L-Cw-TEj"/>
+                        <outlet property="lblFeedButton" destination="7NM-35-MV9" id="ugD-wt-bVe"/>
                         <outlet property="lblHome" destination="V7I-Kw-cBV" id="EAZ-Vb-zTs"/>
                         <outlet property="lblLocal" destination="F37-TV-sQF" id="tbh-vr-yHi"/>
                         <outlet property="lblPublic" destination="fet-bh-2iv" id="9tG-2N-TYh"/>

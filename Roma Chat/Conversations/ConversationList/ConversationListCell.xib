@@ -32,17 +32,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDm-j6-QZD" userLabel="Avatar Image View">
-                                                        <rect key="frame" x="5" y="5" width="49.5" height="49.5"/>
+                                                        <rect key="frame" x="10" y="10" width="39.5" height="39.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="sDm-j6-QZD" secondAttribute="trailing" constant="5" id="Qkx-pJ-uWv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="sDm-j6-QZD" secondAttribute="bottom" constant="5" id="Rub-tv-WdP"/>
-                                                    <constraint firstItem="sDm-j6-QZD" firstAttribute="leading" secondItem="oOz-82-ox0" secondAttribute="leading" constant="5" id="S1e-LE-A1t"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sDm-j6-QZD" secondAttribute="trailing" constant="10" id="Qkx-pJ-uWv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sDm-j6-QZD" secondAttribute="bottom" constant="10" id="Rub-tv-WdP"/>
+                                                    <constraint firstItem="sDm-j6-QZD" firstAttribute="leading" secondItem="oOz-82-ox0" secondAttribute="leading" constant="10" id="S1e-LE-A1t"/>
                                                     <constraint firstAttribute="width" secondItem="oOz-82-ox0" secondAttribute="height" multiplier="1:1" id="Z1a-53-6cB"/>
-                                                    <constraint firstItem="sDm-j6-QZD" firstAttribute="top" secondItem="oOz-82-ox0" secondAttribute="top" constant="5" id="nVk-gy-7IE"/>
+                                                    <constraint firstItem="sDm-j6-QZD" firstAttribute="top" secondItem="oOz-82-ox0" secondAttribute="top" constant="10" id="nVk-gy-7IE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-CO-jSv" userLabel="TitleContainerView">
@@ -54,8 +54,8 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1y-ZC-36u" userLabel="TitleLabel">
                                                                 <rect key="frame" x="0.0" y="0.0" width="295.5" height="39.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wA6-OH-PEi" userLabel="Status Container View">
@@ -66,7 +66,7 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGr-Cc-5aU" userLabel="Status Icon Container">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="20" id="ugA-uK-gnz"/>
                                                                                 </constraints>
@@ -152,6 +152,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="iconConversationStatus" destination="pGr-Cc-5aU" id="URP-OO-cLx"/>
                 <outlet property="imgAvatarView" destination="sDm-j6-QZD" id="5On-rI-AU2"/>
                 <outlet property="lblStatus" destination="eTM-At-ZmG" id="2Gy-dQ-s45"/>
                 <outlet property="lblTitle" destination="t1y-ZC-36u" id="LJI-Ei-Vc5"/>

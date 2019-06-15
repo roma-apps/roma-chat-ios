@@ -71,6 +71,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var lblLocal: UILabel!
     
     
+    @IBOutlet weak var lblConvButton: UILabel!
+    @IBOutlet weak var lblFeedButton: UILabel!
+    
+    
     var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
     let priorityDisabled : Float = 1.0
@@ -496,19 +500,29 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         if x <= leftEdge || x >= rightEdge {
             backgroundColorView.alpha = 1
+            lblConvButton.textColor = .lightGray
+            lblFeedButton.textColor = .lightGray
         } else if x == middle {
             backgroundColorView.alpha = 0
+            lblConvButton.textColor = .white
+            lblFeedButton.textColor = .white
         } else {
             if x > leftEdge && x < middle {
                 let max = middle - leftEdge
                 let scaledX = x - leftEdge
                 let percentageOffset = scaledX / CGFloat(max) //max = 0.5 - 0.3
                 backgroundColorView.alpha = 1 - percentageOffset // let alpha = inverted percect offset
+                let newButtonColor = navButtonColorWithAlpha(offset: percentageOffset)
+                lblConvButton.textColor = newButtonColor
+                lblFeedButton.textColor = newButtonColor
             } else if x < rightEdge && x > middle {
                 let scaledX = x - middle
                 let max = rightEdge - middle
                 let percentageOffset = scaledX / CGFloat(max) // max = 0.7 - 0.5
                 backgroundColorView.alpha = percentageOffset
+                let newButtonColor = navButtonColorWithAlpha(offset: 1 - percentageOffset)
+                lblConvButton.textColor = newButtonColor
+                lblFeedButton.textColor = newButtonColor
             }
         }
     }
@@ -597,6 +611,31 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
             self.lblPublic.font = regular
             self.lblLocal.font = bold
         }
+    }
+    
+    func navButtonColorWithAlpha(offset: CGFloat) -> UIColor {
+        
+        //0.68 = gray
+        // 1.0 = white
+        
+        let gray = 0.6
+        let white = 1.0
+        
+        let difference = white - gray
+        
+        //when offset is 0 it will be white, when offset is 1 it will be gray
+        
+        let curValue = difference*Double(offset)
+        
+        let newValue = gray + curValue
+        let colorNum = CGFloat(newValue)
+        if colorNum > 0.9 {
+            return .white
+        }
+        
+        print("difference: \(difference), curVal: \(curValue), newVal: \(newValue)")
+        
+        return UIColor(red:colorNum, green:colorNum, blue:colorNum, alpha:1.0)
     }
     
 }
