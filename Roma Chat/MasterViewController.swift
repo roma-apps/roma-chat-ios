@@ -633,8 +633,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
             return .white
         }
         
-        print("difference: \(difference), curVal: \(curValue), newVal: \(newValue)")
-        
         return UIColor(red:colorNum, green:colorNum, blue:colorNum, alpha:1.0)
     }
     
