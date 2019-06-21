@@ -261,6 +261,69 @@ struct ApiManager {
         }
     }
     
+    func sendDirectMessageStatusForMediaAttachment(message: String, mediaIDs: [String]) {
+        let request = Statuses.create(status: message,
+                                      replyToID: nil,
+                                      mediaIDs: mediaIDs,
+                                      sensitive: nil,
+                                      spoilerText: nil,
+                                      scheduledAt: nil,
+                                      visibility: .direct)
+        
+        StoreStruct.client.run(request) { (status) in
+            if let convos = (status.value) {
+                Stream.shared.refreshConversations()
+                
+                
+                print("")
+                //                StoreStruct.directMessages = convos
+                //                StoreStruct.directMessages = NSOrderedSet(array: StoreStruct.directMessages).array as! [Conversation]
+                //                NotificationCenter.default.post(name: NotificationName.shared.conversations, object: nil)
+                //
+                //                //Concatenate messages from same user into one RomaConversation
+                //
+                //                let groupedDirectMessages = Dictionary(grouping: StoreStruct.directMessages, by: { $0.accounts.first?.id })
+                //                var filteredConversations = [String: [Conversation]]()
+                //                for key in groupedDirectMessages {
+                //                    var tempConversations = key.value
+                //
+                //                    tempConversations.sort {
+                //                        guard let status0 = $0.lastStatus, let status1 = $1.lastStatus else { return false }
+                //                        return status0.createdAt < status1.createdAt
+                //                    }
+                //
+                //                    if let id = key.key {
+                //                        filteredConversations[id] = tempConversations
+                //                    } else {
+                //                        if let firstConvo = tempConversations.first {
+                //                            filteredConversations[firstConvo.id] = tempConversations
+                //                        }
+                //                    }
+                //                }
+                //
+                //                //convert filetered conversations into RomaConversation
+                //                var romaConversations = [RomaConversation]()
+                //                for key in filteredConversations {
+                //                    guard let firstConversation = key.value.first else { continue }
+                //                    let conversationMessages = key.value.map { $0.lastStatus }
+                //                    let romaConversation = RomaConversation(firstConversation, messages: conversationMessages)
+                //                    romaConversations.append(romaConversation)
+                //                }
+                //
+                //                StoreStruct.conversations = romaConversations
+                //
+                //
+                //                completion(nil)
+            } else {
+                if let error = status.error {
+                    print(error)
+                    //                    completion(error)
+                }
+            }
+        }
+    }
+    
+    
     func fetchAvatarForAccount(account: Account, completion: @escaping (UIImage) -> ()) {
     
         // get the deal image
@@ -283,6 +346,33 @@ struct ApiManager {
             // self.imageCache[unwrappedImage] = image
             completion(image)
                 
+        })
+        task.resume()
+        
+    }
+    
+    func fetchThumbnailForAttachment(attachment: Attachment, completion: @escaping (UIImage) -> ()) {
+        
+        // get the deal image
+        guard let imageUrl = URL(string: attachment.previewURL) else { return }
+        
+        let request = URLRequest(url: imageUrl)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            guard let image = UIImage(data: data) else { return }
+            
+            // self.imageCache[unwrappedImage] = image
+            completion(image)
+            
         })
         task.resume()
         

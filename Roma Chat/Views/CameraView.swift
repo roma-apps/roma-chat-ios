@@ -130,6 +130,15 @@ class CameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
             takeNextPhoto = false
             
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+
+                //if front facing camera, flip image
+                if captureDevice.position == .front {
+                    let flippedImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .leftMirrored)
+                    
+                    self.delegate?.imageTaken(image: flippedImage)
+                    return
+                }
+
                 //show image
                 self.delegate?.imageTaken(image: image)
             }
@@ -213,7 +222,5 @@ class CameraView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
         
         return nil
     }
-
-
     
 }

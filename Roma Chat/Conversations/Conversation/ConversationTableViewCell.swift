@@ -26,6 +26,10 @@ class ConversationTableViewCell: UITableViewCell {
     
     let lightBlueColor = UIColor(red:0.20, green:0.68, blue:0.97, alpha:1.0)
     
+    @IBOutlet weak var imgThumbnail: UIImageView!
+    @IBOutlet weak var cnstHideImageView: NSLayoutConstraint!
+    @IBOutlet weak var cnstShowImageView: NSLayoutConstraint!
+    @IBOutlet weak var viewImgContainer: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,6 +77,33 @@ class ConversationTableViewCell: UITableViewCell {
         }
         self.layoutIfNeeded()
     }
+    
+    func showImage(attachment: Attachment) {
+        toggleAttachmentsView(hide: false)
+        ApiManager.shared.fetchThumbnailForAttachment(attachment: attachment) { (image) in
+            DispatchQueue.main.async { [weak self] in
+                self?.imgThumbnail.image = image
+                self?.layoutIfNeeded()
+//                imageCache.setObject(image, forKey: self.avatar as AnyObject)
+//                completion(image)
+            }
+        }
+    }
+    
+    func toggleAttachmentsView(hide: Bool) {
+        if hide {
+            self.cnstShowImageView.priority = UILayoutPriority(rawValue: 200)
+            self.cnstHideImageView.priority = UILayoutPriority(rawValue: 900)
+            self.viewImgContainer.isHidden = true
+        } else {
+            self.cnstShowImageView.priority = UILayoutPriority(rawValue: 900)
+            self.cnstHideImageView.priority = UILayoutPriority(rawValue: 200)
+            self.viewImgContainer.isHidden = false
+        }
+        
+        self.layoutIfNeeded()
+    }
+    
     
     
     func formatDateToString(date: Date) -> String {

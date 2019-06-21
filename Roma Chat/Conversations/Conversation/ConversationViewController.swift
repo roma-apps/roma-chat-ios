@@ -200,6 +200,17 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
                         cell.setupForCurrentUser(currentUser: false)
                     }
                     
+                    if status.mediaAttachments.count > 0 {
+                        print("has attachments")
+                        if let firstAttachment = status.mediaAttachments.first {
+                            cell.showImage(attachment: firstAttachment)
+                        } else {
+                            cell.toggleAttachmentsView(hide: true)
+                        }
+                    } else {
+                        cell.toggleAttachmentsView(hide: true)
+                    }
+                    
 //                    cell.lblName?.text = username
                     let trimmedMessage = trimLeadingUserReferences(message: message)
 

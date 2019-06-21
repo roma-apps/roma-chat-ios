@@ -30,7 +30,7 @@ enum SizeModification {
     case Expand
 }
 
-class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate, CameraViewDelegate, PhotoScreenDelegate, UISearchBarDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScreenDelegate, ConversationListScreenDelegate, CameraViewDelegate, PhotoScreenDelegate, SendToFriendScreenDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var conversationContainerView: UIView!
     
@@ -82,6 +82,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     let conversationList = ConversationListScreen()
     
     var conversationViewController: ConversationViewController?
+    
+    var sendToFriendScreen: SendToFriendScreen?
     
     //MARK: - App Lifecycle
     
@@ -267,6 +269,19 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     func openSettingsScreen() {
         let settingsScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.settingsViewController) as! SettingsViewController
         self.navigationController?.pushViewController(settingsScreen, animated: true)
+    }
+    
+    func showSendToFriendScreen() {
+        let sendToFriendScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.sendToFriendScreen) as! SendToFriendScreen
+        sendToFriendScreen.delegate = self
+        sendToFriendScreen.conversationsData = StoreStruct.conversations
+        self.sendToFriendScreen = sendToFriendScreen
+        self.navigationController?.present(self.sendToFriendScreen!, animated: true, completion: nil)
+    }
+    
+    func friendClicked(conversation: RomaConversation) {
+        closePhotoScreen()
+        self.photoScreen.sendSavedImage(toFriend: conversation.user)
     }
     
     @IBAction func btnAddFriendClicked(_ sender: Any) {
