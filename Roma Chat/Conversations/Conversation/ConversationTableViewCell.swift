@@ -123,15 +123,15 @@ class ConversationTableViewCell: UITableViewCell {
         
         if let months = months, months > 0 {
             //            return "\(months)m"
-            dateFormatter.dateFormat = "MMM dd,yyyy"
+            dateFormatter.dateFormat = "MMM dd, yyyy"
             return dateFormatter.string(from: date)
         } else if let days = days, days > 0 {
             if days < 7 {
                 let myCalendar = Calendar(identifier: .gregorian)
                 let weekDay = myCalendar.component(.weekday, from: date)
                 return dateFormatter.weekdaySymbols[weekDay]
-            } else if days > 7 {
-                dateFormatter.dateFormat = "MMM dd,yyyy"
+            } else if days >= 7 {
+                dateFormatter.dateFormat = "MMM dd, yyyy"
                 return dateFormatter.string(from: date)
             }
         }
