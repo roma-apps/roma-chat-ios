@@ -24,6 +24,7 @@ class SendToFriendScreen: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var imgBack: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,8 @@ class SendToFriendScreen: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        imgBack.image = UIImage(named: "back")!.withRenderingMode(.alwaysTemplate)
+        imgBack.tintColor = .white
         
         print("")
         self.tableView.reloadData()
@@ -67,6 +70,8 @@ class SendToFriendScreen: UIViewController, UITableViewDelegate, UITableViewData
             if let user = conversation.user {
                 cell.lblTitle?.text = user.username
                 cell.backgroundColor = .white
+                
+                cell.lblStatus.text = "Tap to send"
                 
                 user.getCachedAvatarImage { (avatarImage) in
                     //refresh cell image if cell is visible
