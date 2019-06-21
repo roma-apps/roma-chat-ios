@@ -70,10 +70,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
     @IBOutlet weak var lblPublic: UILabel!
     @IBOutlet weak var lblLocal: UILabel!
     
-    
-    @IBOutlet weak var lblConvButton: UILabel!
-    @IBOutlet weak var lblFeedButton: UILabel!
-    
+    @IBOutlet weak var imgFeed: UIImageView!
+    @IBOutlet weak var imgConversation: UIImageView!
     
     var pageIndex:Int = 0
     let priorityEnabled : Float = 999.0
@@ -98,6 +96,11 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         feedScrollView.contentInsetAdjustmentBehavior = .never
 
         
+        imgFeed.image = UIImage(named: "feed")!.withRenderingMode(.alwaysTemplate)
+        imgFeed.tintColor = .white
+        imgConversation.image = UIImage(named: "conversation")!.withRenderingMode(.alwaysTemplate)
+        imgConversation.tintColor = .white
+        
         // Init Conversation List
         conversationListTableView.contentInset = UIEdgeInsets(top: 60.0, left: 0, bottom: 0, right: 0)
         conversationListTableView.delegate = conversationList
@@ -107,6 +110,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         cameraView.delegate = self
         photoScreen.delegate = self
+        
+        
         
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = .white
@@ -515,12 +520,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
         
         if x <= leftEdge || x >= rightEdge {
             backgroundColorView.alpha = 1
-            lblConvButton.textColor = .lightGray
-            lblFeedButton.textColor = .lightGray
+            imgFeed.tintColor = .lightGray
+            imgConversation.tintColor = .lightGray
         } else if x == middle {
             backgroundColorView.alpha = 0
-            lblConvButton.textColor = .white
-            lblFeedButton.textColor = .white
+            imgConversation.tintColor = .white
+            imgFeed.tintColor = .white
         } else {
             if x > leftEdge && x < middle {
                 let max = middle - leftEdge
@@ -528,16 +533,16 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, ProfileScree
                 let percentageOffset = scaledX / CGFloat(max) //max = 0.5 - 0.3
                 backgroundColorView.alpha = 1 - percentageOffset // let alpha = inverted percect offset
                 let newButtonColor = navButtonColorWithAlpha(offset: percentageOffset)
-                lblConvButton.textColor = newButtonColor
-                lblFeedButton.textColor = newButtonColor
+                imgConversation.tintColor = newButtonColor
+                imgFeed.tintColor = newButtonColor
             } else if x < rightEdge && x > middle {
                 let scaledX = x - middle
                 let max = rightEdge - middle
                 let percentageOffset = scaledX / CGFloat(max) // max = 0.7 - 0.5
                 backgroundColorView.alpha = percentageOffset
                 let newButtonColor = navButtonColorWithAlpha(offset: 1 - percentageOffset)
-                lblConvButton.textColor = newButtonColor
-                lblFeedButton.textColor = newButtonColor
+                imgConversation.tintColor = newButtonColor
+                imgFeed.tintColor = newButtonColor
             }
         }
     }

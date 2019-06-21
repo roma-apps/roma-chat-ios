@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConversationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ConversationTableViewCellDelegate {
     
     @IBOutlet weak var fakeKeyboardHeightCnst: NSLayoutConstraint!
 
@@ -31,6 +31,7 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     private let tableReuseIdentifier = "ConversationTableViewCell"
     
+    var attachmentPreviewScreen: AttachmentPreviewScreen?
     //MARK: App Lifecycle
 
     override func viewDidLoad() {
@@ -180,6 +181,9 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
                     let username = status.account.username
                     let message = status.content.stripHTML()
                     
+                    cell.indexPath = indexPath
+                    cell.delegate = self
+                    
                     if shouldShowDate(index: indexPath.row) {
                         //Show date and name
                         cell.setDate(date: status.createdAt, show: true)
@@ -321,5 +325,23 @@ class ConversationViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
+    func imageClicked(indexPath: IndexPath) {
+        if let conversation = conversation {
+            if let status = conversation.messages[indexPath.row] {
+                if let imgAttachment = status.mediaAttachments.first {
+
+                    let attachmentPreviewScreen = Storyboard.shared.storyboard.instantiateViewController(withIdentifier: Storyboard.attachmentPreviewScreen) as! AttachmentPreviewScreen
+                    attachmentPreviewScreen.attachment = imgAttachment
+                    self.attachmentPreviewScreen = attachmentPreviewScreen
+                    present(self.attachmentPreviewScreen!, animated: true, completion: nil)
+                    
+//                    ApiManager.shared.fetchThumbnailForAttachment(attachment: imgAttachment) { (image) in
+//
+//                    }
+                }
+
+            }
+        }
+        
+    }
 }

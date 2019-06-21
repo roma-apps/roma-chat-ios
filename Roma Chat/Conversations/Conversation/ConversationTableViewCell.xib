@@ -81,12 +81,23 @@
                                                     <constraint firstAttribute="width" secondItem="gHz-pg-8BP" secondAttribute="height" multiplier="1:1" id="Y8M-rf-obK"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zun-7z-EGK" userLabel="btnThunbnail">
+                                                <rect key="frame" x="10" y="0.0" width="160" height="160"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="btnThumbnailClicked:" destination="mkb-He-BSI" eventType="touchUpInside" id="QzQ-u2-UIo"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="zun-7z-EGK" firstAttribute="top" secondItem="gHz-pg-8BP" secondAttribute="top" id="2pX-xO-r6Z"/>
                                             <constraint firstAttribute="height" priority="900" constant="160" id="GmR-3y-FsT"/>
+                                            <constraint firstItem="zun-7z-EGK" firstAttribute="leading" secondItem="gHz-pg-8BP" secondAttribute="leading" id="PAi-vy-R5i"/>
                                             <constraint firstItem="gHz-pg-8BP" firstAttribute="leading" secondItem="FFX-6o-Y2P" secondAttribute="leading" constant="10" id="Xs8-2C-Iht"/>
                                             <constraint firstAttribute="bottom" secondItem="gHz-pg-8BP" secondAttribute="bottom" id="aWZ-US-Oqv"/>
+                                            <constraint firstItem="zun-7z-EGK" firstAttribute="trailing" secondItem="gHz-pg-8BP" secondAttribute="trailing" id="kYE-xJ-eQT"/>
+                                            <constraint firstItem="zun-7z-EGK" firstAttribute="bottom" secondItem="gHz-pg-8BP" secondAttribute="bottom" id="log-8X-ZhW"/>
                                             <constraint firstAttribute="height" priority="200" id="lug-BH-gWt"/>
                                             <constraint firstItem="gHz-pg-8BP" firstAttribute="top" secondItem="FFX-6o-Y2P" secondAttribute="top" id="wAM-Sv-j4P"/>
                                         </constraints>

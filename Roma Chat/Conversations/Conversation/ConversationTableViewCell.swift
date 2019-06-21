@@ -9,6 +9,10 @@
 
 import UIKit
 
+protocol ConversationTableViewCellDelegate: AnyObject {
+    func imageClicked(indexPath: IndexPath)
+}
+
 class ConversationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dateContainer: UIView!
@@ -31,6 +35,9 @@ class ConversationTableViewCell: UITableViewCell {
     @IBOutlet weak var cnstShowImageView: NSLayoutConstraint!
     @IBOutlet weak var viewImgContainer: UIView!
     
+    var indexPath: IndexPath?
+    weak var delegate: ConversationTableViewCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -130,5 +137,11 @@ class ConversationTableViewCell: UITableViewCell {
         }
         
         return "Today"
+    }
+    
+    @IBAction func btnThumbnailClicked(_ sender: Any) {
+        guard let indexPath = self.indexPath else { return }
+        
+        self.delegate?.imageClicked(indexPath: indexPath)
     }
 }

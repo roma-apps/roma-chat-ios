@@ -26,6 +26,7 @@ struct Storyboard {
     static var settingsViewController = "SettingsViewController"
     static var conversationViewController = "ConversationViewController"
     static var sendToFriendScreen = "SendToFriendScreen"
+    static var attachmentPreviewScreen = "AttachmentPreviewScreen"
 
     //UIViews
     static var profileView = "ProfileView"

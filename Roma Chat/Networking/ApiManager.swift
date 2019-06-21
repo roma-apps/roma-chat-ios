@@ -378,6 +378,33 @@ struct ApiManager {
         
     }
     
+    func fetchImageForAttachment(attachment: Attachment, completion: @escaping (UIImage) -> ()) {
+        
+        // get the deal image
+        guard let imageUrl = URL(string: attachment.url) else { return }
+        
+        let request = URLRequest(url: imageUrl)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            guard let image = UIImage(data: data) else { return }
+            
+            // self.imageCache[unwrappedImage] = image
+            completion(image)
+            
+        })
+        task.resume()
+        
+    }
+    
     /*
      /// Swift 5 API Calls and error handling using new Result class
      
