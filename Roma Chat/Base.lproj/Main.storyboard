@@ -752,14 +752,14 @@
                                                         <rect key="frame" x="250" y="0.0" width="125" height="130"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed" translatesAutoresizingMaskIntoConstraints="NO" id="5TX-Lw-bAa" userLabel="imgFeed">
-                                                                <rect key="frame" x="25" y="45" width="75" height="40"/>
+                                                                <rect key="frame" x="45" y="45" width="35" height="40"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="5TX-Lw-bAa" secondAttribute="height" multiplier="15:8" id="NW9-Zo-GiZ"/>
+                                                                    <constraint firstAttribute="width" secondItem="5TX-Lw-bAa" secondAttribute="height" multiplier="7:8" id="NW9-Zo-GiZ"/>
                                                                     <constraint firstAttribute="height" constant="40" id="fVu-UN-H6L"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENC-CA-5cQ" userLabel="btnFeed">
-                                                                <rect key="frame" x="25" y="45" width="75" height="40"/>
+                                                                <rect key="frame" x="35" y="45" width="55" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                 <state key="normal">
@@ -775,8 +775,8 @@
                                                             <constraint firstItem="5TX-Lw-bAa" firstAttribute="centerX" secondItem="ENC-CA-5cQ" secondAttribute="centerX" id="1tO-cH-Amf"/>
                                                             <constraint firstItem="5TX-Lw-bAa" firstAttribute="centerY" secondItem="ENC-CA-5cQ" secondAttribute="centerY" id="4Vd-mI-XQy"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="bottom" secondItem="5TX-Lw-bAa" secondAttribute="bottom" id="Bx8-ia-SR3"/>
-                                                            <constraint firstItem="ENC-CA-5cQ" firstAttribute="leading" secondItem="5TX-Lw-bAa" secondAttribute="leading" id="EA0-HF-sg5"/>
-                                                            <constraint firstItem="ENC-CA-5cQ" firstAttribute="trailing" secondItem="5TX-Lw-bAa" secondAttribute="trailing" id="Kcr-aX-wYn"/>
+                                                            <constraint firstItem="ENC-CA-5cQ" firstAttribute="leading" secondItem="5TX-Lw-bAa" secondAttribute="leading" constant="-10" id="EA0-HF-sg5"/>
+                                                            <constraint firstItem="ENC-CA-5cQ" firstAttribute="trailing" secondItem="5TX-Lw-bAa" secondAttribute="trailing" constant="10" id="Kcr-aX-wYn"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="centerX" secondItem="xAD-oG-Yc9" secondAttribute="centerX" id="akc-Ca-Dzb"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="top" secondItem="5TX-Lw-bAa" secondAttribute="top" id="i4C-Jd-KRj"/>
                                                             <constraint firstItem="ENC-CA-5cQ" firstAttribute="centerY" secondItem="xAD-oG-Yc9" secondAttribute="centerY" id="vJk-YL-oQu"/>
