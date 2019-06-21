@@ -260,24 +260,12 @@
                                     <constraint firstAttribute="trailing" secondItem="Xs5-9t-Hu1" secondAttribute="trailing" constant="10" id="rMd-mu-ohY"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WbU-Fq-m0A">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WbU-Fq-m0A">
+                                <rect key="frame" x="177.5" y="373.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0E-IF-FOv" userLabel="Attachment Container">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69E-wj-dLS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="69E-wj-dLS" secondAttribute="trailing" id="9gA-83-4Yq"/>
-                                    <constraint firstItem="69E-wj-dLS" firstAttribute="top" secondItem="T0E-IF-FOv" secondAttribute="top" id="bkT-SV-rOi"/>
-                                    <constraint firstItem="69E-wj-dLS" firstAttribute="leading" secondItem="T0E-IF-FOv" secondAttribute="leading" id="jao-YB-weI"/>
-                                    <constraint firstAttribute="bottom" secondItem="69E-wj-dLS" secondAttribute="bottom" id="tIU-9l-FVo"/>
-                                </constraints>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -295,8 +283,9 @@
                         <viewLayoutGuide key="safeArea" id="Lxv-x5-7BS"/>
                     </view>
                     <connections>
+                        <outlet property="attachmentContainer" destination="T0E-IF-FOv" id="lvL-z9-V7w"/>
                         <outlet property="imgClose" destination="NPL-tg-IvB" id="Shl-CW-AD2"/>
-                        <outlet property="imgView" destination="69E-wj-dLS" id="rGT-hL-qpY"/>
+                        <outlet property="spinner" destination="WbU-Fq-m0A" id="yp0-Co-hRR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYz-IL-u2N" userLabel="First Responder" sceneMemberID="firstResponder"/>

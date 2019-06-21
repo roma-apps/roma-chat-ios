@@ -35,6 +35,7 @@
 		94256914224ECE8A001F63CC /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */; };
 		943ACCEA22BD271F0070E642 /* SendToFriendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ACCE922BD271F0070E642 /* SendToFriendScreen.swift */; };
 		943ACCEC22BD6DA60070E642 /*  AttachmentPreviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ACCEB22BD6DA60070E642 /*  AttachmentPreviewScreen.swift */; };
+		943ACCEE22BD8C9C0070E642 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943ACCED22BD8C9C0070E642 /* ImageZoomView.swift */; };
 		94648C4A225D7723002AE701 /* PhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94648C49225D7723002AE701 /* PhotoScreen.swift */; };
 		94648C4C225D7738002AE701 /* PhotoScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94648C4B225D7738002AE701 /* PhotoScreen.xib */; };
 		946E297C22B2F73500995A75 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E297B22B2F73500995A75 /* ConversationTableViewCell.swift */; };
@@ -175,6 +176,7 @@
 		94256913224ECE8A001F63CC /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		943ACCE922BD271F0070E642 /* SendToFriendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendToFriendScreen.swift; sourceTree = "<group>"; };
 		943ACCEB22BD6DA60070E642 /*  AttachmentPreviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " AttachmentPreviewScreen.swift"; sourceTree = "<group>"; };
+		943ACCED22BD8C9C0070E642 /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		94648C49225D7723002AE701 /* PhotoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoScreen.swift; sourceTree = "<group>"; };
 		94648C4B225D7738002AE701 /* PhotoScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoScreen.xib; sourceTree = "<group>"; };
 		946E297B22B2F73500995A75 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				9413EA49224A741900C97862 /* GoogleService-Info.plist */,
 				9413EA98224B278A00C97862 /* Helpers */,
 				1EAA919B2295FC37001F4CEE /* Roma Chat-Bridging-Header.h */,
+				943ACCED22BD8C9C0070E642 /* ImageZoomView.swift */,
 			);
 			path = "Roma Chat";
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				9413EA3C224953E600C97862 /* AccountExtension.swift in Sources */,
 				94FD1D352256B03F007464B4 /* Results.swift in Sources */,
 				94FD1D2D2256B03F007464B4 /* Visibility.swift in Sources */,
+				943ACCEE22BD8C9C0070E642 /* ImageZoomView.swift in Sources */,
 				94FD1D5C2256B03F007464B4 /* Payload.swift in Sources */,
 				94FD1D6922581623007464B4 /* RomaConversation.swift in Sources */,
 				94256912224ECE76001F63CC /* SettingsTableViewCell.swift in Sources */,

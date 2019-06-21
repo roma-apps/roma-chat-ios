@@ -16,7 +16,11 @@ class AttachmentPreviewScreen: UIViewController {
     
     @IBOutlet weak var imgClose: UIImageView!
     
-    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var attachmentContainer: UIView!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    var zoomableScrollView: ImageZoomView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +41,43 @@ class AttachmentPreviewScreen: UIViewController {
         
         guard let image = self.image else {return}
         
-        self.imgView.image = image
-        self.view.layoutIfNeeded()
+        zoomableScrollView = ImageZoomView(frame: attachmentContainer.frame, image: image)
+        self.attachmentContainer.addSubview(self.zoomableScrollView!)
+        self.zoomableScrollView!.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .trailing, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .trailing, multiplier: 1, constant: 0))
+        self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .leading, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .leading, multiplier: 1, constant: 0))
+        
+        self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .top, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .top, multiplier: 1, constant: 0))
+        self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .bottom, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        self.spinner.stopAnimating()
+        
+//        self.imgView.image = image
+//        self.view.layoutIfNeeded()
     }
     
     func refreshImageView() {
         guard let image = self.image else { return }
         
         DispatchQueue.main.async {
-            self.imgView.image = image
-            self.view.layoutIfNeeded()
+            if let scrollView = self.zoomableScrollView {
+                scrollView.imageView.image = image
+                scrollView.layoutIfNeeded()
+            } else {
+                self.zoomableScrollView = ImageZoomView(frame: self.attachmentContainer.frame, image: image)
+                self.attachmentContainer.addSubview(self.zoomableScrollView!)
+                self.zoomableScrollView!.translatesAutoresizingMaskIntoConstraints = false
+                
+                self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .trailing, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .trailing, multiplier: 1, constant: 0))
+                self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .leading, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .leading, multiplier: 1, constant: 0))
+                
+                self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .top, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .top, multiplier: 1, constant: 0))
+                self.attachmentContainer.addConstraint(NSLayoutConstraint(item: self.zoomableScrollView!, attribute: .bottom, relatedBy: .equal, toItem: self.attachmentContainer, attribute: .bottom, multiplier: 1, constant: 0))
+                
+                self.spinner.stopAnimating()
+
+            }
         }
     }
     
