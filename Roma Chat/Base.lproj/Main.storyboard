@@ -403,7 +403,7 @@
                                                             <constraint firstAttribute="width" priority="1" id="KvR-C6-1kc"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gv-iB-XMm" userLabel="FeedContainerView">
+                                                    <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gv-iB-XMm" userLabel="FeedContainerView">
                                                         <rect key="frame" x="750" y="0.0" width="375" height="667"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yu7-ci-bbH" userLabel="FeedView">
@@ -651,7 +651,7 @@
                                                 <rect key="frame" x="315" y="0.0" width="60" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wh-cf-Owu" userLabel="btnReverseCamera">
-                                                        <rect key="frame" x="17" y="19" width="26" height="22"/>
+                                                        <rect key="frame" x="22" y="19" width="16" height="22"/>
                                                         <state key="normal" image="SwitchCameraIcon"/>
                                                         <connections>
                                                             <action selector="btnSwapCameraClicked:" destination="Pt6-Ro-ns1" eventType="touchUpInside" id="OyH-JN-GEI"/>
